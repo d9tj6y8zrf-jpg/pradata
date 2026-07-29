@@ -1,7 +1,30 @@
 {
   "meta": {
-    "updated_at": "2026-07-29T18:21:52+02:00",
-    "event_count": 0
+    "updated_at": "2026-07-29T19:08:44+02:00",
+    "event_count": 2
   },
-  "events": []
+  "events": [
+    {
+      "id": "event-ee3060068457f761e614",
+      "detected_at": "2026-07-29T19:08:44+02:00",
+      "type": "source_error",
+      "record_id": "",
+      "source_id": "web-municipal",
+      "source_name": "Web municipal",
+      "title": "No s'ha pogut consultar Web municipal",
+      "description": "La cobertura d'aquesta execució és incompleta. No s'interpreta com a absència de novetats.",
+      "url": "https://www.pradelldelateixeta.cat/ca"
+    },
+    {
+      "id": "event-d4e4ef9897aa0915fa90",
+      "detected_at": "2026-07-29T19:08:44+02:00",
+      "type": "source_error",
+      "record_id": "",
+      "source_id": "subvencions-municipals",
+      "source_name": "Subvencions publicades per l'Ajuntament",
+      "title": "No s'ha pogut consultar Subvencions publicades per l'Ajuntament",
+      "description": "La cobertura d'aquesta execució és incompleta. No s'interpreta com a absència de novetats.",
+      "url": "https://www.pradelldelateixeta.cat/ca/ajuntament/subvencions-rebudes"
+    }
+  ]
 }
