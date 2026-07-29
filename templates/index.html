@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="ca">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light">
+    <meta
+      name="description"
+      content="PRADATA ordena informació pública de Pradell de la Teixeta i enllaça sempre la font original."
+    >
+    <title>PRADATA · Informació pública de Pradell</title>
+    <link rel="stylesheet" href="./assets/styles.css">
+    <script src="./assets/app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contingut">Salta al contingut</a>
+
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a class="brand" href="./" aria-label="PRADATA, inici">
+          <span class="brand-mark" aria-hidden="true">P</span>
+          <span>
+            <strong>PRADATA</strong>
+            <small>Observatori ciutadà</small>
+          </span>
+        </a>
+        <nav aria-label="Navegació principal">
+          <a href="#canvis">Canvis</a>
+          <a href="#consulta">Consulta</a>
+          <a href="#radar">Radar</a>
+          <a href="#metode">Mètode</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="contingut">
+      <section class="hero">
+        <div class="shell hero-grid">
+          <div>
+            <p class="eyebrow">Pradell de la Teixeta · actualització diària</p>
+            <h1>Informació pública, clara i comprovable.</h1>
+            <p class="hero-copy">
+              PRADATA reuneix referències de fonts públiques, conserva un historial
+              bàsic i t'envia sempre al document original.
+            </p>
+            <div class="hero-actions">
+              <a class="button primary" href="#consulta">Consultar les dades</a>
+              <a class="button secondary" href="./data/records.csv" download>
+                Baixar el CSV
+              </a>
+            </div>
+          </div>
+          <aside class="freshness" aria-label="Estat de l'actualització">
+            <span class="live-dot" aria-hidden="true"></span>
+            <p>Darrera execució</p>
+            <strong id="last-updated">{{UPDATED_AT}}</strong>
+            <dl>
+              <div>
+                <dt>Referències</dt>
+                <dd id="record-count">{{RECORD_COUNT}}</dd>
+              </div>
+              <div>
+                <dt>Fonts vigilades</dt>
+                <dd id="source-count">{{SOURCE_COUNT}}</dd>
+              </div>
+            </dl>
+          </aside>
+        </div>
+      </section>
+
+      <div class="shell">
+        <aside class="notice" aria-label="Avís sobre la cobertura">
+          <strong>Cobertura automatitzada, no exhaustiva.</strong>
+          <span>
+            “No localitzat” no vol dir “no existeix”. Si una font falla, PRADATA
+            ho mostra i no dedueix que no hi hagi novetats.
+          </span>
+        </aside>
+
+        <section id="canvis" class="section">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Seguiment</p>
+              <h2>Què ha canviat?</h2>
+            </div>
+            <p>Només canvis detectats; sense acusacions ni interpretacions automàtiques.</p>
+          </div>
+          <div id="changes-list" class="timeline" aria-live="polite">
+            <p class="loading">Carregant l'historial…</p>
+          </div>
+        </section>
+
+        <section id="consulta" class="section">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Arxiu consultable</p>
+              <h2>Cerca les publicacions</h2>
+            </div>
+            <div class="downloads" aria-label="Descàrregues">
+              <a href="./data/records.json">JSON</a>
+              <a href="./data/records.csv">CSV</a>
+              <a href="./data/history.json">Historial</a>
+            </div>
+          </div>
+
+          <form class="filters" id="filters" role="search">
+            <label class="search-field">
+              <span>Què vols trobar?</span>
+              <input
+                id="search"
+                type="search"
+                placeholder="Ex.: pressupost, camí, piscina…"
+                autocomplete="off"
+              >
+            </label>
+            <label>
+              <span>Tema</span>
+              <select id="topic">
+                <option value="">Tots els temes</option>
+              </select>
+            </label>
+            <label>
+              <span>Font</span>
+              <select id="source">
+                <option value="">Totes les fonts</option>
+              </select>
+            </label>
+          </form>
+          <p id="results-summary" class="results-summary" aria-live="polite"></p>
+          <div id="records-list" class="records-grid">
+            <p class="loading">Carregant les referències…</p>
+          </div>
+        </section>
+
+        <section id="radar" class="section">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Control de cobertura</p>
+              <h2>Radar de fonts</h2>
+            </div>
+            <p>Mostra si cada font s'ha pogut consultar en la darrera execució.</p>
+          </div>
+          <div id="sources-list" class="sources-grid" aria-live="polite">
+            <p class="loading">Carregant l'estat de les fonts…</p>
+          </div>
+        </section>
+
+        <section id="metode" class="section method">
+          <div>
+            <p class="eyebrow">Criteri editorial</p>
+            <h2>Primer la font. Després, el resum.</h2>
+          </div>
+          <div class="principles">
+            <article>
+              <span>01</span>
+              <h3>Sense rumors</h3>
+              <p>La web incorpora referències de fonts institucionals identificades.</p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>Incertesa visible</h3>
+              <p>Una detecció automàtica no es presenta com una verificació jurídica.</p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>Font original</h3>
+              <p>Cada fitxa conserva l'adreça oficial perquè qualsevol la pugui comprovar.</p>
+            </article>
+          </div>
+          <details>
+            <summary>Limitacions d'aquesta primera versió</summary>
+            <p>
+              El sistema llegeix títols, enllaços i sumaris accessibles. No interpreta
+              automàticament tots els PDF ni substitueix la seu, el butlletí o
+              l'assessorament jurídic. Les fonts dinàmiques poden donar cobertura parcial.
+            </p>
+          </details>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="shell footer-inner">
+        <p><strong>PRADATA</strong> · projecte ciutadà independent.</p>
+        <p>La font oficial enllaçada preval sempre sobre aquest resum.</p>
+      </div>
+    </footer>
+
+    <noscript>
+      <div class="noscript">
+        Cal activar JavaScript per filtrar les dades. Els fitxers
+        <a href="./data/records.json">JSON</a> i
+        <a href="./data/records.csv">CSV</a> continuen disponibles.
+      </div>
+    </noscript>
+  </body>
+</html>

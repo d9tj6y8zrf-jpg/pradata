@@ -1,0 +1,136 @@
+# PRADATA
+
+Observatori ciutadà gratuït de Pradell de la Teixeta. Una vegada al dia:
+
+1. consulta fonts públiques;
+2. detecta referències noves i canvis tècnics;
+3. actualitza els fitxers JSON i CSV;
+4. regenera la web;
+5. la publica a GitHub Pages.
+
+No necessita cap ordinador encès, cap clau d'IA ni cap servei de pagament.
+
+## Abans de començar
+
+Per mantenir el cost en **0 €**, crea el repositori com a **públic**. Això
+significa que tant la web com el codi i les dades seran visibles per a tothom.
+No hi pugis dades personals ni documents que no siguin públics.
+
+## Posar-ho en marxa
+
+### 1. Crea el repositori
+
+1. Entra a [github.com](https://github.com) i inicia la sessió.
+2. Prem **New repository**.
+3. Escriu `pradata` com a nom.
+4. Marca **Public**.
+5. No afegeixis cap altre fitxer i prem **Create repository**.
+
+### 2. Puja aquest paquet
+
+1. Descomprimeix el ZIP.
+2. A la pàgina del repositori, prem **uploading an existing file**.
+3. Arrossega **tot el contingut** de la carpeta descomprimida, incloses les
+   carpetes `.github`, `config`, `data`, `pradata`, `scripts`, `site`, `static`,
+   `templates` i `tests`.
+4. Prem **Commit changes**.
+
+Important: has de pujar el contingut, no una carpeta exterior que el contingui.
+El fitxer `README.md` ha de quedar a la portada del repositori.
+
+### 3. Activa GitHub Pages
+
+1. Obre **Settings** al repositori.
+2. Al menú lateral, obre **Pages**.
+3. A **Build and deployment**, tria **GitHub Actions** com a font.
+
+### 4. Fes la primera execució
+
+1. Obre la pestanya **Actions**.
+2. A l'esquerra, tria **Actualització diària de PRADATA**.
+3. Prem **Run workflow** i torna a prémer **Run workflow**.
+4. Espera que els dos passos quedin en verd.
+5. Obre l'adreça que apareix al pas **Publica a GitHub Pages**.
+
+La web tindrà una adreça semblant a:
+
+`https://EL-TEU-USUARI.github.io/pradata/`
+
+## Funcionament diari
+
+El control s'executa cada dia a les **07.17 h**, hora de
+`Europe/Madrid`. També el pots executar manualment des de **Actions**.
+
+Cada execució actualitza:
+
+- `data/records.json`: referències actuals;
+- `data/records.csv`: les mateixes dades en format de full de càlcul;
+- `data/history.json`: altes i canvis detectats;
+- `data/status.json`: estat de cada font;
+- `site/`: web estàtica que publica GitHub Pages.
+
+Els fitxers canvien i es guarden automàticament al repositori. Això també deixa
+un historial visible a GitHub.
+
+## Fonts inicials
+
+- web municipal;
+- apartat municipal de subvencions;
+- seu electrònica i transparència;
+- BOPT;
+- BOE mitjançant la seva API oficial de dades obertes;
+- CIDO, fitxa del municipi;
+- perfil del contractant.
+
+Les fonts es poden canviar a `config/sources.json`.
+
+## Què vol dir cada estat?
+
+- **Verificat amb font**: registre inicial comprovat amb una publicació
+  institucional identificada.
+- **Detecció automàtica**: el motor ha trobat un títol o un enllaç en una font
+  pública; cal obrir l'original abans d'interpretar-lo.
+- **Consulta parcial o no disponible**: aquella font no s'ha pogut llegir del
+  tot. No significa que no hi hagi publicacions.
+
+## Limitacions importants
+
+PRADATA és un inventari automatitzat, no una certificació jurídica ni una
+auditoria completa. Aquesta versió:
+
+- llegeix títols, enllaços i sumaris accessibles;
+- no interpreta automàticament el contingut de tots els PDF;
+- no considera una fallada de cerca com a prova d'absència;
+- no acusa cap persona ni administració;
+- manté sempre l'enllaç a la font original, que és la que preval.
+
+Algunes pàgines canvien d'estructura amb el temps. Si una font deixa de
+funcionar, el **Radar de fonts** ho mostrarà.
+
+## Cost
+
+El projecte està pensat per a un repositori públic, executors estàndard de
+GitHub Actions i GitHub Pages. En aquesta configuració no incorpora cap
+dependència de pagament. Evita activar executors grans o serveis externs.
+
+GitHub pot desactivar programacions de repositoris públics sense activitat
+durant un període llarg. Si algun dia passa, entra a **Actions** i torna a
+activar o executar manualment el control.
+
+## Prova opcional en un ordinador
+
+No és necessari per al funcionament diari. Si algú amb coneixements tècnics vol
+provar el paquet abans de pujar-lo:
+
+```text
+python scripts/collect.py
+python -m unittest discover -s tests -v
+python scripts/check_output.py
+```
+
+Després pot servir la carpeta `site` amb qualsevol servidor web local.
+
+## Llicència
+
+El codi es distribueix amb llicència MIT. Els documents i les dades de les
+fonts conserven les seves pròpies condicions de reutilització.

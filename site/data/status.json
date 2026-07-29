@@ -1,0 +1,93 @@
+{
+  "meta": {
+    "updated_at": "2026-07-29T18:21:52+02:00",
+    "source_count": 7,
+    "successful_sources": 7
+  },
+  "sources": [
+    {
+      "id": "web-municipal",
+      "name": "Web municipal",
+      "url": "https://www.pradelldelateixeta.cat/ca",
+      "state": "ok",
+      "checked_at": "2026-07-29T18:21:52+02:00",
+      "http_status": 200,
+      "message": "Font consultada correctament.",
+      "item_count": 4,
+      "fingerprint": "69694f4613c940b93a77dc5449c12b3d",
+      "track_fingerprint": true
+    },
+    {
+      "id": "subvencions-municipals",
+      "name": "Subvencions publicades per l'Ajuntament",
+      "url": "https://www.pradelldelateixeta.cat/ca/ajuntament/subvencions-rebudes",
+      "state": "ok",
+      "checked_at": "2026-07-29T18:21:52+02:00",
+      "http_status": 200,
+      "message": "Font consultada correctament.",
+      "item_count": 0,
+      "fingerprint": "d58228468920a5992456130f1616b522",
+      "track_fingerprint": true
+    },
+    {
+      "id": "seu-transparencia",
+      "name": "Seu electrònica i transparència",
+      "url": "https://seu-e.cat/web/pradelldelateixeta",
+      "state": "ok",
+      "checked_at": "2026-07-29T18:21:52+02:00",
+      "http_status": 200,
+      "message": "Font consultada correctament.",
+      "item_count": 0,
+      "fingerprint": "7799c9b78e5821442c58406da809626d",
+      "track_fingerprint": true
+    },
+    {
+      "id": "cido",
+      "name": "CIDO · El meu municipi",
+      "url": "https://cido.diba.cat/el-meu-municipi/43115/pradell-de-la-teixeta",
+      "state": "ok",
+      "checked_at": "2026-07-29T18:21:52+02:00",
+      "http_status": 200,
+      "message": "Font consultada correctament.",
+      "item_count": 11,
+      "fingerprint": "6dc413397516ad3540f34930866eed76",
+      "track_fingerprint": true
+    },
+    {
+      "id": "bopt",
+      "name": "BOPT · Diputació de Tarragona",
+      "url": "https://aplicacions.dipta.cat/bopt/",
+      "state": "ok",
+      "checked_at": "2026-07-29T18:21:52+02:00",
+      "http_status": 200,
+      "message": "Font consultada correctament.",
+      "item_count": 0,
+      "fingerprint": "80e8028edd8c83af101b4e88d2e66f68",
+      "track_fingerprint": false
+    },
+    {
+      "id": "boe",
+      "name": "BOE · Dades obertes",
+      "url": "https://www.boe.es/datosabiertos/api/api.php",
+      "state": "ok",
+      "checked_at": "2026-07-29T18:21:52+02:00",
+      "http_status": 200,
+      "message": "Font consultada correctament.",
+      "item_count": 0,
+      "fingerprint": "be400f80ec0a5bae4539bc3417de942d",
+      "track_fingerprint": false
+    },
+    {
+      "id": "contractacio",
+      "name": "Perfil del contractant",
+      "url": "https://contractaciopublica.cat/ca/perfils-contractant/detall/29706590",
+      "state": "ok",
+      "checked_at": "2026-07-29T18:21:52+02:00",
+      "http_status": 200,
+      "message": "Font consultada correctament.",
+      "item_count": 0,
+      "fingerprint": "a1231213062f8159d30dc26a4c0c252a",
+      "track_fingerprint": true
+    }
+  ]
+}

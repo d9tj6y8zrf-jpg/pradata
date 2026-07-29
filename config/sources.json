@@ -1,0 +1,78 @@
+{
+  "project": "PRADATA",
+  "municipality": "Pradell de la Teixeta",
+  "timezone": "Europe/Madrid",
+  "keywords": [
+    "Pradell de la Teixeta",
+    "Pradell",
+    "43115",
+    "L01431153",
+    "P4311700A"
+  ],
+  "sources": [
+    {
+      "id": "web-municipal",
+      "name": "Web municipal",
+      "kind": "links",
+      "url": "https://www.pradelldelateixeta.cat/ca",
+      "topic": "municipi",
+      "path_prefixes": [
+        "/ca/noticies/"
+      ]
+    },
+    {
+      "id": "subvencions-municipals",
+      "name": "Subvencions publicades per l'Ajuntament",
+      "kind": "watch",
+      "url": "https://www.pradelldelateixeta.cat/ca/ajuntament/subvencions-rebudes",
+      "topic": "subvencions"
+    },
+    {
+      "id": "seu-transparencia",
+      "name": "Seu electrònica i transparència",
+      "kind": "watch",
+      "url": "https://seu-e.cat/web/pradelldelateixeta",
+      "topic": "govern"
+    },
+    {
+      "id": "cido",
+      "name": "CIDO · El meu municipi",
+      "kind": "links",
+      "url": "https://cido.diba.cat/el-meu-municipi/43115/pradell-de-la-teixeta",
+      "topic": "administracio",
+      "allowed_hosts": [
+        "cido.diba.cat"
+      ],
+      "path_prefixes": [
+        "/normativa_local/",
+        "/contractacio/",
+        "/oposicions/"
+      ]
+    },
+    {
+      "id": "bopt",
+      "name": "BOPT · Diputació de Tarragona",
+      "kind": "bopt_recent",
+      "url": "https://aplicacions.dipta.cat/bopt/",
+      "url_template": "https://aplicacions.dipta.cat/bopt/web/anteriors/{date}?bopb_dia%5BparaulaClau%5D=Pradell",
+      "days": 8,
+      "topic": "administracio"
+    },
+    {
+      "id": "boe",
+      "name": "BOE · Dades obertes",
+      "kind": "boe_daily",
+      "url": "https://www.boe.es/datosabiertos/api/api.php",
+      "url_template": "https://www.boe.es/datosabiertos/api/boe/sumario/{date_compact}",
+      "days": 8,
+      "topic": "administracio"
+    },
+    {
+      "id": "contractacio",
+      "name": "Perfil del contractant",
+      "kind": "watch",
+      "url": "https://contractaciopublica.cat/ca/perfils-contractant/detall/29706590",
+      "topic": "contractacio"
+    }
+  ]
+}
