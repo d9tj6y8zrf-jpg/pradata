@@ -15,6 +15,10 @@
       "name": "Web municipal",
       "kind": "links",
       "url": "https://www.pradelldelateixeta.cat/ca",
+      "fallback_urls": [
+        "https://pradelldelateixeta.cat/ca"
+      ],
+      "fetch_attempts": 3,
       "topic": "municipi",
       "path_prefixes": [
         "/ca/noticies/"
@@ -25,6 +29,10 @@
       "name": "Subvencions publicades per l'Ajuntament",
       "kind": "watch",
       "url": "https://www.pradelldelateixeta.cat/ca/ajuntament/subvencions-rebudes",
+      "fallback_urls": [
+        "https://pradelldelateixeta.cat/ca/ajuntament/subvencions-rebudes"
+      ],
+      "fetch_attempts": 3,
       "topic": "subvencions"
     },
     {
