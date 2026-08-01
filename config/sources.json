@@ -16,7 +16,8 @@
       "kind": "links",
       "url": "https://www.pradelldelateixeta.cat/ca",
       "fallback_urls": [
-        "https://pradelldelateixeta.cat/ca"
+        "https://pradelldelateixeta.cat/ca",
+        "https://pradell360.cat/api/pradelldata-source?font=web-municipal"
       ],
       "fetch_attempts": 3,
       "topic": "municipi",
@@ -30,7 +31,8 @@
       "kind": "watch",
       "url": "https://www.pradelldelateixeta.cat/ca/ajuntament/subvencions-rebudes",
       "fallback_urls": [
-        "https://pradelldelateixeta.cat/ca/ajuntament/subvencions-rebudes"
+        "https://pradelldelateixeta.cat/ca/ajuntament/subvencions-rebudes",
+        "https://pradell360.cat/api/pradelldata-source?font=subvencions-municipals"
       ],
       "fetch_attempts": 3,
       "topic": "subvencions"
