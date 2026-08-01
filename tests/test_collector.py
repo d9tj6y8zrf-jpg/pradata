@@ -1,13 +1,17 @@
 from __future__ import annotations
 
 import unittest
+import urllib.error
+from unittest.mock import patch
 
 from pradata.collector import (
+    FetchResult,
     classify_priority,
     classify_topic,
     extract_boe_records,
     extract_bopt_records,
     extract_link_records,
+    fetch_source_page,
     stable_record_id,
 )
 
@@ -40,6 +44,44 @@ class CollectorTests(unittest.TestCase):
         records = extract_link_records(body, source, "2026-07-29T08:00:00+02:00")
         self.assertEqual(len(records), 1)
         self.assertIn("Nova publicació", records[0]["title"])
+
+    @patch("pradata.collector.time.sleep", return_value=None)
+    @patch("pradata.collector.fetch")
+    def test_source_page_retries_after_temporary_error(self, mocked_fetch, _sleep) -> None:
+        expected = FetchResult(
+            url="https://example.test/ca",
+            status=200,
+            content_type="text/html",
+            body=b"<html></html>",
+        )
+        mocked_fetch.side_effect = [urllib.error.URLError("temporal"), expected]
+        source = {"url": "https://example.test/ca", "fetch_attempts": 3}
+
+        self.assertEqual(fetch_source_page(source), expected)
+        self.assertEqual(mocked_fetch.call_count, 2)
+
+    @patch("pradata.collector.time.sleep", return_value=None)
+    @patch("pradata.collector.fetch")
+    def test_source_page_uses_fallback_after_retries(self, mocked_fetch, _sleep) -> None:
+        expected = FetchResult(
+            url="https://alternative.example.test/ca",
+            status=200,
+            content_type="text/html",
+            body=b"<html></html>",
+        )
+        mocked_fetch.side_effect = [
+            urllib.error.URLError("temporal"),
+            urllib.error.URLError("temporal"),
+            expected,
+        ]
+        source = {
+            "url": "https://example.test/ca",
+            "fallback_urls": ["https://alternative.example.test/ca"],
+            "fetch_attempts": 2,
+        }
+
+        self.assertEqual(fetch_source_page(source), expected)
+        self.assertEqual(mocked_fetch.call_args_list[-1].args[0], "https://alternative.example.test/ca")
 
     def test_extracts_bopt_card(self) -> None:
         body = """
