@@ -7,6 +7,7 @@ import json
 import re
 import shutil
 import ssl
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -97,6 +98,33 @@ def fetch(url: str, accept: str = "text/html,application/xhtml+xml") -> FetchRes
             content_type=response.headers.get("Content-Type", ""),
             body=response.read(),
         )
+
+
+def fetch_source_page(
+    source: dict[str, Any],
+    accept: str = "text/html,application/xhtml+xml",
+) -> FetchResult:
+    """Consulta una pàgina amb reintents i adreces alternatives segures."""
+    urls = [source["url"], *source.get("fallback_urls", [])]
+    attempts = max(1, min(int(source.get("fetch_attempts", 3)), 4))
+    last_error: BaseException | None = None
+
+    for url in dict.fromkeys(urls):
+        for attempt in range(attempts):
+            try:
+                return fetch(url, accept=accept)
+            except urllib.error.HTTPError as error:
+                last_error = error
+                if error.code < 500 and error.code not in {408, 429}:
+                    raise
+            except (urllib.error.URLError, TimeoutError) as error:
+                last_error = error
+            if attempt + 1 < attempts:
+                time.sleep(attempt + 1)
+
+    if last_error is not None:
+        raise last_error
+    raise urllib.error.URLError("No hi ha cap adreça configurada per a la font")
 
 
 class LinkTextParser(HTMLParser):
@@ -492,7 +520,7 @@ def collect_source(
 
     try:
         if kind in {"links", "watch"}:
-            result = fetch(source["url"])
+            result = fetch_source_page(source)
             remember(result)
             if kind == "links":
                 records.extend(extract_link_records(result.body, source, detected_at))
