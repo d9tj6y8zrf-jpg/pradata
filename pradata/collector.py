@@ -7,6 +7,8 @@ import json
 import re
 import shutil
 import ssl
+import subprocess
+import tempfile
 import time
 import urllib.error
 import urllib.parse
@@ -122,9 +124,80 @@ def fetch_source_page(
             if attempt + 1 < attempts:
                 time.sleep(attempt + 1)
 
+    # Alguns servidors municipals antics fallen amb urllib des dels executors
+    # de GitHub però responen correctament a curl. Es consulta exactament la
+    # mateixa adreça oficial i es mantenen els mateixos límits de temps.
+    for url in dict.fromkeys(urls):
+        try:
+            return fetch_with_curl(url, accept=accept)
+        except (FileNotFoundError, urllib.error.URLError, TimeoutError) as error:
+            last_error = error
+
     if last_error is not None:
         raise last_error
     raise urllib.error.URLError("No hi ha cap adreça configurada per a la font")
+
+
+def fetch_with_curl(
+    url: str,
+    accept: str = "text/html,application/xhtml+xml",
+) -> FetchResult:
+    output_path = ""
+    try:
+        with tempfile.NamedTemporaryFile(delete=False) as output:
+            output_path = output.name
+        command = [
+            "curl",
+            "--location",
+            "--fail",
+            "--silent",
+            "--show-error",
+            "--retry",
+            "2",
+            "--retry-all-errors",
+            "--connect-timeout",
+            "10",
+            "--max-time",
+            str(REQUEST_TIMEOUT + 10),
+            "--user-agent",
+            USER_AGENT,
+            "--header",
+            f"Accept: {accept}",
+            "--header",
+            "Accept-Language: ca,es;q=0.8,en;q=0.5",
+            "--output",
+            output_path,
+            "--write-out",
+            "%{url_effective}\n%{http_code}\n%{content_type}",
+            url,
+        ]
+        completed = subprocess.run(
+            command,
+            capture_output=True,
+            text=True,
+            timeout=REQUEST_TIMEOUT + 20,
+            check=False,
+        )
+        if completed.returncode != 0:
+            detail = compact_text(completed.stderr)[:180] or "curl no ha pogut completar la consulta"
+            raise urllib.error.URLError(detail)
+        metadata = completed.stdout.splitlines()
+        if len(metadata) < 3:
+            raise urllib.error.URLError("curl no ha retornat metadades suficients")
+        status = int(metadata[-2])
+        if status < 200 or status >= 400:
+            raise urllib.error.URLError(f"HTTP {status}")
+        return FetchResult(
+            url=metadata[-3],
+            status=status,
+            content_type=metadata[-1],
+            body=Path(output_path).read_bytes(),
+        )
+    except subprocess.TimeoutExpired as error:
+        raise TimeoutError("curl ha superat el temps màxim") from error
+    finally:
+        if output_path:
+            Path(output_path).unlink(missing_ok=True)
 
 
 class LinkTextParser(HTMLParser):
