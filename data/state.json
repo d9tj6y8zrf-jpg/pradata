@@ -1,40 +1,40 @@
 {
-  "updated_at": "2026-07-31T14:30:38+02:00",
+  "updated_at": "2026-08-01T12:53:54+02:00",
   "sources": {
     "web-municipal": {
       "fingerprint": "",
       "state": "error",
-      "checked_at": "2026-07-31T14:30:38+02:00"
+      "checked_at": "2026-08-01T12:53:54+02:00"
     },
     "subvencions-municipals": {
       "fingerprint": "",
       "state": "error",
-      "checked_at": "2026-07-31T14:30:38+02:00"
+      "checked_at": "2026-08-01T12:53:54+02:00"
     },
     "seu-transparencia": {
       "fingerprint": "7799c9b78e5821442c58406da809626d",
       "state": "ok",
-      "checked_at": "2026-07-31T14:30:38+02:00"
+      "checked_at": "2026-08-01T12:53:54+02:00"
     },
     "cido": {
       "fingerprint": "6dc413397516ad3540f34930866eed76",
       "state": "ok",
-      "checked_at": "2026-07-31T14:30:38+02:00"
+      "checked_at": "2026-08-01T12:53:54+02:00"
     },
     "bopt": {
-      "fingerprint": "c691220e0eb6d573c753ba0f3fdf903a",
+      "fingerprint": "807cd07ccd38d1e6f7b2d2d79315a0cc",
       "state": "ok",
-      "checked_at": "2026-07-31T14:30:38+02:00"
+      "checked_at": "2026-08-01T12:53:54+02:00"
     },
     "boe": {
-      "fingerprint": "382c08e83a5add5a5d29f3d4c4a0e081",
+      "fingerprint": "d3cda95437893336289552412cfdeaf8",
       "state": "ok",
-      "checked_at": "2026-07-31T14:30:38+02:00"
+      "checked_at": "2026-08-01T12:53:54+02:00"
     },
     "contractacio": {
       "fingerprint": "a1231213062f8159d30dc26a4c0c252a",
       "state": "ok",
-      "checked_at": "2026-07-31T14:30:38+02:00"
+      "checked_at": "2026-08-01T12:53:54+02:00"
     }
   }
 }
