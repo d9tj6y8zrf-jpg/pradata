@@ -84,6 +84,19 @@ un historial visible a GitHub.
 
 Les fonts es poden canviar a `config/sources.json`.
 
+## Àmbit territorial de la cerca
+
+La cerca diària combina el nom complet **Pradell de la Teixeta**, el nom curt
+**Pradell** i els identificadors oficials del municipi. També consulta
+**Teixeta** al BOPT i als sumaris del BOE, però només conserva aquestes
+coincidències ampliades quan hi ha context territorial rellevant: coll, serra,
+carreteres, ferrocarril, energia, incendis, aigua o camins, entre altres.
+
+Per reduir falsos positius, s'exclouen adreces d'altres municipis que només
+utilitzen «Pradell de la Teixeta» com a nom de carrer. Aquest filtre amplia la
+cobertura de l'entorn sense considerar qualsevol aparició de «Teixeta» com una
+publicació relacionada amb Pradell.
+
 ## Què vol dir cada estat?
 
 - **Verificat amb font**: registre inicial comprovat amb una publicació
