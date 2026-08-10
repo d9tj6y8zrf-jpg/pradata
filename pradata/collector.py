@@ -43,6 +43,26 @@ def fold_text(value: str) -> str:
     return "".join(ch for ch in normalized if not unicodedata.combining(ch)).lower()
 
 
+def matches_geographic_scope(
+    text: str,
+    keywords: Iterable[str],
+    related_keywords: Iterable[str] = (),
+    related_context_keywords: Iterable[str] = (),
+    excluded_phrases: Iterable[str] = (),
+) -> bool:
+    """Accepta Pradell directament o la Teixeta quan hi ha context territorial."""
+    folded = fold_text(text)
+    if any(fold_text(phrase) in folded for phrase in excluded_phrases):
+        return False
+    if any(fold_text(keyword) in folded for keyword in keywords):
+        return True
+    has_related_place = any(fold_text(keyword) in folded for keyword in related_keywords)
+    has_relevant_context = any(
+        fold_text(keyword) in folded for keyword in related_context_keywords
+    )
+    return has_related_place and has_relevant_context
+
+
 def sha(value: str, length: int = 24) -> str:
     return hashlib.sha256(value.encode("utf-8")).hexdigest()[:length]
 
@@ -412,16 +432,24 @@ def extract_bopt_records(
     source: dict[str, Any],
     keywords: Iterable[str],
     detected_at: str,
+    related_keywords: Iterable[str] = (),
+    related_context_keywords: Iterable[str] = (),
+    excluded_phrases: Iterable[str] = (),
 ) -> list[dict[str, Any]]:
     parser = BoptCardParser()
     parser.feed(body.decode("utf-8", errors="replace"))
-    folded_keywords = [fold_text(value) for value in keywords]
     records: list[dict[str, Any]] = []
     for card in parser.cards:
         publisher = compact_text(" ".join(card["publisher"]))
         description = compact_text(" ".join(card["paragraph"]))
         all_text = compact_text(" ".join(card["text"]))
-        if not any(keyword in fold_text(f"{publisher} {description}") for keyword in folded_keywords):
+        if not matches_geographic_scope(
+            f"{publisher} {description}",
+            keywords,
+            related_keywords,
+            related_context_keywords,
+            excluded_phrases,
+        ):
             continue
         registry_match = re.search(r"Registre\s*:\s*([0-9]{4}-[0-9A-Z-]+)", all_text, re.I)
         date_match = re.search(
@@ -477,15 +505,23 @@ def extract_boe_records(
     keywords: Iterable[str],
     detected_at: str,
     fallback_date: str,
+    related_keywords: Iterable[str] = (),
+    related_context_keywords: Iterable[str] = (),
+    excluded_phrases: Iterable[str] = (),
 ) -> list[dict[str, Any]]:
     root = ET.fromstring(body)
-    folded_keywords = [fold_text(value) for value in keywords]
     records: list[dict[str, Any]] = []
     for element in root.iter():
         if _local_name(element.tag) != "item":
             continue
         full_text = compact_text(" ".join(element.itertext()))
-        if not any(keyword in fold_text(full_text) for keyword in folded_keywords):
+        if not matches_geographic_scope(
+            full_text,
+            keywords,
+            related_keywords,
+            related_context_keywords,
+            excluded_phrases,
+        ):
             continue
         identifier = _descendant_text(element, {"identificador", "id"})
         title = _descendant_text(element, {"titulo", "titol", "title"})
@@ -601,31 +637,39 @@ def collect_source(
         elif kind == "bopt_recent":
             for offset in range(int(source.get("days", 8))):
                 day = today - timedelta(days=offset)
-                url = source["url_template"].format(date=day.isoformat())
-                try:
-                    result = fetch(url)
-                except urllib.error.HTTPError as error:
-                    if error.code in {400, 404}:
-                        continue
-                    if error.code == 500 and day.weekday() >= 5:
-                        continue
-                    messages.append(
-                        f"Una data del BOPT no s'ha pogut llegir (HTTP {error.code})."
+                search_terms = source.get("search_terms", [""])
+                for search_term in search_terms:
+                    url = source["url_template"].format(
+                        date=day.isoformat(),
+                        term=urllib.parse.quote(str(search_term)),
                     )
-                    continue
-                except (urllib.error.URLError, TimeoutError):
-                    messages.append("Una data del BOPT no s'ha pogut llegir.")
-                    continue
-                remember(result)
-                records.extend(
-                    extract_bopt_records(
-                        result.body,
-                        result.url,
-                        source,
-                        config["keywords"],
-                        detected_at,
+                    try:
+                        result = fetch(url)
+                    except urllib.error.HTTPError as error:
+                        if error.code in {400, 404}:
+                            continue
+                        if error.code == 500 and day.weekday() >= 5:
+                            continue
+                        messages.append(
+                            f"Una data del BOPT no s'ha pogut llegir (HTTP {error.code})."
+                        )
+                        continue
+                    except (urllib.error.URLError, TimeoutError):
+                        messages.append("Una data del BOPT no s'ha pogut llegir.")
+                        continue
+                    remember(result)
+                    records.extend(
+                        extract_bopt_records(
+                            result.body,
+                            result.url,
+                            source,
+                            config["keywords"],
+                            detected_at,
+                            config.get("related_keywords", ()),
+                            config.get("related_context_keywords", ()),
+                            config.get("excluded_phrases", ()),
+                        )
                     )
-                )
 
         elif kind == "boe_daily":
             for offset in range(int(source.get("days", 8))):
@@ -653,6 +697,9 @@ def collect_source(
                         config["keywords"],
                         detected_at,
                         day.isoformat(),
+                        config.get("related_keywords", ()),
+                        config.get("related_context_keywords", ()),
+                        config.get("excluded_phrases", ()),
                     )
                 )
         else:
