@@ -2,16 +2,19 @@ from __future__ import annotations
 
 import unittest
 import urllib.error
+from datetime import datetime
 from unittest.mock import patch
 
 from pradata.collector import (
     FetchResult,
     classify_priority,
     classify_topic,
+    collect_source,
     extract_boe_records,
     extract_bopt_records,
     extract_link_records,
     fetch_source_page,
+    matches_geographic_scope,
     stable_record_id,
 )
 
@@ -26,6 +29,67 @@ class CollectorTests(unittest.TestCase):
         title = "Informació pública amb termini d'al·legacions i béns afectats"
         self.assertEqual(classify_priority(title), "critica")
         self.assertEqual(classify_topic(title), "terminis_i_propietats")
+
+    def test_accepts_teixeta_only_with_relevant_territorial_context(self) -> None:
+        self.assertTrue(
+            matches_geographic_scope(
+                "Obres de seguretat a l'N-420 al coll de la Teixeta",
+                ["Pradell de la Teixeta", "Pradell"],
+                ["Teixeta"],
+                ["coll", "carretera", "N-420"],
+            )
+        )
+        self.assertFalse(
+            matches_geographic_scope(
+                "Restaurant La Teixeta presenta un nou menú",
+                ["Pradell de la Teixeta", "Pradell"],
+                ["Teixeta"],
+                ["coll", "carretera", "N-420"],
+            )
+        )
+
+    def test_rejects_a_street_named_after_pradell_in_another_municipality(self) -> None:
+        self.assertFalse(
+            matches_geographic_scope(
+                "Modificació urbanística al carrer Pradell de la Teixeta de Reus",
+                ["Pradell de la Teixeta", "Pradell"],
+                ["Teixeta"],
+                ["urbanística"],
+                ["carrer Pradell de la Teixeta"],
+            )
+        )
+
+    @patch("pradata.collector.fetch")
+    def test_bopt_queries_pradell_and_teixeta(self, mocked_fetch) -> None:
+        mocked_fetch.return_value = FetchResult(
+            url="https://aplicacions.dipta.cat/bopt/web/anteriors/2026-08-10",
+            status=200,
+            content_type="text/html",
+            body=b"<html></html>",
+        )
+        source = {
+            "id": "bopt",
+            "name": "BOPT",
+            "kind": "bopt_recent",
+            "url": "https://aplicacions.dipta.cat/bopt/",
+            "url_template": "https://example.test/{date}?q={term}",
+            "search_terms": ["Pradell", "Teixeta"],
+            "days": 1,
+            "topic": "administracio",
+        }
+        config = {
+            "keywords": ["Pradell de la Teixeta", "Pradell"],
+            "related_keywords": ["Teixeta"],
+            "related_context_keywords": ["coll", "carretera"],
+            "excluded_phrases": ["carrer Pradell de la Teixeta"],
+        }
+
+        collect_source(source, config, datetime.fromisoformat("2026-08-10T08:00:00+02:00"))
+
+        self.assertEqual(mocked_fetch.call_count, 2)
+        requested_urls = [call.args[0] for call in mocked_fetch.call_args_list]
+        self.assertTrue(any("q=Pradell" in url for url in requested_urls))
+        self.assertTrue(any("q=Teixeta" in url for url in requested_urls))
 
     def test_extracts_only_allowed_links(self) -> None:
         body = b"""
