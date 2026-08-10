@@ -9,6 +9,33 @@
     "L01431153",
     "P4311700A"
   ],
+  "related_keywords": [
+    "Teixeta",
+    "coll de la Teixeta",
+    "serra de la Teixeta"
+  ],
+  "related_context_keywords": [
+    "coll",
+    "serra",
+    "carretera",
+    "N-420",
+    "TV-3223",
+    "ferrocarril",
+    "ADIF",
+    "túnel",
+    "parc eòlic",
+    "línia elèctrica",
+    "incendi",
+    "aigua",
+    "camí",
+    "terme municipal",
+    "Priorat"
+  ],
+  "excluded_phrases": [
+    "carrer Pradell de la Teixeta",
+    "c/ Pradell de la Teixeta",
+    "calle Pradell de la Teixeta"
+  ],
   "sources": [
     {
       "id": "web-municipal",
@@ -64,7 +91,11 @@
       "name": "BOPT · Diputació de Tarragona",
       "kind": "bopt_recent",
       "url": "https://aplicacions.dipta.cat/bopt/",
-      "url_template": "https://aplicacions.dipta.cat/bopt/web/anteriors/{date}?bopb_dia%5BparaulaClau%5D=Pradell",
+      "url_template": "https://aplicacions.dipta.cat/bopt/web/anteriors/{date}?bopb_dia%5BparaulaClau%5D={term}",
+      "search_terms": [
+        "Pradell",
+        "Teixeta"
+      ],
       "days": 8,
       "topic": "administracio"
     },
