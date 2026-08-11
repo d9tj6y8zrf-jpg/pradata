@@ -1,40 +1,40 @@
 {
-  "updated_at": "2026-08-10T17:52:02+02:00",
+  "updated_at": "2026-08-11T10:34:48+02:00",
   "sources": {
     "web-municipal": {
       "fingerprint": "bd162c92aa980f841c5edd92d9e8d79c",
       "state": "ok",
-      "checked_at": "2026-08-10T17:52:02+02:00"
+      "checked_at": "2026-08-11T10:34:48+02:00"
     },
     "subvencions-municipals": {
       "fingerprint": "d58228468920a5992456130f1616b522",
       "state": "ok",
-      "checked_at": "2026-08-10T17:52:02+02:00"
+      "checked_at": "2026-08-11T10:34:48+02:00"
     },
     "seu-transparencia": {
       "fingerprint": "7799c9b78e5821442c58406da809626d",
       "state": "ok",
-      "checked_at": "2026-08-10T17:52:02+02:00"
+      "checked_at": "2026-08-11T10:34:48+02:00"
     },
     "cido": {
       "fingerprint": "6dc413397516ad3540f34930866eed76",
       "state": "ok",
-      "checked_at": "2026-08-10T17:52:02+02:00"
+      "checked_at": "2026-08-11T10:34:48+02:00"
     },
     "bopt": {
-      "fingerprint": "cff073d49be399a3b6ec68b2e720dee0",
+      "fingerprint": "70f7700bb78b327bec74d480f08dd479",
       "state": "ok",
-      "checked_at": "2026-08-10T17:52:02+02:00"
+      "checked_at": "2026-08-11T10:34:48+02:00"
     },
     "boe": {
-      "fingerprint": "424d9a7a14b0979aad35b9656510b903",
+      "fingerprint": "967492957970fb81d7135182c084dfa0",
       "state": "ok",
-      "checked_at": "2026-08-10T17:52:02+02:00"
+      "checked_at": "2026-08-11T10:34:48+02:00"
     },
     "contractacio": {
       "fingerprint": "a1231213062f8159d30dc26a4c0c252a",
       "state": "ok",
-      "checked_at": "2026-08-10T17:52:02+02:00"
+      "checked_at": "2026-08-11T10:34:48+02:00"
     }
   }
 }
