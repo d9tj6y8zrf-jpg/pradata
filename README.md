@@ -72,7 +72,7 @@ Cada execució actualitza:
 Els fitxers canvien i es guarden automàticament al repositori. Això també deixa
 un historial visible a GitHub.
 
-## Fonts inicials
+## Fonts oficials
 
 - web municipal;
 - apartat municipal de subvencions;
@@ -80,9 +80,18 @@ un historial visible a GitHub.
 - BOPT;
 - BOE mitjançant la seva API oficial de dades obertes;
 - CIDO, fitxa del municipi;
-- perfil del contractant.
+- perfil del contractant;
+- AOC, actes del Ple;
+- AOC, pressupostos i plantilles;
+- AOC, convocatòries de personal.
 
 Les fonts es poden canviar a `config/sources.json`.
+
+Les tres fonts de dades obertes de l'AOC es consulten amb el codi oficial de
+l'Ajuntament (`4311530008`). Només incorporen registres dels darrers vuit dies,
+però els marquen com a verificats perquè l'API oficial ja aporta municipi, data,
+títol i enllaç. Això permet recuperar publicacions que hagin aparegut durant els
+set dies anteriors sense omplir el web amb tot l'històric.
 
 ## Àmbit territorial de la cerca
 
