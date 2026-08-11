@@ -81,11 +81,19 @@ un historial visible a GitHub.
 - BOE mitjançant la seva API oficial de dades obertes;
 - CIDO, fitxa del municipi;
 - perfil del contractant;
+- Consell Comarcal del Priorat, cerca específica de Pradell;
+- Idescat, dades oficials del municipi;
+- BASE, informació tributària municipal;
 - AOC, actes del Ple;
 - AOC, pressupostos i plantilles;
 - AOC, convocatòries de personal.
 
 Les fonts es poden canviar a `config/sources.json`.
+
+El Consell Comarcal aporta enllaços nous a les notícies que la seva cerca
+oficial relaciona amb Pradell. Idescat i BASE es vigilen com a pàgines de
+referència: un canvi tècnic queda registrat per revisar, però no es converteix
+automàticament en una afirmació pública sense data i contingut verificables.
 
 Les tres fonts de dades obertes de l'AOC es consulten amb el codi oficial de
 l'Ajuntament (`4311530008`). Només incorporen registres dels darrers vuit dies,
