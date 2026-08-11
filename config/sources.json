@@ -116,6 +116,33 @@
       "topic": "contractacio"
     },
     {
+      "id": "consell-priorat",
+      "name": "Consell Comarcal del Priorat · cerca Pradell",
+      "kind": "links",
+      "url": "https://www.priorat.cat/search/node?keys=Pradell",
+      "topic": "municipi",
+      "allowed_hosts": [
+        "www.priorat.cat"
+      ],
+      "path_prefixes": [
+        "/actualitat/"
+      ]
+    },
+    {
+      "id": "idescat-municipi",
+      "name": "Idescat · dades oficials del municipi",
+      "kind": "watch",
+      "url": "https://www.idescat.cat/codis/?c=431153&id=50&n=9",
+      "topic": "municipi"
+    },
+    {
+      "id": "base-pradell",
+      "name": "BASE · informació tributària de Pradell",
+      "kind": "watch",
+      "url": "https://www.base.cat/ciutada/ca/municipi/priorat/pradell_de_la_teixeta.html",
+      "topic": "pressupost"
+    },
+    {
       "id": "aoc-actes-ple",
       "name": "AOC · Actes del Ple",
       "kind": "aoc_datastore",
