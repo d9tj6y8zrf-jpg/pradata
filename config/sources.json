@@ -114,6 +114,45 @@
       "kind": "watch",
       "url": "https://contractaciopublica.cat/ca/perfils-contractant/detall/29706590",
       "topic": "contractacio"
+    },
+    {
+      "id": "aoc-actes-ple",
+      "name": "AOC · Actes del Ple",
+      "kind": "aoc_datastore",
+      "url": "https://dadesobertes.seu-e.cat/api/action/datastore_search?resource_id=b5d370d0-7916-48b6-8a69-3c7fa62a1467&filters=%7B%22CODI_ENS%22%3A%224311530008%22%7D&limit=200",
+      "entity_code": "4311530008",
+      "days": 8,
+      "title_fields": ["TIPUS"],
+      "title_template": "Acta del Ple · {type}",
+      "date_fields": ["DATA_ACORD"],
+      "url_fields": ["ENLLAÇ_ACTA", "ENLLA?_ACTA"],
+      "registry_fields": ["CODI_ACTA"],
+      "topic": "govern"
+    },
+    {
+      "id": "aoc-pressupostos-plantilles",
+      "name": "AOC · Pressupostos i plantilles",
+      "kind": "aoc_datastore",
+      "url": "https://dadesobertes.seu-e.cat/api/action/datastore_search?resource_id=572b66e6-a353-4973-b307-558ce10b59a4&filters=%7B%22CODI_ENS%22%3A%224311530008%22%7D&limit=200",
+      "entity_code": "4311530008",
+      "days": 8,
+      "title_fields": ["RESUM"],
+      "date_fields": ["DATA_PUB"],
+      "url_fields": ["ENLLAÇ", "ENLLA?"],
+      "topic": "pressupost"
+    },
+    {
+      "id": "aoc-convocatories-personal",
+      "name": "AOC · Convocatòries de personal",
+      "kind": "aoc_datastore",
+      "url": "https://dadesobertes.seu-e.cat/api/action/datastore_search?resource_id=0e11c4f5-ce15-401f-b86f-f9d2604b94f6&filters=%7B%22CODI_ENS%22%3A%224311530008%22%7D&limit=200",
+      "entity_code": "4311530008",
+      "days": 8,
+      "title_fields": ["RESUM"],
+      "date_fields": ["DATA_DARRER_ANUNCI", "DATA_PUB"],
+      "url_fields": ["ENLLAÇ", "ENLLA?"],
+      "deadline_fields": ["TERMINI_PRESENTACIO"],
+      "topic": "personal"
     }
   ]
 }
