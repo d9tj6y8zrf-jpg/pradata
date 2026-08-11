@@ -1,9 +1,42 @@
 {
   "meta": {
-    "updated_at": "2026-08-11T21:37:39+02:00",
-    "event_count": 2
+    "updated_at": "2026-08-11T22:10:36+02:00",
+    "event_count": 5
   },
   "events": [
+    {
+      "id": "event-49494626d752f1dbd8fc",
+      "detected_at": "2026-08-11T22:10:36+02:00",
+      "type": "new",
+      "record_id": "consell-priorat-bdae0d21692714b7ee",
+      "source_id": "consell-priorat",
+      "source_name": "Consell Comarcal del Priorat · cerca Pradell",
+      "title": "Pradell de la Teixeta acull, enguany, la 9a edició de Coneguem lo Priorat",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://www.priorat.cat/actualitat/pradell-de-la-teixeta-acull-enguany-la-9a-edicio-de-coneguem-lo-priorat"
+    },
+    {
+      "id": "event-bcbb901681c62eb89af6",
+      "detected_at": "2026-08-11T22:10:36+02:00",
+      "type": "new",
+      "record_id": "consell-priorat-f054ea849f204452c5",
+      "source_id": "consell-priorat",
+      "source_name": "Consell Comarcal del Priorat · cerca Pradell",
+      "title": "Més de 140 alumnes participen en la novena edició de “Coneguem lo Priorat” a Pradell de la Teixeta",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://www.priorat.cat/actualitat/mes-de-140-alumnes-participen-en-la-novena-edicio-de-coneguem-lo-priorat-pradell-de-la"
+    },
+    {
+      "id": "event-02db14881ff28455b591",
+      "detected_at": "2026-08-11T22:10:36+02:00",
+      "type": "new",
+      "record_id": "consell-priorat-96b11b4fa44af3bba2",
+      "source_id": "consell-priorat",
+      "source_name": "Consell Comarcal del Priorat · cerca Pradell",
+      "title": "Diputació de Tarragona i Consell Comarcal del Priorat signen el conveni per impulsar un any més els Plans d'Ocupació Comarcals",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://www.priorat.cat/actualitat/diputacio-de-tarragona-i-consell-comarcal-del-priorat-signen-el-conveni-impulsar-un-any"
+    },
     {
       "id": "event-ee3060068457f761e614",
       "detected_at": "2026-07-29T19:08:44+02:00",
