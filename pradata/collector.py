@@ -607,6 +607,100 @@ def content_fingerprint(body: bytes, content_type: str) -> str:
     return sha(body.hex(), 32)
 
 
+def first_field(record: dict[str, Any], names: Iterable[str]) -> str:
+    """Return a named field, tolerating legacy AOC headers with a broken accent."""
+    for name in names:
+        if name in record and record[name] not in {None, ""}:
+            return compact_text(str(record[name]))
+    for key, value in record.items():
+        folded_key = fold_text(key).replace("?", "")
+        if any(folded_key.startswith(fold_text(name).replace("?", "")) for name in names):
+            if value not in {None, ""}:
+                return compact_text(str(value))
+    return ""
+
+
+def extract_aoc_datastore_records(
+    body: bytes,
+    source: dict[str, Any],
+    detected_at: str,
+    today: date,
+) -> list[dict[str, Any]]:
+    """Create verified records from an official AOC datastore response."""
+    payload = json.loads(body.decode("utf-8"))
+    if not payload.get("success"):
+        raise ValueError("L'API de l'AOC no ha confirmat la consulta")
+    rows = payload.get("result", {}).get("records", [])
+    expected_code = str(source.get("entity_code", "4311530008"))
+    earliest = today - timedelta(days=max(1, int(source.get("days", 8))) - 1)
+    records: list[dict[str, Any]] = []
+
+    for row in rows:
+        if str(row.get("CODI_ENS", "")) != expected_code:
+            continue
+        entity_name = fold_text(str(row.get("NOM_ENS", "")))
+        if "pradell de la teixeta" not in entity_name:
+            continue
+        date_value = first_field(row, source.get("date_fields", ["DATA_PUB", "DATA_ACORD"]))[:10]
+        try:
+            publication_day = date.fromisoformat(date_value)
+        except ValueError:
+            continue
+        if publication_day < earliest or publication_day > today + timedelta(days=1):
+            continue
+
+        raw_title = first_field(row, source.get("title_fields", ["RESUM", "TIPUS"]))
+        title_template = source.get("title_template", "{title}")
+        title = compact_text(
+            title_template.format(
+                title=raw_title,
+                date=date_value,
+                type=first_field(row, ["TIPUS"]),
+            )
+        )
+        url = first_field(row, source.get("url_fields", ["ENLLAÇ", "ENLLAÇ_ACTA", "ENLLA?"]))
+        if not title or not url.startswith("https://"):
+            continue
+        registry = first_field(row, source.get("registry_fields", ["CODI_ACTA", "_id"]))
+        deadline = first_field(row, source.get("deadline_fields", ["TERMINI_PRESENTACIO"]))[:10]
+        recovered = publication_day < today
+        summary = (
+            f"Registre publicat al conjunt de dades oficial de l'AOC amb data {date_value}."
+            + (f" Termini indicat: {deadline}." if deadline else "")
+            + " Consulteu l'enllaç original per comprovar-ne el contingut complet."
+        )
+        records.append(
+            {
+                "id": stable_record_id(source["id"], url, title),
+                "title": title,
+                "date": date_value,
+                "published_at": date_value,
+                "detected_at": detected_at,
+                "last_seen_at": detected_at,
+                "source_id": source["id"],
+                "source_name": source["name"],
+                "source_url": source["url"],
+                "url": url,
+                "summary": summary,
+                "topic": classify_topic(title, source.get("topic", "administracio")),
+                "priority": classify_priority(f"{title} {'termini' if deadline else ''}"),
+                "status": "verificat",
+                "registry": registry,
+                "deadline": deadline,
+                "recovered": recovered,
+                "verification_method": "structured_official_dataset",
+                "verified_at": detected_at,
+                "verification": {
+                    "method": "structured_official_dataset",
+                    "verified_at": detected_at,
+                    "source_kind": "aoc_datastore",
+                    "checks": ["official_api", "entity_code", "municipality", "publication_date", "https_url"],
+                },
+            }
+        )
+    return records
+
+
 def collect_source(
     source: dict[str, Any],
     config: dict[str, Any],
@@ -702,6 +796,17 @@ def collect_source(
                         config.get("excluded_phrases", ()),
                     )
                 )
+        elif kind == "aoc_datastore":
+            result = fetch(source["url"], accept="application/json")
+            remember(result)
+            records.extend(
+                extract_aoc_datastore_records(
+                    result.body,
+                    source,
+                    detected_at,
+                    today,
+                )
+            )
         else:
             raise ValueError(f"Tipus de font desconegut: {kind}")
     except (urllib.error.URLError, TimeoutError, ValueError, ET.ParseError) as error:
