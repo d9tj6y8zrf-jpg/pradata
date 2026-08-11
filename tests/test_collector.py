@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import unittest
 import urllib.error
 from datetime import datetime
@@ -12,6 +13,7 @@ from pradata.collector import (
     collect_source,
     extract_boe_records,
     extract_bopt_records,
+    extract_aoc_datastore_records,
     extract_link_records,
     fetch_source_page,
     matches_geographic_scope,
@@ -200,6 +202,54 @@ class CollectorTests(unittest.TestCase):
         )
         self.assertEqual(len(records), 1)
         self.assertEqual(records[0]["registry"], "BOE-B-2026-1")
+
+    def test_extracts_recent_verified_aoc_record_for_the_official_entity(self) -> None:
+        body = json.dumps(
+            {
+                "success": True,
+                "result": {
+                    "records": [
+                        {
+                            "_id": 1,
+                            "RESUM": "Pressupost i plantilla per a l'any 2027",
+                            "DATA_PUB": "2026-08-09T00:00:00",
+                            "ENLLA?": "https://cido.diba.cat/normativa_local/999",
+                            "CODI_ENS": "4311530008",
+                            "NOM_ENS": "Ajuntament de Pradell de la Teixeta",
+                        },
+                        {
+                            "_id": 2,
+                            "RESUM": "Registre d'un altre municipi",
+                            "DATA_PUB": "2026-08-10T00:00:00",
+                            "ENLLA?": "https://cido.diba.cat/normativa_local/1000",
+                            "CODI_ENS": "9999999999",
+                            "NOM_ENS": "Un altre ajuntament",
+                        },
+                    ]
+                },
+            },
+            ensure_ascii=False,
+        ).encode()
+        source = {
+            "id": "aoc-pressupostos",
+            "name": "AOC · Pressupostos",
+            "url": "https://dadesobertes.seu-e.cat/api/action/datastore_search",
+            "entity_code": "4311530008",
+            "days": 8,
+            "kind": "aoc_datastore",
+            "topic": "pressupost",
+        }
+        records = extract_aoc_datastore_records(
+            body,
+            source,
+            "2026-08-11T08:00:00+02:00",
+            datetime.fromisoformat("2026-08-11T08:00:00+02:00").date(),
+        )
+        self.assertEqual(len(records), 1)
+        self.assertEqual(records[0]["status"], "verificat")
+        self.assertEqual(records[0]["date"], "2026-08-09")
+        self.assertTrue(records[0]["recovered"])
+        self.assertEqual(records[0]["verification_method"], "structured_official_dataset")
 
 
 if __name__ == "__main__":
