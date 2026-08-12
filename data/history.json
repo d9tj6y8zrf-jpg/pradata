@@ -1,9 +1,20 @@
 {
   "meta": {
-    "updated_at": "2026-08-11T22:10:36+02:00",
-    "event_count": 5
+    "updated_at": "2026-08-12T11:40:12+02:00",
+    "event_count": 6
   },
   "events": [
+    {
+      "id": "event-2cbde62372387bd8cfc1",
+      "detected_at": "2026-08-12T11:40:12+02:00",
+      "type": "new",
+      "record_id": "bopt-e2d93414fe432126ce",
+      "source_id": "bopt",
+      "source_name": "BOPT · Diputació de Tarragona",
+      "title": "Tancament temporal dels accessos a l'Espai Natural Protegit de les Serres de Pradell-l'Argentera per l'eclipsi solar el 12.08.2026. Decret d'Alcaldia núm. 2026-0000135.",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://aplicacions.dipta.cat/bopt/web/anunci/363359/tancament-temporal-dels-accessos-a-l-espai-natural-protegit-de-les-serres-de-pradell-l-argentera-per-l-eclipsi-solar-el-12-08-2026-decret-d-alcaldia-num-2026-0000135-ajuntament-pradell-de-la-teixeta"
+    },
     {
       "id": "event-49494626d752f1dbd8fc",
       "detected_at": "2026-08-11T22:10:36+02:00",
