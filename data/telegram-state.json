@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "activation_at": "2026-08-13T14:47:56+02:00",
+  "bootstrap_source_updated_at": "2026-08-13T11:41:29+02:00",
+  "source_updated_at": "2026-08-13T11:41:29+02:00",
+  "acknowledged_ids": [
+    "bopt-e2d93414fe432126ce",
+    "cido-2ec0ad037a8ae92d15",
+    "cido-3a75a6588a7c07734b",
+    "cido-403bc72a4ff1feadf8",
+    "cido-4d3945801848caa48c",
+    "cido-724c4c2caf56c7c5ed",
+    "cido-7db227dd3ee71d46a5",
+    "cido-8b604b0730fa3b1d2a",
+    "cido-8d8556d028131652dd",
+    "cido-b27e1bcff8f2f845f7",
+    "cido-d10df46733f32751fc",
+    "cido-e391a15a4d820d05f2",
+    "consell-priorat-96b11b4fa44af3bba2",
+    "consell-priorat-bdae0d21692714b7ee",
+    "consell-priorat-f054ea849f204452c5",
+    "seed-basses-2026-00988",
+    "seed-piscina-2026-04133",
+    "seed-ppif-2026-00819",
+    "seed-pressupost-2026-00706",
+    "seed-tv3223-2026-06149",
+    "web-municipal-3e917206262c894e35",
+    "web-municipal-4514ea344bf5d44280",
+    "web-municipal-5a1033871b605f9094",
+    "web-municipal-a8f8aaa36645d0edff"
+  ],
+  "sent": []
+}
