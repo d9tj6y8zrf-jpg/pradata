@@ -1,0 +1,9 @@
+{
+  "enabled": false,
+  "channel": "@pradellteixeta",
+  "pradell360_base_url": "https://pradell360.cat",
+  "verified_api_url": "https://pradell360.cat/api/pradata-verified",
+  "max_messages_per_run": 3,
+  "api_wait_seconds": 180,
+  "api_poll_seconds": 10
+}
