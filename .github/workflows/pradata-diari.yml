@@ -52,7 +52,7 @@ jobs:
           fi
 
       - name: Configura GitHub Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       - name: Prepara els fitxers per a Pages
         uses: actions/upload-pages-artifact@v4
@@ -69,7 +69,7 @@ jobs:
     steps:
       - name: Publica la web
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
 
   telegram:
     name: Avisa al canal de Telegram
