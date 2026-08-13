@@ -1,5 +1,5 @@
 {
-  "enabled": false,
+  "enabled": true,
   "channel": "@pradellteixeta",
   "pradell360_base_url": "https://pradell360.cat",
   "verified_api_url": "https://pradell360.cat/api/pradata-verified",
