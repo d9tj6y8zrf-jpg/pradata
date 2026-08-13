@@ -160,6 +160,56 @@ python scripts/check_output.py
 
 Després pot servir la carpeta `site` amb qualsevol servidor web local.
 
+## Avisos automàtics a Telegram
+
+El workflow diari també pot avisar el canal públic
+[`@pradellteixeta`](https://t.me/pradellteixeta). El publicador consulta
+exclusivament `https://pradell360.cat/api/pradata-verified`: una detecció
+pendent o sense data de publicació verificada no es pot enviar.
+
+Proteccions incorporades:
+
+- l'historial existent abans de l'activació queda registrat com a ja vist i no
+  es publica retrospectivament;
+- cada identificador només es publica una vegada;
+- les publicacions sobre un mateix tema, com la TV-3223, s'agrupen;
+- hi ha un màxim de tres missatges per execució i l'excés es converteix en un
+  resum;
+- cada avís mostra la data real de publicació i la data de detecció;
+- els enllaços porten a la fitxa de Pradell360, no directament a la font final;
+- el testimoni del bot no es desa mai al repositori ni als logs.
+
+### Configuració segura del bot
+
+1. Crea el bot amb `@BotFather`.
+2. Afegeix-lo com a administrador del canal i concedeix-li únicament el permís
+   **Publicar missatges**.
+3. A GitHub, obre **Settings → Secrets and variables → Actions**, crea el secret
+   `TELEGRAM_BOT_TOKEN` i enganxa-hi el testimoni privat.
+4. Canvia `enabled` a `true` a `config/telegram.json`.
+5. Executa manualment **Actualització diària de PRADATA** una vegada.
+
+El fitxer `data/telegram-state.json` conserva només identificadors públics i els
+identificadors de missatge retornats per Telegram. No conté cap secret. Si cal
+aturar els avisos immediatament, canvia `enabled` a `false`; la recollida i la
+publicació de Pradell360 continuaran funcionant.
+
+### Com verificar-ho
+
+- a **Actions**, els tres treballs `Consulta les fonts i prepara la web`,
+  `Publica a GitHub Pages` i `Avisa al canal de Telegram` han d'acabar en verd;
+- el log de Telegram indica quants registres verificats, elegibles, agrupats i
+  enviats hi ha, sense mostrar el testimoni;
+- una passada sense novetats ha d'indicar `0 novetats elegibles` i no ha
+  d'afegir cap missatge al canal;
+- les proves locals es poden executar amb
+  `python -m unittest discover -s tests -v` i la simulació, que no envia res,
+  amb `python scripts/publish_telegram.py --dry-run`.
+
+El Bot API de Telegram, els executors estàndard d'un repositori públic i aquest
+publicador amb biblioteca estàndard de Python no requereixen cap servei de
+pagament.
+
 ## Llicència
 
 El codi es distribueix amb llicència MIT. Els documents i les dades de les
