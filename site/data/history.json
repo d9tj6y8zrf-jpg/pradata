@@ -1,9 +1,20 @@
 {
   "meta": {
-    "updated_at": "2026-08-16T08:01:47+02:00",
-    "event_count": 6
+    "updated_at": "2026-08-17T10:00:37+02:00",
+    "event_count": 7
   },
   "events": [
+    {
+      "id": "event-289e062b107aad4f0042",
+      "detected_at": "2026-08-17T10:00:37+02:00",
+      "type": "source_changed",
+      "record_id": "",
+      "source_id": "web-municipal",
+      "source_name": "Web municipal",
+      "title": "Canvi detectat a Web municipal",
+      "description": "La pàgina oficial ha canviat. El canvi tècnic no prova, per si sol, que hi hagi una decisió administrativa nova.",
+      "url": "https://www.pradelldelateixeta.cat/ca"
+    },
     {
       "id": "event-2cbde62372387bd8cfc1",
       "detected_at": "2026-08-12T11:40:12+02:00",
