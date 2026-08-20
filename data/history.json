@@ -1,9 +1,20 @@
 {
   "meta": {
-    "updated_at": "2026-08-19T09:25:41+02:00",
-    "event_count": 7
+    "updated_at": "2026-08-20T09:29:00+02:00",
+    "event_count": 8
   },
   "events": [
+    {
+      "id": "event-7e639e4e0bb8aab56da0",
+      "detected_at": "2026-08-20T09:29:00+02:00",
+      "type": "source_changed",
+      "record_id": "",
+      "source_id": "subvencions-municipals",
+      "source_name": "Subvencions publicades per l'Ajuntament",
+      "title": "Canvi detectat a Subvencions publicades per l'Ajuntament",
+      "description": "La pàgina oficial ha canviat. El canvi tècnic no prova, per si sol, que hi hagi una decisió administrativa nova.",
+      "url": "https://www.pradelldelateixeta.cat/ca/ajuntament/subvencions-rebudes"
+    },
     {
       "id": "event-289e062b107aad4f0042",
       "detected_at": "2026-08-17T10:00:37+02:00",
