@@ -123,6 +123,10 @@ publicació relacionada amb Pradell.
 - **Consulta parcial o no disponible**: aquella font no s'ha pogut llegir del
   tot. No significa que no hi hagi publicacions.
 
+El fitxer `data/status.json` diferencia `successful_sources` (fonts llegides
+completament) de `responsive_sources` (fonts que han respost completament o
+parcialment). Així un avís no es presenta com una consulta completa.
+
 ## Limitacions importants
 
 PRADATA és un inventari automatitzat, no una certificació jurídica ni una
