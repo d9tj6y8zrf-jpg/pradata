@@ -1,9 +1,31 @@
 {
   "meta": {
-    "updated_at": "2026-08-20T09:29:00+02:00",
-    "event_count": 8
+    "updated_at": "2026-08-21T09:31:32+02:00",
+    "event_count": 10
   },
   "events": [
+    {
+      "id": "event-689248cdd170e02ba0a1",
+      "detected_at": "2026-08-21T09:31:32+02:00",
+      "type": "source_changed",
+      "record_id": "",
+      "source_id": "subvencions-municipals",
+      "source_name": "Subvencions publicades per l'Ajuntament",
+      "title": "Canvi detectat a Subvencions publicades per l'Ajuntament",
+      "description": "La pàgina oficial ha canviat. El canvi tècnic no prova, per si sol, que hi hagi una decisió administrativa nova.",
+      "url": "https://www.pradelldelateixeta.cat/ca/ajuntament/subvencions-rebudes"
+    },
+    {
+      "id": "event-5c938fd22a3109c6afaf",
+      "detected_at": "2026-08-21T09:31:32+02:00",
+      "type": "source_error",
+      "record_id": "",
+      "source_id": "cido",
+      "source_name": "CIDO · El meu municipi",
+      "title": "No s'ha pogut consultar CIDO · El meu municipi",
+      "description": "La cobertura d'aquesta execució és incompleta. No s'interpreta com a absència de novetats.",
+      "url": "https://cido.diba.cat/el-meu-municipi/43115/pradell-de-la-teixeta"
+    },
     {
       "id": "event-7e639e4e0bb8aab56da0",
       "detected_at": "2026-08-20T09:29:00+02:00",
