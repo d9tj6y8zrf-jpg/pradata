@@ -190,7 +190,7 @@ Proteccions incorporades:
    **Publicar missatges**.
 3. A GitHub, obre **Settings → Secrets and variables → Actions**, crea el secret
    `TELEGRAM_BOT_TOKEN` i enganxa-hi el testimoni privat.
-4. Canvia `enabled` a `true` a `config/telegram.json`.
+4. Canvia `enabled` a `true` a `config/telegram.json`. El camp `channel_url` defineix l’enllaç de subscripció que s’afegeix una sola vegada a cada notificació.
 5. Executa manualment **Actualització diària de PRADATA** una vegada.
 
 El fitxer `data/telegram-state.json` conserva només identificadors públics i els
