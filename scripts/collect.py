@@ -24,7 +24,7 @@ def main() -> int:
     args = parser.parse_args()
     result = run_collection(args.root.resolve())
     print(json.dumps(result, ensure_ascii=False))
-    if result["sources"] and result["successful_sources"] == 0:
+    if result["sources"] and result["responsive_sources"] == 0:
         print("Cap font no s'ha pogut consultar.", file=sys.stderr)
         return 2
     return 0
