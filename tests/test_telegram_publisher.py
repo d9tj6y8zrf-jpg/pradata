@@ -51,6 +51,7 @@ def state(acknowledged: list[str] | None = None) -> dict[str, object]:
 
 CONFIG = {
     "channel": "@pradellteixeta",
+    "channel_url": "https://t.me/pradellteixeta",
     "pradell360_base_url": "https://pradell360.cat",
     "max_messages_per_run": 3,
 }
@@ -101,7 +102,11 @@ class TelegramPublisherTests(unittest.TestCase):
         item = record("bopt-123", "Nova publicació")
         notification = plan_notifications([item], 3)[0]
 
-        message, preview = render_notification(notification, "https://pradell360.cat")
+        message, preview = render_notification(
+            notification,
+            "https://pradell360.cat",
+            "https://t.me/pradellteixeta",
+        )
 
         expected = "https://pradell360.cat/#fitxa-pradata-bopt-123"
         self.assertEqual(entry_url(item, "https://pradell360.cat"), expected)
@@ -109,6 +114,23 @@ class TelegramPublisherTests(unittest.TestCase):
         self.assertIn(expected, message)
         self.assertNotIn("example.test/font-oficial", message)
         self.assertIn("Publicada: 13.08.2026 · Detectada: 13.08.2026", message)
+        self.assertIn("Rep totes les novetats al canal de Telegram", message)
+        self.assertEqual(message.count("https://t.me/pradellteixeta"), 1)
+
+    def test_digest_also_contains_one_subscription_link(self) -> None:
+        notification = plan_notifications(
+            [record("one", "Publicació A"), record("two", "Publicació B")],
+            3,
+        )[0]
+
+        message, _preview = render_notification(
+            notification,
+            "https://pradell360.cat",
+            "https://t.me/pradellteixeta",
+        )
+
+        self.assertEqual(message.count("https://t.me/pradellteixeta"), 1)
+        self.assertLessEqual(len(message), 3900)
 
     def test_dry_run_does_not_change_state_or_send(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
