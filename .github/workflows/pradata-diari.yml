@@ -48,6 +48,7 @@ jobs:
             echo "No hi ha canvis per guardar."
           else
             git commit -m "Actualització diària de PRADATA"
+            git pull --rebase origin main
             git push
           fi
 
