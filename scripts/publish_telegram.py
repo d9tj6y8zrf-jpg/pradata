@@ -26,6 +26,7 @@ def arguments() -> argparse.Namespace:
     parser.add_argument("--config", type=Path, default=ROOT / "config" / "telegram.json")
     parser.add_argument("--state", type=Path, default=ROOT / "data" / "telegram-state.json")
     parser.add_argument("--expected-data", type=Path, default=ROOT / "data" / "records.json")
+    parser.add_argument("--pages-url", default="")
     parser.add_argument("--dry-run", action="store_true")
     return parser.parse_args()
 
@@ -64,6 +65,11 @@ def main() -> int:
         send,
         dry_run=args.dry_run,
     )
+    if not args.dry_run and args.pages_url.strip():
+        state = read_json(args.state)
+        state["pages_url"] = args.pages_url.strip()
+        state["pages_verified_at"] = state.get("last_success_at", "")
+        args.state.write_text(json.dumps(state, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(
         "Telegram · "
         f"{result['verified']} registres verificats, "
