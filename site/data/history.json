@@ -1,9 +1,20 @@
 {
   "meta": {
-    "updated_at": "2026-08-21T20:01:36+02:00",
-    "event_count": 10
+    "updated_at": "2026-08-21T20:27:48+02:00",
+    "event_count": 11
   },
   "events": [
+    {
+      "id": "event-4a54cac8a32a88e602c3",
+      "detected_at": "2026-08-21T20:11:22+02:00",
+      "type": "new",
+      "record_id": "dipta-impulsdipta-2026-0005675-pradell",
+      "source_id": "subvencions-municipals",
+      "source_name": "Ajuntament de Pradell i Diputació de Tarragona",
+      "title": "Pla ImpulsDipta: bestreta per recondicionar edificis municipals",
+      "description": "Nova publicació recuperada en la revisió retrospectiva i verificada amb la resolució oficial.",
+      "url": "https://seuelectronica.dipta.cat/documents/20182/29436079/decret%2Bn%C3%BAmero%2B2026-0005675.pdf/0c68012d-af7d-44a3-5c86-5035ea90ae8d?t=1786708070639"
+    },
     {
       "id": "event-689248cdd170e02ba0a1",
       "detected_at": "2026-08-21T09:31:32+02:00",
