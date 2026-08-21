@@ -1,23 +1,19 @@
 name: Actualització diària de PRADATA
 
-
 on:
   schedule:
     - cron: "17 7 * * *"
       timezone: "Europe/Madrid"
   workflow_dispatch:
 
-
 permissions:
   contents: write
   pages: write
   id-token: write
 
-
 concurrency:
   group: "pradata-pages"
   cancel-in-progress: false
-
 
 jobs:
   actualitza:
@@ -28,16 +24,108 @@ jobs:
       - name: Recupera el projecte
         uses: actions/checkout@v6
 
+      - name: Prepara Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Consulta les fonts públiques
+        run: python scripts/collect.py
+
+      - name: Comprova el motor
+        run: python -m unittest discover -s tests -v
+
+      - name: Comprova la sortida estàtica
+        run: python scripts/check_output.py
+
+      - name: Guarda l'historial al repositori
+        shell: bash
+        run: |
+          git config user.name "PRADATA automàtic"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data site
+          if git diff --cached --quiet; then
+            echo "No hi ha canvis per guardar."
+          else
+            git commit -m "Actualització diària de PRADATA"
+            git push
+          fi
+
+      - name: Configura GitHub Pages
+        uses: actions/configure-pages@v6
+
+      - name: Prepara els fitxers per a Pages
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: site
+
+  publica:
+    name: Publica a GitHub Pages
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    outputs:
+      page_url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: actualitza
+    steps:
+      - name: Publica la web
+        id: deployment
+        uses: actions/deploy-pages@v5
+
+  verifica-pages:
+    name: Confirma que Pages ja serveix les dades actuals
+    runs-on: ubuntu-latest
+    needs: publica
+    outputs:
+      page_url: ${{ needs.publica.outputs.page_url }}
+    timeout-minutes: 5
+    steps:
+      - name: Recupera les dades esperades
+        uses: actions/checkout@v6
+        with:
+          ref: main
 
       - name: Prepara Python
         uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
+      - name: Comprova la versió publicada
+        run: python scripts/verify_published_site.py --expected data/records.json --url "${{ needs.publica.outputs.page_url }}data/records.json"
 
-      - name: Consulta les fonts públiques
-        run: python scripts/collect.py
+  telegram:
+    name: Avisa al canal de Telegram
+    runs-on: ubuntu-latest
+    needs: [actualitza, verifica-pages]
+    timeout-minutes: 8
+    steps:
+      - name: Recupera les dades actualitzades
+        id: checkout
+        uses: actions/checkout@v6
+        with:
+          ref: main
 
+      - name: Prepara Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
 
-      - name: Comprova el motor
-        run: python -m unittest discover -s tests -v
+      - name: Publica només les novetats verificades
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        run: python scripts/publish_telegram.py --expected-data data/records.json --pages-url "${{ needs.verifica-pages.outputs.page_url }}"
+
+      - name: Guarda els identificadors ja publicats
+        if: always() && steps.checkout.outcome == 'success'
+        shell: bash
+        run: |
+          git config user.name "PRADATA automàtic"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/telegram-state.json
+          if git diff --cached --quiet; then
+            echo "No hi ha canvis a l'estat de Telegram."
+          else
+            git commit -m "Actualitza l'estat de Telegram"
+            git push
+          fi
