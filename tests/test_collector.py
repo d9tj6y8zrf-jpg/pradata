@@ -11,6 +11,7 @@ from pradata.collector import (
     classify_priority,
     classify_topic,
     collect_source,
+    coverage_counts,
     extract_boe_records,
     extract_bopt_records,
     extract_aoc_datastore_records,
@@ -22,6 +23,22 @@ from pradata.collector import (
 
 
 class CollectorTests(unittest.TestCase):
+    def test_coverage_separates_complete_and_partial_sources(self) -> None:
+        statuses = [
+            {"state": "ok"},
+            {"state": "warning"},
+            {"state": "error"},
+        ]
+
+        self.assertEqual(
+            coverage_counts(statuses),
+            {
+                "source_count": 3,
+                "successful_sources": 1,
+                "responsive_sources": 2,
+            },
+        )
+
     def test_stable_id_is_deterministic(self) -> None:
         first = stable_record_id("font", "https://example.test/a", "Títol")
         second = stable_record_id("font", "https://example.test/a", "Títol")
