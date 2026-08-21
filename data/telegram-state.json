@@ -2,7 +2,7 @@
   "version": 1,
   "activation_at": "2026-08-13T14:47:56+02:00",
   "bootstrap_source_updated_at": "2026-08-13T11:41:29+02:00",
-  "source_updated_at": "2026-08-20T09:29:00+02:00",
+  "source_updated_at": "2026-08-21T09:31:32+02:00",
   "acknowledged_ids": [
     "bopt-e2d93414fe432126ce",
     "cido-2ec0ad037a8ae92d15",
@@ -30,6 +30,6 @@
     "web-municipal-a8f8aaa36645d0edff"
   ],
   "sent": [],
-  "last_checked_at": "2026-08-20T07:30:31Z",
-  "last_success_at": "2026-08-20T07:30:31Z"
+  "last_checked_at": "2026-08-21T07:35:39Z",
+  "last_success_at": "2026-08-21T07:35:39Z"
 }
