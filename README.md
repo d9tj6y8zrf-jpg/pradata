@@ -214,3 +214,10 @@ pagament.
 
 El codi es distribueix amb llicència MIT. Els documents i les dades de les
 fonts conserven les seves pròpies condicions de reutilització.
+
+
+## Estat operatiu
+
+L’execució diària conserva la revisió retrospectiva de 7 dies. Telegram només s’executa després que GitHub Pages confirmi que serveix el mateix `records.json`; el publicador espera també l’API de Pradell360 i només registra l’èxit després de la confirmació de Telegram.
+
+El 21 d’agost de 2026 s’han comprovat Pages i Pradell360. Hi havia 22 registres verificats i cap novetat elegible, així que no s’ha publicat cap missatge de prova.
