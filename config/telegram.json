@@ -1,6 +1,7 @@
 {
   "enabled": true,
   "channel": "@pradellteixeta",
+  "channel_url": "https://t.me/pradellteixeta",
   "pradell360_base_url": "https://pradell360.cat",
   "verified_api_url": "https://pradell360.cat/api/pradata-verified",
   "max_messages_per_run": 3,
