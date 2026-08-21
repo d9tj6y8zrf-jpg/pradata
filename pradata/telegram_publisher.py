@@ -212,7 +212,18 @@ def record_dates(record: dict[str, Any]) -> str:
     return f"Publicada: {published} · Detectada: {detected}"
 
 
-def render_notification(notification: Notification, base_url: str) -> tuple[str, str]:
+def append_subscription(message: str, channel_url: str) -> str:
+    call_to_action = (
+        "\n\n📲 Rep totes les novetats al canal de Telegram:\n"
+        f"{channel_url}"
+    )
+    available = SAFE_TELEGRAM_TEXT - len(call_to_action)
+    if len(message) > available:
+        message = message[: max(0, available - 1)].rstrip() + "…"
+    return message.rstrip() + call_to_action
+
+
+def render_notification(notification: Notification, base_url: str, channel_url: str) -> tuple[str, str]:
     records = list(notification.records)
     first_url = entry_url(records[0], base_url)
 
@@ -230,7 +241,7 @@ def render_notification(notification: Notification, base_url: str) -> tuple[str,
             "👉 Veure la publicació a Pradell360:\n"
             f"{first_url}"
         )
-        return message[:MAX_TELEGRAM_TEXT], first_url
+        return append_subscription(message, channel_url), first_url
 
     lines = [f"🟢 {len(records)} noves publicacions verificades · {notification.label}", ""]
     visible = records[:8]
@@ -251,9 +262,7 @@ def render_notification(notification: Notification, base_url: str) -> tuple[str,
             ]
         )
     message = "\n".join(lines).strip()
-    if len(message) > SAFE_TELEGRAM_TEXT:
-        message = message[: SAFE_TELEGRAM_TEXT - 1].rstrip() + "…"
-    return message, first_url
+    return append_subscription(message, channel_url), first_url
 
 
 def fetch_json(url: str, timeout: int = 30) -> dict[str, Any]:
@@ -351,10 +360,15 @@ def publish_payload(
     notifications = plan_notifications(candidates, int(config.get("max_messages_per_run", 3)))
     base_url = clean_text(config.get("pradell360_base_url"))
     channel = clean_text(config.get("channel"))
+    channel_url = clean_text(config.get("channel_url"))
     if not base_url.startswith("https://"):
         raise ValueError("L'adreça base de Pradell360 ha de ser HTTPS.")
     if not channel.startswith("@"):
         raise ValueError("El canal de Telegram ha de tenir el format @nomdelcanal.")
+    if not channel_url:
+        channel_url = f"https://t.me/{channel.removeprefix('@')}"
+    if not channel_url.startswith("https://t.me/"):
+        raise ValueError("L'enllaç de subscripció ha de ser una adreça HTTPS de t.me.")
 
     result = {
         "verified": sum(1 for item in payload.get("records", []) if verified_record(item)),
@@ -365,7 +379,7 @@ def publish_payload(
         "sent": 0,
     }
     if dry_run:
-        result["messages"] = [render_notification(item, base_url)[0] for item in notifications]
+        result["messages"] = [render_notification(item, base_url, channel_url)[0] for item in notifications]
         return result
 
     acknowledged = {clean_text(item) for item in state.get("acknowledged_ids", []) if clean_text(item)}
@@ -382,7 +396,7 @@ def publish_payload(
         state["sent"] = sent_log
 
     for notification in notifications:
-        text, preview_url = render_notification(notification, base_url)
+        text, preview_url = render_notification(notification, base_url, channel_url)
         message_id = send(channel, text, preview_url)
         sent_at = iso_now()
         ids = [clean_text(record["id"]) for record in notification.records]
