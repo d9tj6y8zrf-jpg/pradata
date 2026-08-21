@@ -128,5 +128,6 @@ jobs:
             echo "No hi ha canvis a l'estat de Telegram."
           else
             git commit -m "Actualitza l'estat de Telegram"
+            git pull --rebase origin main
             git push
           fi
