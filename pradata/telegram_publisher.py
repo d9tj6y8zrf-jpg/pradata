@@ -7,7 +7,7 @@ import urllib.error
 import urllib.parse
 import urllib.request
 from dataclasses import dataclass
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 from pathlib import Path
 from textwrap import shorten
 from typing import Any, Callable
@@ -15,6 +15,7 @@ from typing import Any, Callable
 
 MAX_TELEGRAM_TEXT = 4096
 SAFE_TELEGRAM_TEXT = 3900
+TELEGRAM_PUBLICATION_CUTOFF = date(2026, 8, 10)
 
 PRIORITY_ORDER = {
     "critica": 0,
@@ -129,6 +130,16 @@ def eligible_records(
         detected_at = parse_datetime(record.get("detected_at"))
         if detected_at is None:
             rejected += 1
+            continue
+        try:
+            published_at = date.fromisoformat(
+                clean_text(record.get("published_at") or record.get("date"))[:10]
+            )
+        except ValueError:
+            rejected += 1
+            continue
+        if published_at <= TELEGRAM_PUBLICATION_CUTOFF:
+            ignored_before_activation.append(record_id)
             continue
         if detected_at < activation:
             ignored_before_activation.append(record_id)
