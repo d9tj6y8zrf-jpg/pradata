@@ -162,6 +162,11 @@ python -m unittest discover -s tests -v
 python scripts/check_output.py
 ```
 
+El BOPT es consulta a partir del seu calendari oficial: PRADATA només demana
+les dates que el mateix butlletí mostra com a publicades. Això evita convertir
+els errors HTTP 500 dels dies sense edició en falsos avisos de cobertura, sense
+ocultar cap error real d'una data publicada.
+
 Després pot servir la carpeta `site` amb qualsevol servidor web local.
 
 ## Avisos automàtics a Telegram
