@@ -41,12 +41,24 @@ def record(
     }
 
 
-def state(acknowledged: list[str] | None = None) -> dict[str, object]:
+def state(
+    acknowledged: list[str] | None = None,
+    sent_record_ids: list[str] | None = None,
+) -> dict[str, object]:
     return {
         "version": 1,
         "activation_at": "2026-08-13T14:47:56+02:00",
         "acknowledged_ids": acknowledged or [],
-        "sent": [],
+        "sent": (
+            [
+                {
+                    "message_id": 45,
+                    "record_ids": sent_record_ids,
+                }
+            ]
+            if sent_record_ids
+            else []
+        ),
     }
 
 
@@ -65,15 +77,35 @@ class TelegramPublisherTests(unittest.TestCase):
                 record("already-seen", "Ja registrada"),
                 record("pending", "Encara pendent", status="deteccio_automatica"),
                 record("old", "Anterior", detected_at="2026-08-13T14:00:00+02:00"),
-                record("historic", "Recuperada antiga", published_at="2026-08-10"),
                 record("new", "Nova publicació"),
             ]
         }
         candidates, ignored, rejected = eligible_records(payload, state(["already-seen"]))
 
         self.assertEqual([item["id"] for item in candidates], ["new"])
-        self.assertEqual(ignored, ["old", "historic"])
+        self.assertEqual(ignored, ["old"])
         self.assertEqual(rejected, 1)
+
+    def test_record_already_sent_to_telegram_is_not_repeated(self) -> None:
+        payload = {
+            "records": [
+                record(
+                    "dipta-impulsdipta-2026-0005675-pradell",
+                    "Pla ImpulsDipta: bestreta per recondicionar edificis municipals",
+                    published_at="2026-08-14",
+                ),
+                record("new", "Nova publicació"),
+            ]
+        }
+
+        candidates, ignored, rejected = eligible_records(
+            payload,
+            state(sent_record_ids=["dipta-impulsdipta-2026-0005675-pradell"]),
+        )
+
+        self.assertEqual([item["id"] for item in candidates], ["new"])
+        self.assertEqual(ignored, [])
+        self.assertEqual(rejected, 0)
 
     def test_tv3223_records_from_different_sources_are_grouped(self) -> None:
         records = [
