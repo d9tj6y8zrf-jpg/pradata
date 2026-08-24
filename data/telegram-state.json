@@ -2,7 +2,7 @@
   "version": 1,
   "activation_at": "2026-08-13T14:47:56+02:00",
   "bootstrap_source_updated_at": "2026-08-13T11:41:29+02:00",
-  "source_updated_at": "2026-08-24T10:06:44+02:00",
+  "source_updated_at": "2026-08-24T21:32:30+02:00",
   "acknowledged_ids": [
     "bopt-e2d93414fe432126ce",
     "cido-2ec0ad037a8ae92d15",
@@ -40,9 +40,9 @@
       "theme": "pressupost"
     }
   ],
-  "last_checked_at": "2026-08-24T08:08:12Z",
-  "last_success_at": "2026-08-24T08:08:12Z",
+  "last_checked_at": "2026-08-24T19:34:11Z",
+  "last_success_at": "2026-08-24T19:34:11Z",
   "last_sent_at": "2026-08-21T18:29:32Z",
   "pages_url": "https://d9tj6y8zrf-jpg.github.io/pradata/",
-  "pages_verified_at": "2026-08-24T08:08:12Z"
+  "pages_verified_at": "2026-08-24T19:34:11Z"
 }
