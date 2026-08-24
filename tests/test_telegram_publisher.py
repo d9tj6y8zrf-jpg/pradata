@@ -19,6 +19,7 @@ def record(
     title: str,
     *,
     detected_at: str = "2026-08-13T15:00:00+02:00",
+    published_at: str = "2026-08-13",
     status: str = "verificat",
     topic: str = "municipi",
     source_name: str = "BOPT · Diputació de Tarragona",
@@ -26,8 +27,8 @@ def record(
     return {
         "id": record_id,
         "title": title,
-        "published_at": "2026-08-13",
-        "date": "2026-08-13",
+        "published_at": published_at,
+        "date": published_at,
         "detected_at": detected_at,
         "source_name": source_name,
         "source_id": "bopt",
@@ -64,13 +65,14 @@ class TelegramPublisherTests(unittest.TestCase):
                 record("already-seen", "Ja registrada"),
                 record("pending", "Encara pendent", status="deteccio_automatica"),
                 record("old", "Anterior", detected_at="2026-08-13T14:00:00+02:00"),
+                record("historic", "Recuperada antiga", published_at="2026-08-10"),
                 record("new", "Nova publicació"),
             ]
         }
         candidates, ignored, rejected = eligible_records(payload, state(["already-seen"]))
 
         self.assertEqual([item["id"] for item in candidates], ["new"])
-        self.assertEqual(ignored, ["old"])
+        self.assertEqual(ignored, ["old", "historic"])
         self.assertEqual(rejected, 1)
 
     def test_tv3223_records_from_different_sources_are_grouped(self) -> None:
