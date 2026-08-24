@@ -3,7 +3,7 @@ from __future__ import annotations
 import json
 import unittest
 import urllib.error
-from datetime import datetime
+from datetime import date, datetime
 from unittest.mock import patch
 
 from pradata.collector import (
@@ -13,6 +13,7 @@ from pradata.collector import (
     collect_source,
     coverage_counts,
     extract_boe_records,
+    extract_bopt_publication_dates,
     extract_bopt_records,
     extract_aoc_datastore_records,
     extract_link_records,
@@ -80,12 +81,19 @@ class CollectorTests(unittest.TestCase):
 
     @patch("pradata.collector.fetch")
     def test_bopt_queries_pradell_and_teixeta(self, mocked_fetch) -> None:
-        mocked_fetch.return_value = FetchResult(
+        calendar = FetchResult(
+            url="https://aplicacions.dipta.cat/bopt/",
+            status=200,
+            content_type="text/html",
+            body=b'<a href="/bopt/web/anteriors/2026-08-10">Avui</a>',
+        )
+        results = FetchResult(
             url="https://aplicacions.dipta.cat/bopt/web/anteriors/2026-08-10",
             status=200,
             content_type="text/html",
             body=b"<html></html>",
         )
+        mocked_fetch.side_effect = [calendar, results, results]
         source = {
             "id": "bopt",
             "name": "BOPT",
@@ -105,10 +113,22 @@ class CollectorTests(unittest.TestCase):
 
         collect_source(source, config, datetime.fromisoformat("2026-08-10T08:00:00+02:00"))
 
-        self.assertEqual(mocked_fetch.call_count, 2)
+        self.assertEqual(mocked_fetch.call_count, 3)
         requested_urls = [call.args[0] for call in mocked_fetch.call_args_list]
         self.assertTrue(any("q=Pradell" in url for url in requested_urls))
         self.assertTrue(any("q=Teixeta" in url for url in requested_urls))
+
+    def test_extracts_bopt_publication_dates_from_catalan_and_spanish_links(self) -> None:
+        body = (
+            b'<a href="/bopt/web/anteriors/2026-08-24">Avui</a>'
+            b'<a href="/bopt/web/anteriores/2026-08-21/2">Pagina 2</a>'
+            b'<time datetime="2026-08-20">Dijous</time>'
+        )
+
+        self.assertEqual(
+            extract_bopt_publication_dates(body),
+            {date(2026, 8, 24), date(2026, 8, 21), date(2026, 8, 20)},
+        )
 
     def test_extracts_only_allowed_links(self) -> None:
         body = b"""
