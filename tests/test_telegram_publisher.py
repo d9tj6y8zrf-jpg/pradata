@@ -142,7 +142,7 @@ class TelegramPublisherTests(unittest.TestCase):
             "https://t.me/pradellteixeta",
         )
 
-        expected = "https://pradell360.cat/#fitxa-pradata-bopt-123"
+        expected = "https://pradell360.cat/fitxa/pradata-bopt-123"
         self.assertEqual(entry_url(item, "https://pradell360.cat"), expected)
         self.assertEqual(preview, expected)
         self.assertIn(expected, message)
