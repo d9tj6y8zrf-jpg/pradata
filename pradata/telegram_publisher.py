@@ -7,7 +7,7 @@ import urllib.error
 import urllib.parse
 import urllib.request
 from dataclasses import dataclass
-from datetime import date, datetime, timezone
+from datetime import datetime, timezone
 from pathlib import Path
 from textwrap import shorten
 from typing import Any, Callable
@@ -15,8 +15,6 @@ from typing import Any, Callable
 
 MAX_TELEGRAM_TEXT = 4096
 SAFE_TELEGRAM_TEXT = 3900
-TELEGRAM_PUBLICATION_CUTOFF = date(2026, 8, 10)
-
 PRIORITY_ORDER = {
     "critica": 0,
     "alta": 1,
@@ -112,6 +110,14 @@ def eligible_records(
         raise ValueError("L'estat de Telegram no conté una data d'activació vàlida.")
 
     acknowledged = {clean_text(item) for item in state.get("acknowledged_ids", []) if clean_text(item)}
+    sent_record_ids = {
+        clean_text(record_id)
+        for sent_message in state.get("sent", [])
+        if isinstance(sent_message, dict)
+        for record_id in sent_message.get("record_ids", [])
+        if clean_text(record_id)
+    }
+    already_published = acknowledged | sent_record_ids
     candidates: list[dict[str, Any]] = []
     ignored_before_activation: list[str] = []
     rejected = 0
@@ -125,21 +131,11 @@ def eligible_records(
             rejected += 1
             continue
         record_id = clean_text(record["id"])
-        if record_id in acknowledged:
+        if record_id in already_published:
             continue
         detected_at = parse_datetime(record.get("detected_at"))
         if detected_at is None:
             rejected += 1
-            continue
-        try:
-            published_at = date.fromisoformat(
-                clean_text(record.get("published_at") or record.get("date"))[:10]
-            )
-        except ValueError:
-            rejected += 1
-            continue
-        if published_at <= TELEGRAM_PUBLICATION_CUTOFF:
-            ignored_before_activation.append(record_id)
             continue
         if detected_at < activation:
             ignored_before_activation.append(record_id)
