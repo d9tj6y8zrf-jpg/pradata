@@ -43,6 +43,18 @@ def fold_text(value: str) -> str:
     return "".join(ch for ch in normalized if not unicodedata.combining(ch)).lower()
 
 
+def extract_bopt_publication_dates(body: bytes) -> set[date]:
+    """Llegeix del calendari oficial quins dies tenen butlletí publicat."""
+    text = body.decode("utf-8", errors="replace")
+    link_matches = re.findall(
+        r"/bopt/web/(?:anteriors|anteriores)/(\d{4}-\d{2}-\d{2})(?:[/?\"'#]|$)",
+        text,
+        flags=re.IGNORECASE,
+    )
+    time_matches = re.findall(r'<time\s+[^>]*datetime=["\'](\d{4}-\d{2}-\d{2})["\']', text)
+    return {date.fromisoformat(value) for value in (*link_matches, *time_matches)}
+
+
 def matches_geographic_scope(
     text: str,
     keywords: Iterable[str],
@@ -729,8 +741,20 @@ def collect_source(
                 records.extend(extract_link_records(result.body, source, detected_at))
 
         elif kind == "bopt_recent":
+            published_dates: set[date] = set()
+            try:
+                calendar_source = dict(source)
+                calendar_source["url"] = source.get("calendar_url", source["url"])
+                calendar_result = fetch_source_page(calendar_source)
+                remember(calendar_result)
+                published_dates = extract_bopt_publication_dates(calendar_result.body)
+            except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError):
+                # Si el calendari no respon, mantenim la consulta diària existent.
+                pass
             for offset in range(int(source.get("days", 8))):
                 day = today - timedelta(days=offset)
+                if published_dates and day not in published_dates:
+                    continue
                 search_terms = source.get("search_terms", [""])
                 for search_term in search_terms:
                     url = source["url_template"].format(
