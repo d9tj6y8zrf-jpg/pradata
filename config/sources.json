@@ -91,6 +91,7 @@
       "name": "BOPT · Diputació de Tarragona",
       "kind": "bopt_recent",
       "url": "https://aplicacions.dipta.cat/bopt/",
+      "calendar_url": "https://aplicacions.dipta.cat/bopt/web/",
       "url_template": "https://aplicacions.dipta.cat/bopt/web/anteriors/{date}?bopb_dia%5BparaulaClau%5D={term}",
       "search_terms": [
         "Pradell",
