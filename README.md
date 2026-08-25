@@ -238,7 +238,7 @@ Prova local:
 
 ```text
 node --test tests/health-check.test.mjs
-node scripts/health-check.mjs
+node --use-system-ca scripts/health-check.mjs
 ```
 
 ## Llicència
