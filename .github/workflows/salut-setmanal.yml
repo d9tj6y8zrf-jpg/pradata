@@ -1,0 +1,55 @@
+name: Pradell360 · control setmanal de salut
+
+on:
+  schedule:
+    - cron: "30 8 * * 1"
+      timezone: "Europe/Madrid"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: "pradell360-salut-setmanal"
+  cancel-in-progress: true
+
+jobs:
+  comprova:
+    name: Revisa web, dades, fonts i enllaços
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Recupera PRADATA
+        uses: actions/checkout@v6
+      - name: Prepara Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+      - name: Prova el control de salut
+        run: node --test tests/health-check.test.mjs
+      - name: Executa l’auditoria pública
+        id: health
+        continue-on-error: true
+        run: node scripts/health-check.mjs
+      - name: Afegeix el resum a l’execució
+        if: always()
+        shell: bash
+        run: |
+          if [ -f health-report/health-report.md ]; then
+            cat health-report/health-report.md >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "L’auditoria no ha pogut generar l’informe." >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Desa l’informe tècnic
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pradell360-salut-${{ github.run_number }}
+          path: health-report
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Marca la incidència sense publicar ni notificar
+        if: steps.health.outcome == 'failure'
+        run: |
+          echo "El control ha detectat una incidència. Consulta l’informe adjunt."
+          exit 1
