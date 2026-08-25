@@ -30,7 +30,7 @@ jobs:
       - name: Executa l’auditoria pública
         id: health
         continue-on-error: true
-        run: node scripts/health-check.mjs
+        run: node --use-system-ca scripts/health-check.mjs
       - name: Afegeix el resum a l’execució
         if: always()
         shell: bash
