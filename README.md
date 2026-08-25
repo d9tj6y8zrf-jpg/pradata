@@ -219,6 +219,28 @@ El Bot API de Telegram, els executors estàndard d'un repositori públic i aques
 publicador amb biblioteca estàndard de Python no requereixen cap servei de
 pagament.
 
+## Control setmanal de salut de Pradell360
+
+El workflow `.github/workflows/salut-setmanal.yml` s’executa cada dilluns a
+les 08.30 h (Europe/Madrid) i també admet execució manual. Revisa, sense
+modificar ni publicar res, la portada, `robots.txt`, el sitemap, l’API de
+PRADATA, una fitxa, un dossier, la pàgina 404, la cobertura de les 13 fonts,
+l’estat antirepetició de Telegram i una mostra de fins a 40 enllaços oficials
+i interns.
+
+Cada execució incorpora el resum a GitHub Actions i conserva durant 30 dies
+els artefactes `health-report.json` i `health-report.md`. No conté cap pas de
+desplegament ni cap credencial o enviament a Telegram. Els bloquejos 403/429 o
+de xarxa consten com a no concloents; un enllaç 404/410, un error de servidor,
+dades obsoletes o una fallada estructural fan fallar el control.
+
+Prova local:
+
+```text
+node --test tests/health-check.test.mjs
+node scripts/health-check.mjs
+```
+
 ## Llicència
 
 El codi es distribueix amb llicència MIT. Els documents i les dades de les
