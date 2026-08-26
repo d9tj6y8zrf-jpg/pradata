@@ -1,9 +1,20 @@
 {
   "meta": {
-    "updated_at": "2026-08-25T09:32:31+02:00",
-    "event_count": 11
+    "updated_at": "2026-08-26T09:57:50+02:00",
+    "event_count": 12
   },
   "events": [
+    {
+      "id": "event-50c49135a23e0a1ee0e8",
+      "detected_at": "2026-08-26T09:57:50+02:00",
+      "type": "new",
+      "record_id": "bopt-1e4a02f5489c744c75",
+      "source_id": "bopt",
+      "source_name": "BOPT · Diputació de Tarragona",
+      "title": "Compte general de l'exercici 2025.",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://aplicacions.dipta.cat/bopt/web/anunci/363718/compte-general-de-l-exercici-2025-ajuntament-pradell-de-la-teixeta"
+    },
     {
       "id": "event-4a54cac8a32a88e602c3",
       "detected_at": "2026-08-21T20:11:22+02:00",
