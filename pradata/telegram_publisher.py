@@ -202,7 +202,10 @@ def plan_notifications(records: list[dict[str, Any]], max_messages: int) -> list
 
 def entry_url(record: dict[str, Any], base_url: str) -> str:
     record_id = urllib.parse.quote(clean_text(record["id"]), safe="-._~")
-    return f"{base_url.rstrip('/')}/fitxa/pradata-{record_id}"
+    return (
+        f"{base_url.rstrip('/')}/fitxa/pradata-{record_id}"
+        "?utm_source=telegram&utm_medium=channel&utm_campaign=pradata"
+    )
 
 
 def display_date(value: Any) -> str:
@@ -314,7 +317,9 @@ def wait_for_payload(
 
 
 def entry_page_ready(html: str, url: str) -> bool:
-    escaped_url = re.escape(url)
+    parsed = urllib.parse.urlsplit(url)
+    canonical_url = urllib.parse.urlunsplit((parsed.scheme, parsed.netloc, parsed.path, "", ""))
+    escaped_url = re.escape(canonical_url)
     has_canonical = bool(re.search(rf'<link[^>]+rel="canonical"[^>]+href="{escaped_url}"', html, re.IGNORECASE))
     has_image = bool(re.search(r'<meta[^>]+property="og:image"[^>]+content="https://pradell360\.cat/[^\"]+"', html, re.IGNORECASE))
     return has_canonical and has_image
@@ -325,8 +330,9 @@ def wait_for_entry_page(url: str, wait_seconds: int, poll_seconds: int) -> None:
     last_error = ""
     while True:
         try:
+            separator = "&" if "?" in url else "?"
             request = urllib.request.Request(
-                f"{url}?v={int(time.time())}",
+                f"{url}{separator}v={int(time.time())}",
                 headers={
                     "Cache-Control": "no-cache",
                     "User-Agent": "Mozilla/5.0 (compatible; PRADATA/1.0; +https://pradell360.cat/)",
