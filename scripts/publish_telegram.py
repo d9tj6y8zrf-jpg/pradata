@@ -15,6 +15,7 @@ from pradata.telegram_publisher import (  # noqa: E402
     publish_payload,
     read_json,
     send_telegram_message,
+    wait_for_entry_page,
     wait_for_payload,
 )
 
@@ -58,11 +59,19 @@ def main() -> int:
     def send(channel: str, text: str, preview_url: str) -> int:
         return send_telegram_message(token, channel, text, preview_url)
 
+    def verify_entry(url: str) -> None:
+        wait_for_entry_page(
+            url,
+            int(config.get("entry_wait_seconds", 300)),
+            int(config.get("entry_poll_seconds", 10)),
+        )
+
     result = publish_payload(
         payload,
         config,
         args.state,
         send,
+        verify_entry=verify_entry if not args.dry_run else None,
         dry_run=args.dry_run,
     )
     if not args.dry_run and args.pages_url.strip():
