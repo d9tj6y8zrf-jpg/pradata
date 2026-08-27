@@ -223,6 +223,10 @@ fitxa. Si la fitxa encara no està disponible, Telegram no publica res i
 l’execució queda marcada com a fallida per poder-la revisar sense difondre un
 enllaç incorrecte.
 
+Els avisos utilitzen una variant interna de la fitxa amb
+`utm_source=telegram`. Això manté el recorregut dins de Pradell360 i evita que
+Telegram reutilitzi una previsualització antiga sense imatge.
+
 El Bot API de Telegram, els executors estàndard d'un repositori públic i aquest
 publicador amb biblioteca estàndard de Python no requereixen cap servei de
 pagament.
