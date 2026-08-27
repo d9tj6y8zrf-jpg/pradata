@@ -1,0 +1,36 @@
+name: Repara un avís de Telegram
+
+on:
+  workflow_dispatch:
+    inputs:
+      message_id:
+        description: Identificador del missatge existent de Telegram
+        required: true
+        type: string
+      record_id:
+        description: Identificador verificat de PRADATA
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  repara:
+    name: Restaura l’enllaç, el text i la imatge de Pradell360
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Recupera PRADATA
+        uses: actions/checkout@v6
+      - name: Prepara Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Repara el missatge existent
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        run: >-
+          python scripts/repair_telegram_message.py
+          --message-id "${{ inputs.message_id }}"
+          --record-id "${{ inputs.record_id }}"
