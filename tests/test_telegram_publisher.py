@@ -7,6 +7,7 @@ from pathlib import Path
 
 from pradata.telegram_publisher import (
     eligible_records,
+    entry_page_ready,
     entry_url,
     plan_notifications,
     publish_payload,
@@ -150,6 +151,36 @@ class TelegramPublisherTests(unittest.TestCase):
         self.assertIn("Publicada: 13.08.2026 · Detectada: 13.08.2026", message)
         self.assertIn("Rep totes les novetats al canal de Telegram", message)
         self.assertEqual(message.count("https://t.me/pradellteixeta"), 1)
+
+    def test_entry_page_requires_its_canonical_url_and_social_image(self) -> None:
+        url = "https://pradell360.cat/fitxa/pradata-bopt-123"
+        html = (
+            f'<link rel="canonical" href="{url}"/>'
+            '<meta property="og:image" content="https://pradell360.cat/pradell360-compartir-v4.jpg"/>'
+        )
+        self.assertTrue(entry_page_ready(html, url))
+        self.assertFalse(entry_page_ready('<title>Error 404</title>', url))
+
+    def test_does_not_send_until_every_pradell360_entry_has_been_verified(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            state_path = Path(directory) / "state.json"
+            state_path.write_text(json.dumps(state()), encoding="utf-8")
+            checked: list[str] = []
+
+            def reject(url: str) -> None:
+                checked.append(url)
+                raise RuntimeError("fitxa no publicada")
+
+            with self.assertRaisesRegex(RuntimeError, "fitxa no publicada"):
+                publish_payload(
+                    {"meta": {"updated_at": "2026-08-13T15:01:00+02:00"}, "records": [record("new", "Nova")]},
+                    CONFIG,
+                    state_path,
+                    lambda *_args: self.fail("No pot enviar abans de verificar la fitxa"),
+                    verify_entry=reject,
+                )
+
+            self.assertEqual(checked, ["https://pradell360.cat/fitxa/pradata-new"])
 
     def test_digest_also_contains_one_subscription_link(self) -> None:
         notification = plan_notifications(
