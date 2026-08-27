@@ -317,7 +317,7 @@ def entry_page_ready(html: str, url: str) -> bool:
     escaped_url = re.escape(url)
     has_canonical = bool(re.search(rf'<link[^>]+rel="canonical"[^>]+href="{escaped_url}"', html, re.IGNORECASE))
     has_image = bool(re.search(r'<meta[^>]+property="og:image"[^>]+content="https://pradell360\.cat/[^\"]+"', html, re.IGNORECASE))
-    return has_canonical and has_image and "Aquesta adreça no correspon a cap fitxa publicada" not in html
+    return has_canonical and has_image
 
 
 def wait_for_entry_page(url: str, wait_seconds: int, poll_seconds: int) -> None:
@@ -327,7 +327,10 @@ def wait_for_entry_page(url: str, wait_seconds: int, poll_seconds: int) -> None:
         try:
             request = urllib.request.Request(
                 f"{url}?v={int(time.time())}",
-                headers={"Cache-Control": "no-cache", "User-Agent": "PRADATA-Telegram/1.0"},
+                headers={
+                    "Cache-Control": "no-cache",
+                    "User-Agent": "Mozilla/5.0 (compatible; PRADATA/1.0; +https://pradell360.cat/)",
+                },
             )
             with urllib.request.urlopen(request, timeout=30) as response:
                 html = response.read().decode("utf-8", errors="replace")
