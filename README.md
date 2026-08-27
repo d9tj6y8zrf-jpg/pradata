@@ -215,6 +215,14 @@ publicació de Pradell360 continuaran funcionant.
   `python -m unittest discover -s tests -v` i la simulació, que no envia res,
   amb `python scripts/publish_telegram.py --dry-run`.
 
+Abans d’enviar cada avís, el publicador exigeix que la fitxa corresponent de
+Pradell360 respongui HTTP 200, tingui la seva adreça canònica i publiqui una
+imatge social. El missatge, la previsualització i els enllaços compartits
+apunten sempre a Pradell360; la font oficial es consulta des de dins de la
+fitxa. Si la fitxa encara no està disponible, Telegram no publica res i
+l’execució queda marcada com a fallida per poder-la revisar sense difondre un
+enllaç incorrecte.
+
 El Bot API de Telegram, els executors estàndard d'un repositori públic i aquest
 publicador amb biblioteca estàndard de Python no requereixen cap servei de
 pagament.
