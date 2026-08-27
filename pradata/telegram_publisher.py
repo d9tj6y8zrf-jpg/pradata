@@ -313,6 +313,37 @@ def wait_for_payload(
         time.sleep(max(1, poll_seconds))
 
 
+def entry_page_ready(html: str, url: str) -> bool:
+    escaped_url = re.escape(url)
+    has_canonical = bool(re.search(rf'<link[^>]+rel="canonical"[^>]+href="{escaped_url}"', html, re.IGNORECASE))
+    has_image = bool(re.search(r'<meta[^>]+property="og:image"[^>]+content="https://pradell360\.cat/[^\"]+"', html, re.IGNORECASE))
+    return has_canonical and has_image and "Aquesta adreça no correspon a cap fitxa publicada" not in html
+
+
+def wait_for_entry_page(url: str, wait_seconds: int, poll_seconds: int) -> None:
+    deadline = time.monotonic() + max(0, wait_seconds)
+    last_error = ""
+    while True:
+        try:
+            request = urllib.request.Request(
+                f"{url}?v={int(time.time())}",
+                headers={"Cache-Control": "no-cache", "User-Agent": "PRADATA-Telegram/1.0"},
+            )
+            with urllib.request.urlopen(request, timeout=30) as response:
+                html = response.read().decode("utf-8", errors="replace")
+                if response.status == 200 and entry_page_ready(html, url):
+                    return
+                last_error = f"HTTP {response.status} o metadades incompletes"
+        except (OSError, UnicodeError) as error:
+            last_error = clean_text(error)
+        if time.monotonic() >= deadline:
+            raise RuntimeError(
+                "La fitxa de Pradell360 encara no és publicable i Telegram no enviarà l’avís: "
+                f"{url} ({last_error or 'sense resposta'})."
+            )
+        time.sleep(max(1, poll_seconds))
+
+
 def send_telegram_message(token: str, channel: str, text: str, preview_url: str) -> int:
     endpoint = f"https://api.telegram.org/bot{token}/sendMessage"
     body = json.dumps(
@@ -354,12 +385,47 @@ def send_telegram_message(token: str, channel: str, text: str, preview_url: str)
     return message_id
 
 
+def edit_telegram_message(token: str, channel: str, message_id: int, text: str, preview_url: str) -> int:
+    endpoint = f"https://api.telegram.org/bot{token}/editMessageText"
+    body = json.dumps(
+        {
+            "chat_id": channel,
+            "message_id": message_id,
+            "text": text,
+            "link_preview_options": {
+                "url": preview_url,
+                "prefer_large_media": True,
+                "show_above_text": True,
+            },
+        },
+        ensure_ascii=False,
+    ).encode("utf-8")
+    request = urllib.request.Request(endpoint, data=body, headers={"Content-Type": "application/json"}, method="POST")
+    try:
+        with urllib.request.urlopen(request, timeout=30) as response:
+            payload = json.load(response)
+    except urllib.error.HTTPError as error:
+        description = ""
+        try:
+            description = clean_text(json.loads(error.read().decode("utf-8")).get("description"))
+        except (UnicodeDecodeError, json.JSONDecodeError):
+            pass
+        raise RuntimeError(f"Telegram ha respost HTTP {error.code}: {description or 'error no detallat'}") from None
+    if not payload.get("ok") or not isinstance(payload.get("result"), dict):
+        raise RuntimeError("Telegram no ha confirmat l’edició del missatge.")
+    edited_id = payload["result"].get("message_id")
+    if edited_id != message_id:
+        raise RuntimeError("Telegram no ha retornat l’identificador esperat del missatge editat.")
+    return edited_id
+
+
 def publish_payload(
     payload: dict[str, Any],
     config: dict[str, Any],
     state_path: Path,
     send: Callable[[str, str, str], int],
     *,
+    verify_entry: Callable[[str], None] | None = None,
     dry_run: bool = False,
 ) -> dict[str, Any]:
     state = read_json(state_path)
@@ -404,6 +470,9 @@ def publish_payload(
 
     for notification in notifications:
         text, preview_url = render_notification(notification, base_url, channel_url)
+        if verify_entry is not None:
+            for record in notification.records:
+                verify_entry(entry_url(record, base_url))
         message_id = send(channel, text, preview_url)
         sent_at = iso_now()
         ids = [clean_text(record["id"]) for record in notification.records]
