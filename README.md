@@ -224,8 +224,9 @@ l’execució queda marcada com a fallida per poder-la revisar sense difondre un
 enllaç incorrecte.
 
 Els avisos utilitzen una variant interna de la fitxa amb
-`utm_source=telegram`. Això manté el recorregut dins de Pradell360 i evita que
-Telegram reutilitzi una previsualització antiga sense imatge.
+`utm_source=telegram` i `preview=2`. Això manté el recorregut dins de
+Pradell360 i evita que Telegram reutilitzi una previsualització antiga sense
+imatge. La web reflecteix aquesta variant a `og:url` i manté la canònica neta.
 
 El Bot API de Telegram, els executors estàndard d'un repositori públic i aquest
 publicador amb biblioteca estàndard de Python no requereixen cap servei de
