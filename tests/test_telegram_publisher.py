@@ -145,7 +145,7 @@ class TelegramPublisherTests(unittest.TestCase):
 
         expected = (
             "https://pradell360.cat/fitxa/pradata-bopt-123"
-            "?utm_source=telegram&utm_medium=channel&utm_campaign=pradata"
+            "?utm_source=telegram&utm_medium=channel&utm_campaign=pradata&preview=2"
         )
         self.assertEqual(entry_url(item, "https://pradell360.cat"), expected)
         self.assertEqual(preview, expected)
@@ -157,7 +157,7 @@ class TelegramPublisherTests(unittest.TestCase):
 
     def test_entry_page_requires_its_canonical_url_and_social_image(self) -> None:
         canonical = "https://pradell360.cat/fitxa/pradata-bopt-123"
-        url = f"{canonical}?utm_source=telegram&utm_medium=channel&utm_campaign=pradata"
+        url = f"{canonical}?utm_source=telegram&utm_medium=channel&utm_campaign=pradata&preview=2"
         html = (
             f'<link rel="canonical" href="{canonical}"/>'
             '<meta property="og:image" content="https://pradell360.cat/pradell360-compartir-v4.jpg"/>'
@@ -188,7 +188,7 @@ class TelegramPublisherTests(unittest.TestCase):
                 checked,
                 [
                     "https://pradell360.cat/fitxa/pradata-new"
-                    "?utm_source=telegram&utm_medium=channel&utm_campaign=pradata"
+                    "?utm_source=telegram&utm_medium=channel&utm_campaign=pradata&preview=2"
                 ],
             )
 
