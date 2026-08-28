@@ -204,7 +204,7 @@ def entry_url(record: dict[str, Any], base_url: str) -> str:
     record_id = urllib.parse.quote(clean_text(record["id"]), safe="-._~")
     return (
         f"{base_url.rstrip('/')}/fitxa/pradata-{record_id}"
-        "?utm_source=telegram&utm_medium=channel&utm_campaign=pradata"
+        "?utm_source=telegram&utm_medium=channel&utm_campaign=pradata&preview=2"
     )
 
 
@@ -360,6 +360,7 @@ def send_telegram_message(token: str, channel: str, text: str, preview_url: str)
             "chat_id": channel,
             "text": text,
             "link_preview_options": {
+                "is_disabled": False,
                 "url": preview_url,
                 "prefer_large_media": True,
                 "show_above_text": True,
@@ -402,6 +403,7 @@ def edit_telegram_message(token: str, channel: str, message_id: int, text: str, 
             "message_id": message_id,
             "text": text,
             "link_preview_options": {
+                "is_disabled": False,
                 "url": preview_url,
                 "prefer_large_media": True,
                 "show_above_text": True,
