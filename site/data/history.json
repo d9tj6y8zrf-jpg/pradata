@@ -1,9 +1,64 @@
 {
   "meta": {
-    "updated_at": "2026-08-26T09:57:50+02:00",
-    "event_count": 12
+    "updated_at": "2026-08-28T23:26:57+02:00",
+    "event_count": 17
   },
   "events": [
+    {
+      "id": "event-b3da70a894e1ec4fd367",
+      "detected_at": "2026-08-28T23:26:57+02:00",
+      "type": "source_changed",
+      "record_id": "",
+      "source_id": "cido",
+      "source_name": "CIDO · El meu municipi",
+      "title": "Canvi detectat a CIDO · El meu municipi",
+      "description": "La pàgina oficial ha canviat. El canvi tècnic no prova, per si sol, que hi hagi una decisió administrativa nova.",
+      "url": "https://cido.diba.cat/el-meu-municipi/43115/pradell-de-la-teixeta"
+    },
+    {
+      "id": "event-259ffc447b26e1f59b5f",
+      "detected_at": "2026-08-28T23:26:57+02:00",
+      "type": "new",
+      "record_id": "bopt-2f2a70569ffe929bcb",
+      "source_id": "bopt",
+      "source_name": "BOPT · Diputació de Tarragona",
+      "title": "Projecte de la nova piscina municipal. Aprovació definitiva.",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://aplicacions.dipta.cat/bopt/web/anunci/363726/projecte-de-la-nova-piscina-municipal-aprovacio-definitiva-ajuntament-pradell-de-la-teixeta"
+    },
+    {
+      "id": "event-a94b19733234447610d5",
+      "detected_at": "2026-08-28T23:26:57+02:00",
+      "type": "source_error",
+      "record_id": "",
+      "source_id": "aoc-actes-ple",
+      "source_name": "AOC · Actes del Ple",
+      "title": "No s'ha pogut consultar AOC · Actes del Ple",
+      "description": "La cobertura d'aquesta execució és incompleta. No s'interpreta com a absència de novetats.",
+      "url": "https://dadesobertes.seu-e.cat/api/action/datastore_search?resource_id=b5d370d0-7916-48b6-8a69-3c7fa62a1467&filters=%7B%22CODI_ENS%22%3A%224311530008%22%7D&limit=200"
+    },
+    {
+      "id": "event-7499579e649b896cb306",
+      "detected_at": "2026-08-28T23:26:57+02:00",
+      "type": "source_error",
+      "record_id": "",
+      "source_id": "aoc-pressupostos-plantilles",
+      "source_name": "AOC · Pressupostos i plantilles",
+      "title": "No s'ha pogut consultar AOC · Pressupostos i plantilles",
+      "description": "La cobertura d'aquesta execució és incompleta. No s'interpreta com a absència de novetats.",
+      "url": "https://dadesobertes.seu-e.cat/api/action/datastore_search?resource_id=572b66e6-a353-4973-b307-558ce10b59a4&filters=%7B%22CODI_ENS%22%3A%224311530008%22%7D&limit=200"
+    },
+    {
+      "id": "event-9d4b2b72971e39ece907",
+      "detected_at": "2026-08-28T23:26:57+02:00",
+      "type": "source_error",
+      "record_id": "",
+      "source_id": "aoc-convocatories-personal",
+      "source_name": "AOC · Convocatòries de personal",
+      "title": "No s'ha pogut consultar AOC · Convocatòries de personal",
+      "description": "La cobertura d'aquesta execució és incompleta. No s'interpreta com a absència de novetats.",
+      "url": "https://dadesobertes.seu-e.cat/api/action/datastore_search?resource_id=0e11c4f5-ce15-401f-b86f-f9d2604b94f6&filters=%7B%22CODI_ENS%22%3A%224311530008%22%7D&limit=200"
+    },
     {
       "id": "event-50c49135a23e0a1ee0e8",
       "detected_at": "2026-08-26T09:57:50+02:00",
