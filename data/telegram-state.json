@@ -2,9 +2,11 @@
   "version": 1,
   "activation_at": "2026-08-13T14:47:56+02:00",
   "bootstrap_source_updated_at": "2026-08-13T11:41:29+02:00",
-  "source_updated_at": "2026-08-26T09:57:50+02:00",
+  "source_updated_at": "2026-08-28T23:26:57+02:00",
   "acknowledged_ids": [
+    "aoc-pressupostos-plantilles-12830",
     "bopt-1e4a02f5489c744c75",
+    "bopt-2f2a70569ffe929bcb",
     "bopt-e2d93414fe432126ce",
     "cido-2ec0ad037a8ae92d15",
     "cido-3a75a6588a7c07734b",
@@ -47,11 +49,27 @@
         "bopt-1e4a02f5489c744c75"
       ],
       "theme": "pressupost"
+    },
+    {
+      "sent_at": "2026-08-28T21:28:49Z",
+      "message_id": 54,
+      "record_ids": [
+        "aoc-pressupostos-plantilles-12830"
+      ],
+      "theme": "pressupost"
+    },
+    {
+      "sent_at": "2026-08-28T21:28:58Z",
+      "message_id": 55,
+      "record_ids": [
+        "bopt-2f2a70569ffe929bcb"
+      ],
+      "theme": "piscina"
     }
   ],
-  "last_checked_at": "2026-08-26T08:01:27Z",
-  "last_success_at": "2026-08-26T08:01:27Z",
-  "last_sent_at": "2026-08-26T08:01:27Z",
+  "last_checked_at": "2026-08-28T21:28:58Z",
+  "last_success_at": "2026-08-28T21:28:58Z",
+  "last_sent_at": "2026-08-28T21:28:58Z",
   "pages_url": "https://d9tj6y8zrf-jpg.github.io/pradata/",
-  "pages_verified_at": "2026-08-26T08:01:27Z"
+  "pages_verified_at": "2026-08-28T21:28:58Z"
 }
