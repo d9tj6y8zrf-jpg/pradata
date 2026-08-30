@@ -1,70 +1,70 @@
 {
-  "updated_at": "2026-08-29T13:40:30+02:00",
+  "updated_at": "2026-08-30T12:29:41+02:00",
   "sources": {
     "web-municipal": {
       "fingerprint": "bed663ac1cf6fab2bf3697e241b99caf",
       "state": "ok",
-      "checked_at": "2026-08-29T13:40:30+02:00"
+      "checked_at": "2026-08-30T12:29:41+02:00"
     },
     "subvencions-municipals": {
       "fingerprint": "a733ce8549485f88b04098c9fa695172",
       "state": "ok",
-      "checked_at": "2026-08-29T13:40:30+02:00"
+      "checked_at": "2026-08-30T12:29:41+02:00"
     },
     "seu-transparencia": {
       "fingerprint": "7799c9b78e5821442c58406da809626d",
       "state": "ok",
-      "checked_at": "2026-08-29T13:40:30+02:00"
+      "checked_at": "2026-08-30T12:29:41+02:00"
     },
     "cido": {
       "fingerprint": "c1c8da504f36b1554dbf9efe6aa0f06d",
       "state": "ok",
-      "checked_at": "2026-08-29T13:40:30+02:00"
+      "checked_at": "2026-08-30T12:29:41+02:00"
     },
     "bopt": {
       "fingerprint": "595f181e8edec0ba49260c4e25e81477",
       "state": "ok",
-      "checked_at": "2026-08-29T13:40:30+02:00"
+      "checked_at": "2026-08-30T12:29:41+02:00"
     },
     "boe": {
-      "fingerprint": "5fd5c66807dc5fd3550be57a025119ec",
+      "fingerprint": "1ff98be4a59c3c65d595b02a9ab2b743",
       "state": "ok",
-      "checked_at": "2026-08-29T13:40:30+02:00"
+      "checked_at": "2026-08-30T12:29:41+02:00"
     },
     "contractacio": {
       "fingerprint": "a1231213062f8159d30dc26a4c0c252a",
       "state": "ok",
-      "checked_at": "2026-08-29T13:40:30+02:00"
+      "checked_at": "2026-08-30T12:29:41+02:00"
     },
     "aoc-actes-ple": {
-      "fingerprint": "a2e6ac820c0f7fae7d80242fc704dc9b",
+      "fingerprint": "819f9f0ebad7fb5704755611aa7cb3e3",
       "state": "ok",
-      "checked_at": "2026-08-29T13:40:30+02:00"
+      "checked_at": "2026-08-30T12:29:41+02:00"
     },
     "aoc-pressupostos-plantilles": {
       "fingerprint": "cd1fdf15cba13703191eae936b55615b",
       "state": "ok",
-      "checked_at": "2026-08-29T13:40:30+02:00"
+      "checked_at": "2026-08-30T12:29:41+02:00"
     },
     "aoc-convocatories-personal": {
       "fingerprint": "b5a04f53dbcfbaeff505d9f4664ba28b",
       "state": "ok",
-      "checked_at": "2026-08-29T13:40:30+02:00"
+      "checked_at": "2026-08-30T12:29:41+02:00"
     },
     "consell-priorat": {
       "fingerprint": "d18e28104a23ac9c51622a96f0fbb5d1",
       "state": "ok",
-      "checked_at": "2026-08-29T13:40:30+02:00"
+      "checked_at": "2026-08-30T12:29:41+02:00"
     },
     "idescat-municipi": {
       "fingerprint": "a89c4a46efa0bfd782dd9cd41257c7fd",
       "state": "ok",
-      "checked_at": "2026-08-29T13:40:30+02:00"
+      "checked_at": "2026-08-30T12:29:41+02:00"
     },
     "base-pradell": {
       "fingerprint": "8642a3a49dd5520ad3ba63f8acd474d6",
       "state": "ok",
-      "checked_at": "2026-08-29T13:40:30+02:00"
+      "checked_at": "2026-08-30T12:29:41+02:00"
     }
   }
 }
