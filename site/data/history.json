@@ -1,9 +1,20 @@
 {
   "meta": {
-    "updated_at": "2026-08-31T13:37:27+02:00",
-    "event_count": 19
+    "updated_at": "2026-09-01T12:09:37+02:00",
+    "event_count": 20
   },
   "events": [
+    {
+      "id": "event-4b8a92b7954fbb31e37a",
+      "detected_at": "2026-09-01T12:09:37+02:00",
+      "type": "new",
+      "record_id": "bopt-625885be56caaf848a",
+      "source_id": "bopt",
+      "source_name": "BOPT · Diputació de Tarragona",
+      "title": "Projecte d'expropiació per procediment de taxació conjunta del bé ubicat al pol. 14, parc. 141. Aprovació inicial.",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://aplicacions.dipta.cat/bopt/web/anunci/363802/projecte-d-expropiacio-per-procediment-de-taxacio-conjunta-del-be-ubicat-al-pol-14-parc-141-aprovacio-inicial-ajuntament-pradell-de-la-teixeta"
+    },
     {
       "id": "event-069f98607dd7a88409b2",
       "detected_at": "2026-08-31T13:37:27+02:00",
