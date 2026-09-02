@@ -2,7 +2,7 @@
   "version": 1,
   "activation_at": "2026-08-13T14:47:56+02:00",
   "bootstrap_source_updated_at": "2026-08-13T11:41:29+02:00",
-  "source_updated_at": "2026-09-01T12:09:37+02:00",
+  "source_updated_at": "2026-09-02T11:40:19+02:00",
   "acknowledged_ids": [
     "aoc-pressupostos-plantilles-12830",
     "bopt-1e4a02f5489c744c75",
@@ -76,9 +76,9 @@
       "theme": "record:bopt-625885be56caaf848a"
     }
   ],
-  "last_checked_at": "2026-09-01T10:11:35Z",
-  "last_success_at": "2026-09-01T10:11:35Z",
+  "last_checked_at": "2026-09-02T09:41:59Z",
+  "last_success_at": "2026-09-02T09:41:59Z",
   "last_sent_at": "2026-09-01T10:11:35Z",
   "pages_url": "https://d9tj6y8zrf-jpg.github.io/pradata/",
-  "pages_verified_at": "2026-09-01T10:11:35Z"
+  "pages_verified_at": "2026-09-02T09:41:59Z"
 }
