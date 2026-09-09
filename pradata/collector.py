@@ -753,9 +753,6 @@ def _borme_constitution_summary(company: str, detail: str) -> str:
         summary += ", amb domicili a Pradell de la Teixeta"
     if "explotacion avicola y agricola" in fold_text(detail):
         summary += ", activitat avícola i agrícola"
-    capital_match = re.search(r"Capital:\s*([\d.]+)(?:,00)?\s+Euros", detail, re.IGNORECASE)
-    if capital_match:
-        summary += f" i un capital social de {capital_match.group(1)} €"
     return summary + "."
 
 

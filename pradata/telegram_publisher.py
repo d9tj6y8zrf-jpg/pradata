@@ -204,7 +204,7 @@ def entry_url(record: dict[str, Any], base_url: str) -> str:
     record_id = urllib.parse.quote(clean_text(record["id"]), safe="-._~")
     return (
         f"{base_url.rstrip('/')}/fitxa/pradata-{record_id}"
-        "?utm_source=telegram&utm_medium=channel&utm_campaign=pradata&preview=2"
+        "?utm_source=telegram&utm_medium=channel&utm_campaign=pradata&preview=3"
     )
 
 
