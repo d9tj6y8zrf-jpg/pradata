@@ -13,6 +13,8 @@ from pradata.collector import (
     collect_source,
     coverage_counts,
     extract_boe_records,
+    extract_borme_province_item,
+    extract_borme_records,
     extract_bopt_publication_dates,
     extract_bopt_records,
     extract_aoc_datastore_records,
@@ -239,6 +241,50 @@ class CollectorTests(unittest.TestCase):
         )
         self.assertEqual(len(records), 1)
         self.assertEqual(records[0]["registry"], "BOE-B-2026-1")
+
+    def test_extracts_verified_borme_item_for_pradell(self) -> None:
+        summary = b"""<?xml version="1.0" encoding="utf-8"?>
+        <response><data><sumario><diario><seccion>
+          <item>
+            <identificador>BORME-A-2026-170-43</identificador>
+            <titulo>TARRAGONA</titulo>
+            <url_html>https://www.boe.es/diario_borme/txt.php?id=BORME-A-2026-170-43</url_html>
+            <url_xml>https://www.boe.es/diario_borme/xml.php?id=BORME-A-2026-170-43</url_xml>
+          </item>
+        </seccion></diario></sumario></data></response>"""
+        document = extract_borme_province_item(summary, "TARRAGONA")
+        self.assertIsNotNone(document)
+
+        province = """<?xml version="1.0" encoding="utf-8"?>
+        <document>
+          <p class="articulo">403340 - AGROPECUARIA LES BASSES, SOCIEDAD LIMITADA.</p>
+          <p class="parrafo">Constitución. Comienzo de operaciones: 4.08.26. Objeto social: Explotación avícola y agrícola.- Domicilio: C/ MAJOR, 7 1º (PRADELL DE LA TEIXETA). Capital: 577.877,00 Euros. Datos registrales. S 8, H T 66894, I/A 1.</p>
+          <p class="articulo">403341 - ALTRA EMPRESA, SOCIEDAD LIMITADA.</p>
+          <p class="parrafo">Domicilio: TARRAGONA. Capital: 3.000,00 Euros.</p>
+        </document>""".encode()
+        source = {
+            "id": "borme",
+            "name": "BORME · Registre Mercantil",
+            "url": "https://www.boe.es/datosabiertos/api/api.php",
+            "topic": "economia",
+        }
+        records = extract_borme_records(
+            province,
+            source,
+            document or {},
+            ["Pradell de la Teixeta", "Pradell"],
+            "2026-09-09T14:00:00+02:00",
+            date(2026, 9, 3),
+            date(2026, 9, 9),
+        )
+
+        self.assertEqual(len(records), 1)
+        self.assertEqual(records[0]["title"], "Agropecuaria Les Basses, SL: constitució")
+        self.assertEqual(records[0]["status"], "verificat")
+        self.assertEqual(records[0]["date"], "2026-09-03")
+        self.assertEqual(records[0]["registry"], "BORME-A-2026-170-43 · 403340")
+        self.assertIn("577.877 €", records[0]["summary"])
+        self.assertTrue(records[0]["recovered"])
 
     def test_extracts_recent_verified_aoc_record_for_the_official_entity(self) -> None:
         body = json.dumps(
