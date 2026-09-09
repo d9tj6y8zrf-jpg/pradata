@@ -713,6 +713,155 @@ def extract_aoc_datastore_records(
     return records
 
 
+def extract_borme_province_item(
+    body: bytes,
+    province: str,
+) -> dict[str, str] | None:
+    """Localitza el document provincial dins del sumari diari oficial del BORME."""
+    root = ET.fromstring(body)
+    expected = fold_text(province)
+    for element in root.iter():
+        if _local_name(element.tag) != "item":
+            continue
+        title = _descendant_text(element, {"titulo", "titol", "title"})
+        if fold_text(title) != expected:
+            continue
+        return {
+            "identifier": _descendant_text(element, {"identificador", "id"}),
+            "url_html": _descendant_text(element, {"url_html", "urlhtml"}),
+            "url_xml": _descendant_text(element, {"url_xml", "urlxml"}),
+        }
+    return None
+
+
+def _format_borme_company(value: str) -> str:
+    company = compact_text(value).rstrip(".").title()
+    replacements = (
+        (r",?\s+Sociedad Limitada Profesional$", ", SLP"),
+        (r",?\s+Sociedad Limitada$", ", SL"),
+        (r",?\s+Sociedad Anonima$", ", SA"),
+    )
+    for pattern, replacement in replacements:
+        company = re.sub(pattern, replacement, company, flags=re.IGNORECASE)
+    return company
+
+
+def _borme_constitution_summary(company: str, detail: str) -> str:
+    article = "d’" if fold_text(company)[:1] in {"a", "e", "i", "o", "u", "h"} else "de "
+    summary = f"El BORME registra la constitució {article}{company}"
+    if "pradell de la teixeta" in fold_text(detail):
+        summary += ", amb domicili a Pradell de la Teixeta"
+    if "explotacion avicola y agricola" in fold_text(detail):
+        summary += ", activitat avícola i agrícola"
+    capital_match = re.search(r"Capital:\s*([\d.]+)(?:,00)?\s+Euros", detail, re.IGNORECASE)
+    if capital_match:
+        summary += f" i un capital social de {capital_match.group(1)} €"
+    return summary + "."
+
+
+def extract_borme_records(
+    body: bytes,
+    source: dict[str, Any],
+    document: dict[str, str],
+    keywords: Iterable[str],
+    detected_at: str,
+    publication_day: date,
+    today: date,
+    related_keywords: Iterable[str] = (),
+    related_context_keywords: Iterable[str] = (),
+    excluded_phrases: Iterable[str] = (),
+) -> list[dict[str, Any]]:
+    """Extreu actes registrals verificats del document provincial del BORME."""
+    root = ET.fromstring(body)
+    paragraphs: list[tuple[str, str]] = []
+    for element in root.iter():
+        if _local_name(element.tag) != "p":
+            continue
+        css_class = fold_text(element.attrib.get("class", ""))
+        if css_class not in {"articulo", "parrafo"}:
+            continue
+        paragraphs.append((css_class, compact_text(" ".join(element.itertext()))))
+
+    records: list[dict[str, Any]] = []
+    pending_article = ""
+    for css_class, text in paragraphs:
+        if css_class == "articulo":
+            pending_article = text
+            continue
+        if not pending_article:
+            continue
+        article = pending_article
+        pending_article = ""
+        full_text = compact_text(f"{article} {text}")
+        if not matches_geographic_scope(
+            full_text,
+            keywords,
+            related_keywords,
+            related_context_keywords,
+            excluded_phrases,
+        ):
+            continue
+
+        article_match = re.match(r"(?P<entry>\d+)\s*-\s*(?P<company>.+)", article)
+        entry = article_match.group("entry") if article_match else ""
+        company = _format_borme_company(
+            article_match.group("company") if article_match else article
+        )
+        is_constitution = fold_text(text).startswith("constitucion.")
+        title = (
+            f"{company}: constitució"
+            if is_constitution
+            else f"Acte registral de {company}"
+        )
+        summary = (
+            _borme_constitution_summary(company, text)
+            if is_constitution
+            else (
+                f"El BORME publica un acte registral de {company} relacionat amb "
+                "Pradell de la Teixeta. Consulteu la font oficial per veure'n el detall."
+            )
+        )
+        url = document.get("url_html") or source["url"]
+        identifier = document.get("identifier", "")
+        registry = " · ".join(value for value in (identifier, entry) if value)
+        date_value = publication_day.isoformat()
+        records.append(
+            {
+                "id": stable_record_id(source["id"], url, title),
+                "title": title,
+                "date": date_value,
+                "published_at": date_value,
+                "detected_at": detected_at,
+                "last_seen_at": detected_at,
+                "source_id": source["id"],
+                "source_name": source["name"],
+                "source_url": source["url"],
+                "url": url,
+                "summary": summary,
+                "topic": source.get("topic", "economia"),
+                "priority": "informativa",
+                "status": "verificat",
+                "registry": registry,
+                "recovered": publication_day < today,
+                "verification_method": "structured_official_dataset",
+                "verified_at": detected_at,
+                "verification": {
+                    "method": "structured_official_dataset",
+                    "verified_at": detected_at,
+                    "source_kind": "borme_daily",
+                    "checks": [
+                        "official_api",
+                        "official_xml",
+                        "municipality",
+                        "publication_date",
+                        "https_url",
+                    ],
+                },
+            }
+        )
+    return records
+
+
 def collect_source(
     source: dict[str, Any],
     config: dict[str, Any],
@@ -815,6 +964,55 @@ def collect_source(
                         config["keywords"],
                         detected_at,
                         day.isoformat(),
+                        config.get("related_keywords", ()),
+                        config.get("related_context_keywords", ()),
+                        config.get("excluded_phrases", ()),
+                    )
+                )
+        elif kind == "borme_daily":
+            province = source.get("province", "TARRAGONA")
+            for offset in range(int(source.get("days", 8))):
+                day = today - timedelta(days=offset)
+                url = source["url_template"].format(
+                    date=day.isoformat(), date_compact=day.strftime("%Y%m%d")
+                )
+                try:
+                    summary_result = fetch(url, accept="application/xml")
+                except urllib.error.HTTPError as error:
+                    if error.code in {400, 404}:
+                        continue
+                    messages.append(
+                        f"Una data del BORME no s'ha pogut llegir (HTTP {error.code})."
+                    )
+                    continue
+                except (urllib.error.URLError, TimeoutError):
+                    messages.append("Una data del BORME no s'ha pogut llegir.")
+                    continue
+                remember(summary_result)
+                document = extract_borme_province_item(summary_result.body, province)
+                if not document or not document.get("url_xml"):
+                    continue
+                try:
+                    province_result = fetch(document["url_xml"], accept="application/xml")
+                except urllib.error.HTTPError as error:
+                    messages.append(
+                        "El document provincial del BORME no s'ha pogut llegir "
+                        f"(HTTP {error.code})."
+                    )
+                    continue
+                except (urllib.error.URLError, TimeoutError):
+                    messages.append("El document provincial del BORME no s'ha pogut llegir.")
+                    continue
+                remember(province_result)
+                records.extend(
+                    extract_borme_records(
+                        province_result.body,
+                        source,
+                        document,
+                        config["keywords"],
+                        detected_at,
+                        day,
+                        today,
                         config.get("related_keywords", ()),
                         config.get("related_context_keywords", ()),
                         config.get("excluded_phrases", ()),
