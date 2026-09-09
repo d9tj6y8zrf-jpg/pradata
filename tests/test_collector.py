@@ -283,7 +283,9 @@ class CollectorTests(unittest.TestCase):
         self.assertEqual(records[0]["status"], "verificat")
         self.assertEqual(records[0]["date"], "2026-09-03")
         self.assertEqual(records[0]["registry"], "BORME-A-2026-170-43 · 403340")
-        self.assertIn("577.877 €", records[0]["summary"])
+        self.assertIn("activitat avícola i agrícola", records[0]["summary"])
+        self.assertNotIn("577.877", records[0]["summary"])
+        self.assertNotIn("capital social", records[0]["summary"])
         self.assertTrue(records[0]["recovered"])
 
     def test_extracts_recent_verified_aoc_record_for_the_official_entity(self) -> None:
