@@ -79,6 +79,7 @@ un historial visible a GitHub.
 - seu electrònica i transparència;
 - BOPT;
 - BOE mitjançant la seva API oficial de dades obertes;
+- BORME, actes registrals mercantils de la província de Tarragona;
 - CIDO, fitxa del municipi;
 - perfil del contractant;
 - Consell Comarcal del Priorat, cerca específica de Pradell;
