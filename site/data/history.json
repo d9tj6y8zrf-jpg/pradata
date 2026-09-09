@@ -1,9 +1,20 @@
 {
   "meta": {
-    "updated_at": "2026-09-09T21:32:15+02:00",
-    "event_count": 21
+    "updated_at": "2026-09-09T21:41:57+02:00",
+    "event_count": 22
   },
   "events": [
+    {
+      "id": "event-fb909f5202a2d315d097",
+      "detected_at": "2026-09-09T21:41:57+02:00",
+      "type": "updated",
+      "record_id": "borme-2c0fb5fb67d3b27b5b",
+      "source_id": "borme",
+      "source_name": "BORME · Registre Mercantil",
+      "title": "Agropecuaria Les Basses, SL: constitució",
+      "description": "Ha canviat una referència ja coneguda.",
+      "url": "https://www.boe.es/diario_borme/txt.php?id=BORME-A-2026-170-43"
+    },
     {
       "id": "event-677dcc84b21ddb6d17d2",
       "detected_at": "2026-09-09T21:32:15+02:00",
