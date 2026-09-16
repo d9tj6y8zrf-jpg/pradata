@@ -1,9 +1,20 @@
 {
   "meta": {
-    "updated_at": "2026-09-15T19:46:52+02:00",
-    "event_count": 22
+    "updated_at": "2026-09-16T11:58:49+02:00",
+    "event_count": 23
   },
   "events": [
+    {
+      "id": "event-ca03cfd632f64a1f6f6d",
+      "detected_at": "2026-09-16T11:58:49+02:00",
+      "type": "source_error",
+      "record_id": "",
+      "source_id": "idescat-municipi",
+      "source_name": "Idescat · dades oficials del municipi",
+      "title": "No s'ha pogut consultar Idescat · dades oficials del municipi",
+      "description": "La cobertura d'aquesta execució és incompleta. No s'interpreta com a absència de novetats.",
+      "url": "https://www.idescat.cat/codis/?c=431153&id=50&n=9"
+    },
     {
       "id": "event-fb909f5202a2d315d097",
       "detected_at": "2026-09-09T21:41:57+02:00",
