@@ -273,6 +273,24 @@ h1 {
   color: #755929;
 }
 
+.source-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem 1rem;
+  margin-top: 1rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--card);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.source-legend strong {
+  color: var(--ink);
+}
+
 .section {
   padding: clamp(4rem, 8vw, 7rem) 0;
   border-bottom: 1px solid var(--line);
@@ -440,6 +458,17 @@ select:focus {
 
 .record-card > p {
   color: var(--muted);
+}
+
+.record-card .related-sources {
+  margin-bottom: 1rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.related-sources a {
+  color: var(--green);
+  font-weight: 700;
 }
 
 .record-footer {

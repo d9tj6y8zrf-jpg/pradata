@@ -125,6 +125,11 @@ function renderRecords() {
       const priorityLabel = labels.priorities[priority] || priority;
       const statusLabel =
         record.status === "verificat" ? "Verificat amb font" : "Detecció automàtica";
+      const relatedSources = Array.isArray(record.related_sources)
+        ? record.related_sources.filter((source) => source?.url && source?.label)
+        : [];
+      const sourceLinkLabel = record.source_label || "Font original";
+      const sourceLinkUrl = record.primary_source_url || record.url;
       return `
         <article class="record-card">
           <div class="record-meta">
@@ -134,14 +139,15 @@ function renderRecords() {
           </div>
           <h3>${escapeHtml(record.title)}</h3>
           <p>${escapeHtml(record.summary || "Consulteu la font original.")}</p>
+          ${relatedSources.length ? `<p class="related-sources">${relatedSources.map((source) => `<a href="${safeUrl(source.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(source.label)} ↗</a>`).join(" · ")}</p>` : ""}
           <div class="record-footer">
             <div class="record-source">
               <strong>${escapeHtml(record.source_name)}</strong>
               <span>${escapeHtml(record.date ? formatDate(record.date) : `Detectat ${formatDate(record.detected_at)}`)}</span>
               ${record.registry ? `<span> · ${escapeHtml(record.registry)}</span>` : ""}
             </div>
-            <a href="${safeUrl(record.url)}" target="_blank" rel="noopener noreferrer">
-              Font oficial <span aria-hidden="true">↗</span>
+            <a href="${safeUrl(sourceLinkUrl)}" target="_blank" rel="noopener noreferrer">
+              ${escapeHtml(sourceLinkLabel)} <span aria-hidden="true">↗</span>
             </a>
           </div>
         </article>
