@@ -1,9 +1,20 @@
 {
   "meta": {
-    "updated_at": "2026-09-19T11:33:42+02:00",
-    "event_count": 23
+    "updated_at": "2026-09-19T13:07:34+02:00",
+    "event_count": 24
   },
   "events": [
+    {
+      "id": "event-manual-trucafort-naturgy-2026-09-19",
+      "detected_at": "2026-09-19T12:00:00+02:00",
+      "type": "new",
+      "record_id": "manual-trucafort-naturgy-2026-09-14",
+      "source_id": "naturgy",
+      "source_name": "Naturgy · 🟡 font primària no pública",
+      "title": "Naturgy anuncia la repotenciació de Trucafort com a continuació d'un expedient existent",
+      "description": "Novetat contrastada amb l'anunci de Naturgy i la documentació pública oficial BOE-B-2025-39526.",
+      "url": "https://www.naturgy.com/notas-de-prensa/naturgy-invertira-330-millones-de-euros-en-la-transformacion-tecnologica-de-seis-parques-eolicos/"
+    },
     {
       "id": "event-ca03cfd632f64a1f6f6d",
       "detected_at": "2026-09-16T11:58:49+02:00",
