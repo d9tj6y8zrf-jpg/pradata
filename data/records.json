@@ -8,6 +8,44 @@
   },
   "records": [
     {
+      "id": "manual-trucafort-naturgy-2026-09-14",
+      "title": "Naturgy anuncia la repotenciació de Trucafort com a continuació d'un expedient existent",
+      "date": "2026-09-14",
+      "published_at": "2026-09-14",
+      "detected_at": "2026-09-19T12:00:00+02:00",
+      "last_seen_at": "2026-09-19T12:00:00+02:00",
+      "source_id": "naturgy",
+      "source_name": "Naturgy · 🟡 font primària no pública",
+      "source_label": "🟡 Font primària no pública",
+      "source_url": "https://www.naturgy.com/notas-de-prensa/naturgy-invertira-330-millones-de-euros-en-la-transformacion-tecnologica-de-seis-parques-eolicos/",
+      "primary_source_url": "https://www.naturgy.com/notas-de-prensa/naturgy-invertira-330-millones-de-euros-en-la-transformacion-tecnologica-de-seis-parques-eolicos/",
+      "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-B-2025-39526",
+      "related_sources": [
+        {
+          "label": "🟢 BOE-B-2025-39526 · font pública oficial",
+          "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-B-2025-39526"
+        }
+      ],
+      "summary": "Naturgy situa Trucafort entre sis parcs que preveu repotenciar. És una novetat sobre un projecte i expedient ja existents, no un projecte nou.",
+      "topic": "territori",
+      "priority": "alta",
+      "status": "verificat",
+      "registry": "FUE-2021-02170724 · BOE-B-2025-39526",
+      "verification_method": "manual_primary_source_with_official_context",
+      "verified_at": "2026-09-19T12:00:00+02:00",
+      "verification": {
+        "method": "manual_primary_source_with_official_context",
+        "verified_at": "2026-09-19T12:00:00+02:00",
+        "checks": [
+          "primary_source",
+          "related_official_notice",
+          "project_expedient_match",
+          "publication_date",
+          "https_url"
+        ]
+      }
+    },
+    {
       "id": "borme-2c0fb5fb67d3b27b5b",
       "title": "Agropecuaria Les Basses, SL: constitució",
       "date": "2026-09-03",
