@@ -2,7 +2,7 @@
   "version": 1,
   "activation_at": "2026-08-13T14:47:56+02:00",
   "bootstrap_source_updated_at": "2026-08-13T11:41:29+02:00",
-  "source_updated_at": "2026-09-20T11:50:44+02:00",
+  "source_updated_at": "2026-09-21T12:46:09+02:00",
   "acknowledged_ids": [
     "aoc-pressupostos-plantilles-12830",
     "bopt-1e4a02f5489c744c75",
@@ -94,9 +94,9 @@
       "theme": "record:manual-trucafort-naturgy-2026-09-14"
     }
   ],
-  "last_checked_at": "2026-09-20T09:52:25Z",
-  "last_success_at": "2026-09-20T09:52:25Z",
+  "last_checked_at": "2026-09-21T10:48:17Z",
+  "last_success_at": "2026-09-21T10:48:17Z",
   "last_sent_at": "2026-09-19T16:32:52Z",
   "pages_url": "https://d9tj6y8zrf-jpg.github.io/pradata/",
-  "pages_verified_at": "2026-09-20T09:52:25Z"
+  "pages_verified_at": "2026-09-21T10:48:17Z"
 }
