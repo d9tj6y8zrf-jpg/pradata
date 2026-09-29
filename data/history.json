@@ -1,9 +1,20 @@
 {
   "meta": {
-    "updated_at": "2026-09-28T13:43:18+02:00",
-    "event_count": 24
+    "updated_at": "2026-09-29T12:00:00+02:00",
+    "event_count": 25
   },
   "events": [
+    {
+      "id": "event-dogc-pre-3390-2026-femr-pradell",
+      "detected_at": "2026-09-29T12:00:00+02:00",
+      "type": "new",
+      "record_id": "dogc-pre-3390-2026-femr-pradell",
+      "source_id": "dogc",
+      "source_name": "DOGC · Generalitat de Catalunya",
+      "title": "Pradell de la Teixeta: import definitiu de 12.099,80 € del Fons Específic per a Municipis Rurals 2026",
+      "description": "Resolució PRE/3390/2026 verificada directament al DOGC: 12.099,80 € d'import definitiu i 284,06 € de complement.",
+      "url": "https://dogc.gencat.cat/ca/document-del-dogc/?documentId=1055099"
+    },
     {
       "id": "event-manual-trucafort-naturgy-2026-09-19",
       "detected_at": "2026-09-19T12:00:00+02:00",

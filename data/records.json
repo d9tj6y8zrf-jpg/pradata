@@ -2,11 +2,45 @@
   "meta": {
     "project": "PRADATA",
     "municipality": "Pradell de la Teixeta",
-    "updated_at": "2026-09-28T13:43:18+02:00",
-    "record_count": 31,
+    "updated_at": "2026-09-29T12:00:00+02:00",
+    "record_count": 32,
     "notice": "Inventari automatitzat i no exhaustiu. Cada dada s'ha de comprovar a la font oficial enllaçada."
   },
   "records": [
+    {
+      "id": "dogc-pre-3390-2026-femr-pradell",
+      "title": "Pradell de la Teixeta: import definitiu de 12.099,80 € del Fons Específic per a Municipis Rurals 2026",
+      "date": "2026-09-25",
+      "published_at": "2026-09-25",
+      "detected_at": "2026-09-29T12:00:00+02:00",
+      "last_seen_at": "2026-09-29T12:00:00+02:00",
+      "source_id": "dogc",
+      "source_name": "DOGC · Generalitat de Catalunya",
+      "source_label": "🟢 DOGC · font pública oficial",
+      "source_url": "https://dogc.gencat.cat/ca/document-del-dogc/?documentId=1055099",
+      "url": "https://dogc.gencat.cat/ca/document-del-dogc/?documentId=1055099",
+      "summary": "La Resolució PRE/3390/2026 fixa per a Pradell de la Teixeta un import definitiu de 12.099,80 € del Fons Específic per a Municipis Rurals 2026, amb un complement de 284,06 € sobre l'assignació inicial.",
+      "topic": "pressupost",
+      "priority": "alta",
+      "status": "verificat",
+      "registry": "CVE-DOGC-A-26266006-2026 · DOGC 9758",
+      "verification_method": "manual_official_dogc_document",
+      "verified_at": "2026-09-29T12:00:00+02:00",
+      "verification": {
+        "method": "manual_official_dogc_document",
+        "verified_at": "2026-09-29T12:00:00+02:00",
+        "source_kind": "dogc",
+        "checks": [
+          "official_document",
+          "cve",
+          "municipality",
+          "publication_date",
+          "annex_amount",
+          "https_url"
+        ],
+        "note": "Annex comprovat directament al document autèntic i íntegre del DOGC."
+      }
+    },
     {
       "id": "manual-trucafort-naturgy-2026-09-14",
       "title": "Naturgy anuncia la repotenciació de Trucafort com a continuació d'un expedient existent",
