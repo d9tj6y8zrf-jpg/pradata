@@ -1,9 +1,75 @@
 {
   "meta": {
-    "updated_at": "2026-09-28T13:43:18+02:00",
-    "event_count": 24
+    "updated_at": "2026-09-29T13:23:11+02:00",
+    "event_count": 30
   },
   "events": [
+    {
+      "id": "event-587167aefdfb129c86db",
+      "detected_at": "2026-09-29T13:23:11+02:00",
+      "type": "source_changed",
+      "record_id": "",
+      "source_id": "web-municipal",
+      "source_name": "Web municipal",
+      "title": "Canvi detectat a Web municipal",
+      "description": "La pàgina oficial ha canviat. El canvi tècnic no prova, per si sol, que hi hagi una decisió administrativa nova.",
+      "url": "https://www.pradelldelateixeta.cat/ca"
+    },
+    {
+      "id": "event-983b7c7d3c7572795d14",
+      "detected_at": "2026-09-29T13:23:11+02:00",
+      "type": "new",
+      "record_id": "web-municipal-b9b9dc74050e3b4e68",
+      "source_id": "web-municipal",
+      "source_name": "Web municipal",
+      "title": "Notícies",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://www.pradelldelateixeta.cat/ca/noticies/noticies"
+    },
+    {
+      "id": "event-0ae797c8a750c064044b",
+      "detected_at": "2026-09-29T13:23:11+02:00",
+      "type": "new",
+      "record_id": "web-municipal-57af4398268b286b66",
+      "source_id": "web-municipal",
+      "source_name": "Web municipal",
+      "title": "Menú sopar Tots Sants 2019",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://www.pradelldelateixeta.cat/ca/noticies/menu-sopar-sants-2019"
+    },
+    {
+      "id": "event-61fb60f2e17789cf9ddd",
+      "detected_at": "2026-09-29T13:23:11+02:00",
+      "type": "source_changed",
+      "record_id": "",
+      "source_id": "subvencions-municipals",
+      "source_name": "Subvencions publicades per l'Ajuntament",
+      "title": "Canvi detectat a Subvencions publicades per l'Ajuntament",
+      "description": "La pàgina oficial ha canviat. El canvi tècnic no prova, per si sol, que hi hagi una decisió administrativa nova.",
+      "url": "https://www.pradelldelateixeta.cat/ca/ajuntament/subvencions-rebudes"
+    },
+    {
+      "id": "event-42563f9f70d86d4be8c2",
+      "detected_at": "2026-09-29T13:23:11+02:00",
+      "type": "source_changed",
+      "record_id": "",
+      "source_id": "consell-priorat",
+      "source_name": "Consell Comarcal del Priorat · cerca Pradell",
+      "title": "Canvi detectat a Consell Comarcal del Priorat · cerca Pradell",
+      "description": "La pàgina oficial ha canviat. El canvi tècnic no prova, per si sol, que hi hagi una decisió administrativa nova.",
+      "url": "https://www.priorat.cat/search/node?keys=Pradell"
+    },
+    {
+      "id": "event-dogc-pre-3390-2026-femr-pradell",
+      "detected_at": "2026-09-29T12:00:00+02:00",
+      "type": "new",
+      "record_id": "dogc-pre-3390-2026-femr-pradell",
+      "source_id": "dogc",
+      "source_name": "DOGC · Generalitat de Catalunya",
+      "title": "Pradell de la Teixeta: import definitiu de 12.099,80 € del Fons Específic per a Municipis Rurals 2026",
+      "description": "Resolució PRE/3390/2026 verificada directament al DOGC: 12.099,80 € d'import definitiu i 284,06 € de complement.",
+      "url": "https://dogc.gencat.cat/ca/document-del-dogc/?documentId=1055099"
+    },
     {
       "id": "event-manual-trucafort-naturgy-2026-09-19",
       "detected_at": "2026-09-19T12:00:00+02:00",
