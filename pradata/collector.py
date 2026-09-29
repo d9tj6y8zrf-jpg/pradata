@@ -388,6 +388,7 @@ GENERIC_LINK_LABELS = {
     "llegir mes",
     "veure més",
     "veure mes",
+    "noticies",
     "inici",
     "contacte",
     "guardar",

@@ -3,26 +3,10 @@
     "project": "PRADATA",
     "municipality": "Pradell de la Teixeta",
     "updated_at": "2026-09-29T13:23:11+02:00",
-    "record_count": 34,
+    "record_count": 33,
     "notice": "Inventari automatitzat i no exhaustiu. Cada dada s'ha de comprovar a la font oficial enllaçada."
   },
   "records": [
-    {
-      "id": "web-municipal-b9b9dc74050e3b4e68",
-      "title": "Notícies",
-      "date": "",
-      "detected_at": "2026-09-29T13:23:11+02:00",
-      "last_seen_at": "2026-09-29T13:23:11+02:00",
-      "source_id": "web-municipal",
-      "source_name": "Web municipal",
-      "source_url": "https://www.pradelldelateixeta.cat/ca",
-      "url": "https://www.pradelldelateixeta.cat/ca/noticies/noticies",
-      "summary": "Enllaç detectat a la font pública. Consulteu l'original per confirmar-ne el contingut i la data.",
-      "topic": "municipi",
-      "priority": "informativa",
-      "status": "deteccio_automatica",
-      "registry": ""
-    },
     {
       "id": "web-municipal-57af4398268b286b66",
       "title": "Menú sopar Tots Sants 2019",

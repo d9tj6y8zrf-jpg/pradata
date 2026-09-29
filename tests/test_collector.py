@@ -150,6 +150,17 @@ class CollectorTests(unittest.TestCase):
         self.assertEqual(len(records), 1)
         self.assertIn("Nova publicació", records[0]["title"])
 
+    def test_ignores_generic_news_index_link(self) -> None:
+        body = b'<a href="/ca/noticies/noticies">Not\xc3\xadcies</a>'
+        source = {
+            "id": "web",
+            "name": "Web",
+            "url": "https://example.test/ca",
+            "topic": "municipi",
+            "path_prefixes": ["/ca/noticies/"],
+        }
+        self.assertEqual(extract_link_records(body, source, "2026-09-29T08:00:00+02:00"), [])
+
     @patch("pradata.collector.time.sleep", return_value=None)
     @patch("pradata.collector.fetch")
     def test_source_page_retries_after_temporary_error(self, mocked_fetch, _sleep) -> None:
