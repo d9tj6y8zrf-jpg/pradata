@@ -2,7 +2,7 @@
   "version": 1,
   "activation_at": "2026-08-13T14:47:56+02:00",
   "bootstrap_source_updated_at": "2026-08-13T11:41:29+02:00",
-  "source_updated_at": "2026-09-28T13:43:18+02:00",
+  "source_updated_at": "2026-09-30T13:11:14+02:00",
   "acknowledged_ids": [
     "aoc-pressupostos-plantilles-12830",
     "bopt-1e4a02f5489c744c75",
@@ -25,6 +25,7 @@
     "consell-priorat-bdae0d21692714b7ee",
     "consell-priorat-f054ea849f204452c5",
     "dipta-impulsdipta-2026-0005675-pradell",
+    "dogc-pre-3390-2026-femr-pradell",
     "manual-trucafort-naturgy-2026-09-14",
     "seed-basses-2026-00988",
     "seed-piscina-2026-04133",
@@ -92,11 +93,19 @@
         "manual-trucafort-naturgy-2026-09-14"
       ],
       "theme": "record:manual-trucafort-naturgy-2026-09-14"
+    },
+    {
+      "sent_at": "2026-09-30T11:13:42Z",
+      "message_id": 67,
+      "record_ids": [
+        "dogc-pre-3390-2026-femr-pradell"
+      ],
+      "theme": "pressupost"
     }
   ],
-  "last_checked_at": "2026-09-28T11:45:08Z",
-  "last_success_at": "2026-09-28T11:45:08Z",
-  "last_sent_at": "2026-09-19T16:32:52Z",
+  "last_checked_at": "2026-09-30T11:13:42Z",
+  "last_success_at": "2026-09-30T11:13:42Z",
+  "last_sent_at": "2026-09-30T11:13:42Z",
   "pages_url": "https://d9tj6y8zrf-jpg.github.io/pradata/",
-  "pages_verified_at": "2026-09-28T11:45:08Z"
+  "pages_verified_at": "2026-09-30T11:13:42Z"
 }
