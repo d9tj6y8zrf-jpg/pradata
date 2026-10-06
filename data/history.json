@@ -1,9 +1,20 @@
 {
   "meta": {
-    "updated_at": "2026-10-05T14:18:39+02:00",
-    "event_count": 31
+    "updated_at": "2026-10-06T14:03:04+02:00",
+    "event_count": 32
   },
   "events": [
+    {
+      "id": "event-bd9a754f03565bc4d72a",
+      "detected_at": "2026-10-06T14:03:04+02:00",
+      "type": "source_changed",
+      "record_id": "",
+      "source_id": "idescat-municipi",
+      "source_name": "Idescat · dades oficials del municipi",
+      "title": "Canvi detectat a Idescat · dades oficials del municipi",
+      "description": "La pàgina oficial ha canviat. El canvi tècnic no prova, per si sol, que hi hagi una decisió administrativa nova.",
+      "url": "https://www.idescat.cat/codis/?c=431153&id=50&n=9"
+    },
     {
       "id": "event-934ee331f1f26ec90fe1",
       "detected_at": "2026-09-30T13:11:14+02:00",
