@@ -41,17 +41,16 @@
       "id": "web-municipal",
       "name": "Web municipal",
       "kind": "links",
-      "url": "https://www.pradelldelateixeta.cat/ca/municipi/noticies",
+      "url": "https://www.pradelldelateixeta.cat/ca/noticies/noticies",
       "fallback_urls": [
         "https://www.pradelldelateixeta.cat/ca",
-        "https://pradelldelateixeta.cat/ca/municipi/noticies",
+        "https://pradelldelateixeta.cat/ca/noticies/noticies",
         "https://pradelldelateixeta.cat/ca"
       ],
       "fetch_attempts": 3,
       "topic": "municipi",
       "path_prefixes": [
-        "/ca/noticies/",
-        "/ca/municipi/noticies/"
+        "/ca/noticies/"
       ]
     },
     {
