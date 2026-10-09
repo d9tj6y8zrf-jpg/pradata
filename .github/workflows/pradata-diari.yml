@@ -43,14 +43,30 @@ jobs:
         run: |
           git config user.name "PRADATA automàtic"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data site
-          if git diff --cached --quiet; then
-            echo "No hi ha canvis per guardar."
-          else
+          # Recalcula des de main si hi ha canvis simultanis, sense forçar el push.
+          for intent in 1 2 3; do
+            git fetch origin main
+            if [ "$(git rev-parse HEAD)" != "$(git rev-parse origin/main)" ]; then
+              echo "Canvis remots detectats; recalculant sobre la versió actual."
+              git reset --hard origin/main
+              python scripts/collect.py
+              python -m unittest discover -s tests -v
+              python scripts/check_output.py
+            fi
+            git add data site
+            if git diff --cached --quiet; then
+              echo "No hi ha canvis per guardar."
+              break
+            fi
             git commit -m "Actualització diària de PRADATA"
-            git pull --rebase origin main
-            git push
-          fi
+            if git push origin HEAD:main; then
+              break
+            fi
+            if [ "$intent" -eq 3 ]; then
+              echo "ERROR: no s'ha pogut guardar després de tres intents."
+              exit 1
+            fi
+          done
 
       - name: Configura GitHub Pages
         uses: actions/configure-pages@v6
