@@ -1,9 +1,20 @@
 {
   "meta": {
-    "updated_at": "2026-10-09T21:25:47+02:00",
-    "event_count": 33
+    "updated_at": "2026-10-09T22:23:46+02:00",
+    "event_count": 34
   },
   "events": [
+    {
+      "id": "event-b8b6300133f6cab49a29",
+      "detected_at": "2026-10-09T22:23:46+02:00",
+      "type": "source_error",
+      "record_id": "",
+      "source_id": "web-municipal",
+      "source_name": "Web municipal",
+      "title": "No s'ha pogut consultar Web municipal",
+      "description": "La cobertura d'aquesta execució és incompleta. No s'interpreta com a absència de novetats.",
+      "url": "https://www.pradelldelateixeta.cat/ca/noticies/noticies"
+    },
     {
       "id": "event-3471b12d36b3a117f87b",
       "detected_at": "2026-10-08T14:03:36+02:00",
