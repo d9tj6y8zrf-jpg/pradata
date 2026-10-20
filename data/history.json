@@ -1,9 +1,20 @@
 {
   "meta": {
-    "updated_at": "2026-10-19T12:48:33+02:00",
-    "event_count": 35
+    "updated_at": "2026-10-20T12:06:31+02:00",
+    "event_count": 36
   },
   "events": [
+    {
+      "id": "event-c611cb8f2593043d4fb1",
+      "detected_at": "2026-10-20T12:06:31+02:00",
+      "type": "source_changed",
+      "record_id": "",
+      "source_id": "cido",
+      "source_name": "CIDO · El meu municipi",
+      "title": "Canvi detectat a CIDO · El meu municipi",
+      "description": "La pàgina oficial ha canviat. El canvi tècnic no prova, per si sol, que hi hagi una decisió administrativa nova.",
+      "url": "https://cido.diba.cat/el-meu-municipi/43115/pradell-de-la-teixeta"
+    },
     {
       "id": "event-a4f33883d32e07d6554c",
       "detected_at": "2026-10-16T11:52:47+02:00",
