@@ -1,9 +1,295 @@
 {
   "meta": {
-    "updated_at": "2026-10-21T12:13:03+02:00",
-    "event_count": 37
+    "updated_at": "2026-10-21T20:27:55+02:00",
+    "event_count": 63
   },
   "events": [
+    {
+      "id": "event-0204184a43b7fdd2df05",
+      "detected_at": "2026-10-21T20:27:55+02:00",
+      "type": "source_changed",
+      "record_id": "",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Canvi detectat a Seu electrònica i transparència",
+      "description": "La pàgina oficial ha canviat. El canvi tècnic no prova, per si sol, que hi hagi una decisió administrativa nova.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/darreres-actualitzacions"
+    },
+    {
+      "id": "event-9627e52eac45e20bee41",
+      "detected_at": "2026-10-21T20:27:55+02:00",
+      "type": "new",
+      "record_id": "seu-transparencia-39bed937d1d5ef1870",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Vés al contingut principal",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/darreres-actualitzacions"
+    },
+    {
+      "id": "event-8872ff6d7890535634dd",
+      "detected_at": "2026-10-21T20:27:55+02:00",
+      "type": "new",
+      "record_id": "seu-transparencia-a619dcb515071cde4f",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Ajuntament de Pradell de la Teixeta",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/darreres-actualitzacions?p_p_auth=ZlF0bWpC&p_p_id=49&p_p_lifecycle=1&p_p_state=normal&p_p_mode=view&_49_struts_action=%2Fmy_sites%2Fview&_49_groupId=1890047&_49_privateLayout=false"
+    },
+    {
+      "id": "event-6bd5af6dd08b5b3d74e8",
+      "detected_at": "2026-10-21T20:27:55+02:00",
+      "type": "new",
+      "record_id": "seu-transparencia-e940154e3edd62a97f",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Indicadors de transparència",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/indicadors-de-transparencia"
+    },
+    {
+      "id": "event-473be406cce16d3e5608",
+      "detected_at": "2026-10-21T20:27:55+02:00",
+      "type": "new",
+      "record_id": "seu-transparencia-debb314d329c5b62f5",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Dades obertes",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/dades-obertes"
+    },
+    {
+      "id": "event-a91f9342d94929f42114",
+      "detected_at": "2026-10-21T20:27:55+02:00",
+      "type": "new",
+      "record_id": "seu-transparencia-1ac2f2642aa65c7f60",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Atenció ciutadana",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/atencio-ciutadana"
+    },
+    {
+      "id": "event-7cc12b1cbc44b558f1e7",
+      "detected_at": "2026-10-21T20:27:55+02:00",
+      "type": "new",
+      "record_id": "seu-transparencia-9c769860a4ea803917",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Seu electrònica",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/seu-electronica"
+    },
+    {
+      "id": "event-b2fb5823fcfe695d9c73",
+      "detected_at": "2026-10-21T20:27:55+02:00",
+      "type": "new",
+      "record_id": "seu-transparencia-37387ecd7cf90db6d0",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Govern obert i transparència",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/govern-obert-i-transparencia"
+    },
+    {
+      "id": "event-ab1dc360a6881c166561",
+      "detected_at": "2026-10-21T20:27:55+02:00",
+      "type": "new",
+      "record_id": "seu-transparencia-729a91d470842f8614",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Serveis i tràmits",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/govern-obert-i-transparencia/serveis-i-tramits"
+    },
+    {
+      "id": "event-0b0110065428b19f0674",
+      "detected_at": "2026-10-21T20:27:55+02:00",
+      "type": "new",
+      "record_id": "seu-transparencia-480759d6073433fb24",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Informació institucional i organitzativa",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/govern-obert-i-transparencia/informacio-institucional-i-organitzativa"
+    },
+    {
+      "id": "event-426d01703a721290f3da",
+      "detected_at": "2026-10-21T20:27:55+02:00",
+      "type": "new",
+      "record_id": "seu-transparencia-3c7f3e18a2dd5e935b",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Gestió econòmica",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/govern-obert-i-transparencia/gestio-economica"
+    },
+    {
+      "id": "event-8a6857aee37fc513da12",
+      "detected_at": "2026-10-21T20:27:55+02:00",
+      "type": "new",
+      "record_id": "seu-transparencia-9351a6c22d1e5288d3",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Acció de govern i normativa",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/govern-obert-i-transparencia/accio-de-govern-i-normativa"
+    },
+    {
+      "id": "event-ec07e10cd87fb5d5fcb3",
+      "detected_at": "2026-10-21T20:27:55+02:00",
+      "type": "new",
+      "record_id": "seu-transparencia-dfbbbfd8c8c43b25a3",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Contractes, convenis i subvencions",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/govern-obert-i-transparencia/contractes-convenis-i-subvencions"
+    },
+    {
+      "id": "event-a52951ac710faed85206",
+      "detected_at": "2026-10-21T20:27:55+02:00",
+      "type": "new",
+      "record_id": "seu-transparencia-2a238b94af733f5b08",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Participació",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/govern-obert-i-transparencia/participacio"
+    },
+    {
+      "id": "event-5d640a0acbf5083c180e",
+      "detected_at": "2026-10-21T20:27:55+02:00",
+      "type": "new",
+      "record_id": "seu-transparencia-76aa792f2ced21fb4f",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Sobre la Seu electrònica",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/sobre-la-seu-electronica"
+    },
+    {
+      "id": "event-5bcf36826ebe0145a310",
+      "detected_at": "2026-10-21T20:27:55+02:00",
+      "type": "new",
+      "record_id": "seu-transparencia-b4c4b3fd1deb50981b",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Titularitat i regulació",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/titularitat-i-regulacio"
+    },
+    {
+      "id": "event-f3bb1b36eb599ced163d",
+      "detected_at": "2026-10-21T20:27:55+02:00",
+      "type": "new",
+      "record_id": "seu-transparencia-14d4c820b2719d6f91",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Sistemes d'identificació i signatura de la Seu-e",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/estructura-i-certificats-digitals"
+    },
+    {
+      "id": "event-29e221635b44e17c9038",
+      "detected_at": "2026-10-21T20:27:55+02:00",
+      "type": "new",
+      "record_id": "seu-transparencia-ec480f6c3364858997",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Mapa web",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/mapa-web"
+    },
+    {
+      "id": "event-e1189552ca2f37331353",
+      "detected_at": "2026-10-21T20:27:55+02:00",
+      "type": "new",
+      "record_id": "seu-transparencia-655c7ce44998e2c198",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Avís legal",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/web/pradelldelateixeta/avis-legal"
+    },
+    {
+      "id": "event-9e2f8801f6f9c9faa051",
+      "detected_at": "2026-10-21T20:27:55+02:00",
+      "type": "new",
+      "record_id": "seu-transparencia-51302b606433af12b5",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Accessibilitat",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/web/pradelldelateixeta/accessibilitat"
+    },
+    {
+      "id": "event-0d8c7ad8854063aeb2b9",
+      "detected_at": "2026-10-21T20:27:55+02:00",
+      "type": "new",
+      "record_id": "aoc-actes-ple-a63bc59ed0c7331354",
+      "source_id": "aoc-actes-ple",
+      "source_name": "AOC · Actes del Ple",
+      "title": "Acta del Ple · Ordinària",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://media.seu-e.cat/acteca/4311530008/2026/8eb78e2c-f5dc-4c80-ae0f-b4ead565dec8/Acta_1_4311530008_2026_0000420.pdf"
+    },
+    {
+      "id": "event-f7e0c864403dbdec89a1",
+      "detected_at": "2026-10-21T20:27:55+02:00",
+      "type": "new",
+      "record_id": "aoc-actes-ple-15efb474d3d0e9c5ee",
+      "source_id": "aoc-actes-ple",
+      "source_name": "AOC · Actes del Ple",
+      "title": "Acta del Ple · Ordinària",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://media.seu-e.cat/acteca/4311530008/2026/16dd7eeb-1ff7-4cba-8f0d-ed29de4c355c/obtenirDocument.pdf"
+    },
+    {
+      "id": "event-55d698f501862d19e723",
+      "detected_at": "2026-10-21T20:27:55+02:00",
+      "type": "new",
+      "record_id": "aoc-actes-ple-75370c6a81d2230f2c",
+      "source_id": "aoc-actes-ple",
+      "source_name": "AOC · Actes del Ple",
+      "title": "Acta del Ple · Extraordinària",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://media.seu-e.cat/acteca/4311530008/2026/1c59bf55-84de-4890-9d76-720ffaa9c81a/obtenirDocument.pdf"
+    },
+    {
+      "id": "event-0df0449bd9baf183fb28",
+      "detected_at": "2026-10-21T20:27:55+02:00",
+      "type": "new",
+      "record_id": "aoc-actes-ple-a732c1935e50d10ee6",
+      "source_id": "aoc-actes-ple",
+      "source_name": "AOC · Actes del Ple",
+      "title": "Acta del Ple · Ordinària",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://media.seu-e.cat/acteca/4311530008/2026/a4a330d6-4d72-4c02-9b5d-c377056d7fe5/Acta_Ple_1_2026.pdf"
+    },
+    {
+      "id": "event-fa89e1f8e413998583f5",
+      "detected_at": "2026-10-21T20:27:55+02:00",
+      "type": "new",
+      "record_id": "aoc-actes-ple-b9f5ae48d8eeda3dce",
+      "source_id": "aoc-actes-ple",
+      "source_name": "AOC · Actes del Ple",
+      "title": "Acta del Ple · Ordinària",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://media.seu-e.cat/acteca/4311530008/2025/707205fc-65ee-4c9f-96b5-e272e0598ed8/Acta_1_4311530008_2025_0000447-1.pdf"
+    },
+    {
+      "id": "event-830b3040d337f6d7f71b",
+      "detected_at": "2026-10-21T20:27:55+02:00",
+      "type": "new",
+      "record_id": "aoc-actes-ple-7d8a8f2d77dc864942",
+      "source_id": "aoc-actes-ple",
+      "source_name": "AOC · Actes del Ple",
+      "title": "Acta del Ple · Ordinària",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://media.seu-e.cat/acteca/4311530008/2025/22ec7adb-9eb8-4dd1-ac1a-13c44e505f1a/Acta_Ple_ordinari_30_10_25.pdf"
+    },
     {
       "id": "event-92b7eb7d3fb91be5ca27",
       "detected_at": "2026-10-21T12:13:03+02:00",
