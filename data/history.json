@@ -1,9 +1,20 @@
 {
   "meta": {
-    "updated_at": "2026-10-20T12:06:31+02:00",
-    "event_count": 36
+    "updated_at": "2026-10-21T12:13:03+02:00",
+    "event_count": 37
   },
   "events": [
+    {
+      "id": "event-92b7eb7d3fb91be5ca27",
+      "detected_at": "2026-10-21T12:13:03+02:00",
+      "type": "new",
+      "record_id": "bopt-b52a725ad4970e7e42",
+      "source_id": "bopt",
+      "source_name": "BOPT · Diputació de Tarragona",
+      "title": "Informe-projecte d'expropiació per procediment de taxació conjunta. Aprovació definitiva.",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://aplicacions.dipta.cat/bopt/web/anunci/365461/informe-projecte-d-expropiacio-per-procediment-de-taxacio-conjunta-aprovacio-definitiva-ajuntament-pradell-de-la-teixeta"
+    },
     {
       "id": "event-c611cb8f2593043d4fb1",
       "detected_at": "2026-10-20T12:06:31+02:00",
