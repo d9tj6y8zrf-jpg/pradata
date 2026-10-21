@@ -127,6 +127,9 @@ def eligible_records(
         raise ValueError("La resposta verificada no conté una llista de registres.")
 
     for record in records:
+        # Les actes històriques recuperades s'incorporen a l'arxiu, sense avís.
+        if isinstance(record, dict) and record.get("source_id") == "aoc-actes-ple":
+            continue
         if not verified_record(record):
             rejected += 1
             continue
