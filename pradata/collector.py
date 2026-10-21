@@ -159,11 +159,12 @@ def fetch_source_page(
     # Alguns servidors municipals antics fallen amb urllib des dels executors
     # de GitHub però responen correctament a curl. Es consulta exactament la
     # mateixa adreça oficial i es mantenen els mateixos límits de temps.
-    for url in dict.fromkeys(urls):
-        try:
-            return fetch_with_curl(url, accept=accept)
-        except (FileNotFoundError, urllib.error.URLError, TimeoutError) as error:
-            last_error = error
+    if source.get("curl_fallback", True):
+        for url in dict.fromkeys(urls):
+            try:
+                return fetch_with_curl(url, accept=accept)
+            except (FileNotFoundError, urllib.error.URLError, TimeoutError) as error:
+                last_error = error
 
     if last_error is not None:
         raise last_error
@@ -184,6 +185,7 @@ def source_page_variants(source: dict[str, Any]) -> list[dict[str, Any]]:
             variant["fetch_attempts"] = max(
                 1, min(int(source.get("page_fetch_attempts", 1)), 2)
             )
+            variant["curl_fallback"] = bool(source.get("page_curl_fallback", False))
         variants.append(variant)
     return variants
 
