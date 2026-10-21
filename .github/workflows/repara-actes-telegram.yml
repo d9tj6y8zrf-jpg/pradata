@@ -1,0 +1,37 @@
+name: Repara les imatges de les actes a Telegram
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/repara-actes-telegram.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  repara:
+    name: Restaura la foto dels dos avisos
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Recupera PRADATA
+        uses: actions/checkout@v6
+      - name: Prepara Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Repara l'acta de juny
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        run: >-
+          python scripts/repair_telegram_message.py
+          --message-id "70"
+          --record-id "aoc-actes-ple-15efb474d3d0e9c5ee"
+      - name: Repara l'acta de setembre
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        run: >-
+          python scripts/repair_telegram_message.py
+          --message-id "71"
+          --record-id "aoc-actes-ple-a63bc59ed0c7331354"
