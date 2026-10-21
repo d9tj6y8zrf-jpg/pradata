@@ -716,11 +716,13 @@ def extract_aoc_datastore_records(
                 "url": url,
                 "summary": summary,
                 "topic": classify_topic(title, source.get("topic", "administracio")),
+                "section": compact_text(str(source.get("section", ""))),
                 "priority": classify_priority(f"{title} {'termini' if deadline else ''}"),
                 "status": "verificat",
                 "registry": registry,
                 "deadline": deadline,
                 "recovered": recovered,
+                "exclude_from_top10": bool(source.get("exclude_from_top10", False)),
                 "verification_method": "structured_official_dataset",
                 "verified_at": detected_at,
                 "verification": {

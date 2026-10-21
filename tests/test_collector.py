@@ -356,6 +356,8 @@ class CollectorTests(unittest.TestCase):
             "days": 8,
             "kind": "aoc_datastore",
             "topic": "pressupost",
+            "section": "plens",
+            "exclude_from_top10": True,
         }
         records = extract_aoc_datastore_records(
             body,
@@ -367,6 +369,8 @@ class CollectorTests(unittest.TestCase):
         self.assertEqual(records[0]["status"], "verificat")
         self.assertEqual(records[0]["date"], "2026-08-09")
         self.assertTrue(records[0]["recovered"])
+        self.assertEqual(records[0]["section"], "plens")
+        self.assertTrue(records[0]["exclude_from_top10"])
         self.assertEqual(records[0]["verification_method"], "structured_official_dataset")
 
 

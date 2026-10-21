@@ -199,6 +199,8 @@
         "CODI_ACTA"
       ],
       "topic": "govern",
+      "section": "plens",
+      "exclude_from_top10": true,
       "publish_to_telegram": false
     },
     {
