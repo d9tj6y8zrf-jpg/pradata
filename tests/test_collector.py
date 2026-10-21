@@ -66,6 +66,7 @@ class CollectorTests(unittest.TestCase):
         ])
         self.assertEqual(variants[0]["fallback_urls"], ["https://example.test/"])
         self.assertEqual(variants[1]["fallback_urls"], [])
+        self.assertEqual(variants[1]["fetch_attempts"], 1)
 
     def test_classification_surfaces_deadlines(self) -> None:
         title = "Informació pública amb termini d'al·legacions i béns afectats"

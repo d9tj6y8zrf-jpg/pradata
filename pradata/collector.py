@@ -181,6 +181,9 @@ def source_page_variants(source: dict[str, Any]) -> list[dict[str, Any]]:
         variant["url"] = url
         if url != source.get("url"):
             variant["fallback_urls"] = []
+            variant["fetch_attempts"] = max(
+                1, min(int(source.get("page_fetch_attempts", 1)), 2)
+            )
         variants.append(variant)
     return variants
 
