@@ -160,7 +160,7 @@
       "kind": "aoc_datastore",
       "url": "https://dadesobertes.seu-e.cat/api/action/datastore_search?resource_id=b5d370d0-7916-48b6-8a69-3c7fa62a1467&filters=%7B%22CODI_ENS%22%3A%224311530008%22%7D&limit=200",
       "entity_code": "4311530008",
-      "days": 8,
+      "days": 365,
       "title_fields": [
         "TIPUS"
       ],
@@ -175,7 +175,8 @@
       "registry_fields": [
         "CODI_ACTA"
       ],
-      "topic": "govern"
+      "topic": "govern",
+      "publish_to_telegram": false
     },
     {
       "id": "aoc-pressupostos-plantilles",
