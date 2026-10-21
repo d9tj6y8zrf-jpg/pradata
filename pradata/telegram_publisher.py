@@ -103,7 +103,9 @@ def verified_record(record: Any) -> bool:
 
 
 def eligible_records(
-    payload: dict[str, Any], state: dict[str, Any]
+    payload: dict[str, Any],
+    state: dict[str, Any],
+    forced_record_ids: set[str] | None = None,
 ) -> tuple[list[dict[str, Any]], list[str], int]:
     activation = parse_datetime(state.get("activation_at"))
     if activation is None:
@@ -126,9 +128,14 @@ def eligible_records(
     if not isinstance(records, list):
         raise ValueError("La resposta verificada no conté una llista de registres.")
 
+    forced_record_ids = forced_record_ids or set()
     for record in records:
         # Les actes històriques recuperades s'incorporen a l'arxiu, sense avís.
-        if isinstance(record, dict) and record.get("source_id") == "aoc-actes-ple":
+        if (
+            isinstance(record, dict)
+            and record.get("source_id") == "aoc-actes-ple"
+            and clean_text(record.get("id")) not in forced_record_ids
+        ):
             continue
         if not verified_record(record):
             rejected += 1
@@ -443,7 +450,14 @@ def publish_payload(
     dry_run: bool = False,
 ) -> dict[str, Any]:
     state = read_json(state_path)
-    candidates, ignored, rejected = eligible_records(payload, state)
+    forced_record_ids = {
+        clean_text(value)
+        for value in config.get("forced_record_ids", [])
+        if clean_text(value)
+    }
+    candidates, ignored, rejected = eligible_records(
+        payload, state, forced_record_ids
+    )
     notifications = plan_notifications(candidates, int(config.get("max_messages_per_run", 3)))
     base_url = clean_text(config.get("pradell360_base_url"))
     channel = clean_text(config.get("channel"))

@@ -170,6 +170,21 @@ def fetch_source_page(
     raise urllib.error.URLError("No hi ha cap adreça configurada per a la font")
 
 
+def source_page_variants(source: dict[str, Any]) -> list[dict[str, Any]]:
+    """Return configured section pages as independent fetch targets."""
+    pages = [source.get("url", ""), *source.get("page_urls", [])]
+    variants: list[dict[str, Any]] = []
+    for url in dict.fromkeys(compact_text(str(value)) for value in pages):
+        if not url:
+            continue
+        variant = dict(source)
+        variant["url"] = url
+        if url != source.get("url"):
+            variant["fallback_urls"] = []
+        variants.append(variant)
+    return variants
+
+
 def fetch_with_curl(
     url: str,
     accept: str = "text/html,application/xhtml+xml",
@@ -882,10 +897,17 @@ def collect_source(
 
     try:
         if kind in {"links", "watch"}:
-            result = fetch_source_page(source)
-            remember(result)
-            if kind == "links":
-                records.extend(extract_link_records(result.body, source, detected_at))
+            for page_source in source_page_variants(source):
+                try:
+                    result = fetch_source_page(page_source)
+                except (urllib.error.URLError, TimeoutError, ValueError) as error:
+                    messages.append(
+                        f"No s'ha pogut llegir {page_source['url']}: {type(error).__name__}"
+                    )
+                    continue
+                remember(result)
+                if kind == "links":
+                    records.extend(extract_link_records(result.body, source, detected_at))
 
         elif kind == "bopt_recent":
             published_dates: set[date] = set()
@@ -1017,7 +1039,7 @@ def collect_source(
                     )
                 )
         elif kind == "aoc_datastore":
-            result = fetch(source["url"], accept="application/json")
+            result = fetch_source_page(source, accept="application/json")
             remember(result)
             records.extend(
                 extract_aoc_datastore_records(

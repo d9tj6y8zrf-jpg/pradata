@@ -21,6 +21,7 @@ from pradata.collector import (
     extract_link_records,
     fetch_source_page,
     matches_geographic_scope,
+    source_page_variants,
     stable_record_id,
 )
 
@@ -46,6 +47,25 @@ class CollectorTests(unittest.TestCase):
         first = stable_record_id("font", "https://example.test/a", "Títol")
         second = stable_record_id("font", "https://example.test/a", "Títol")
         self.assertEqual(first, second)
+
+    def test_source_page_variants_keep_fallbacks_only_on_primary_page(self) -> None:
+        source = {
+            "url": "https://example.test/noticies",
+            "fallback_urls": ["https://example.test/"],
+            "page_urls": [
+                "https://example.test/ordenances",
+                "https://example.test/noticies",
+            ],
+        }
+
+        variants = source_page_variants(source)
+
+        self.assertEqual([item["url"] for item in variants], [
+            "https://example.test/noticies",
+            "https://example.test/ordenances",
+        ])
+        self.assertEqual(variants[0]["fallback_urls"], ["https://example.test/"])
+        self.assertEqual(variants[1]["fallback_urls"], [])
 
     def test_classification_surfaces_deadlines(self) -> None:
         title = "Informació pública amb termini d'al·legacions i béns afectats"

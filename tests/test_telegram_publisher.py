@@ -108,6 +108,22 @@ class TelegramPublisherTests(unittest.TestCase):
         self.assertEqual(ignored, [])
         self.assertEqual(rejected, 0)
 
+    def test_only_explicitly_forced_historical_act_is_eligible(self) -> None:
+        september = record("acta-setembre", "Acta del Ple de setembre")
+        september["source_id"] = "aoc-actes-ple"
+        june = record("acta-juny", "Acta del Ple de juny")
+        june["source_id"] = "aoc-actes-ple"
+
+        candidates, ignored, rejected = eligible_records(
+            {"records": [september, june]},
+            state(),
+            {"acta-setembre"},
+        )
+
+        self.assertEqual([item["id"] for item in candidates], ["acta-setembre"])
+        self.assertEqual(ignored, [])
+        self.assertEqual(rejected, 0)
+
     def test_tv3223_records_from_different_sources_are_grouped(self) -> None:
         records = [
             record("one", "Aprovació del projecte de la TV-3223"),

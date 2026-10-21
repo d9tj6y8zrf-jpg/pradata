@@ -47,10 +47,20 @@
         "https://pradelldelateixeta.cat/ca/noticies/noticies",
         "https://pradelldelateixeta.cat/ca"
       ],
+      "page_urls": [
+        "https://www.pradelldelateixeta.cat/ca/municipi/noticies-0",
+        "https://www.pradelldelateixeta.cat/ca/ajuntament/ordenances",
+        "https://www.pradelldelateixeta.cat/ca/ajuntament/convenis",
+        "https://www.pradelldelateixeta.cat/ca/ajuntament/subvencions-rebudes",
+        "https://www.pradelldelateixeta.cat/plens/"
+      ],
       "fetch_attempts": 3,
       "topic": "municipi",
       "path_prefixes": [
-        "/ca/noticies/"
+        "/ca/noticies/",
+        "/plens/",
+        "/sites/default/files/",
+        "/media/"
       ]
     },
     {
@@ -68,8 +78,18 @@
     {
       "id": "seu-transparencia",
       "name": "Seu electrònica i transparència",
-      "kind": "watch",
-      "url": "https://seu-e.cat/web/pradelldelateixeta",
+      "kind": "links",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/darreres-actualitzacions",
+      "fallback_urls": [
+        "https://seu-e.cat/web/pradelldelateixeta/darreres-actualitzacions"
+      ],
+      "allowed_hosts": [
+        "seu-e.cat"
+      ],
+      "path_prefixes": [
+        "/ca/web/pradelldelateixeta/",
+        "/web/pradelldelateixeta/"
+      ],
       "topic": "govern"
     },
     {
@@ -159,6 +179,9 @@
       "name": "AOC · Actes del Ple",
       "kind": "aoc_datastore",
       "url": "https://dadesobertes.seu-e.cat/api/action/datastore_search?resource_id=b5d370d0-7916-48b6-8a69-3c7fa62a1467&filters=%7B%22CODI_ENS%22%3A%224311530008%22%7D&limit=200",
+      "fallback_urls": [
+        "https://dadesobertes.seu-e.cat/api/3/action/datastore_search?resource_id=b5d370d0-7916-48b6-8a69-3c7fa62a1467&filters=%7B%22CODI_ENS%22%3A%224311530008%22%7D&limit=500"
+      ],
       "entity_code": "4311530008",
       "days": 365,
       "title_fields": [

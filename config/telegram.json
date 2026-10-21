@@ -5,6 +5,9 @@
   "pradell360_base_url": "https://pradell360.cat",
   "verified_api_url": "https://pradell360.cat/api/pradata-verified",
   "max_messages_per_run": 3,
+  "forced_record_ids": [
+    "aoc-actes-ple-a63bc59ed0c7331354"
+  ],
   "api_wait_seconds": 180,
   "api_poll_seconds": 10,
   "entry_wait_seconds": 300,
