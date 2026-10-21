@@ -14,7 +14,7 @@ from pradata.telegram_publisher import (  # noqa: E402
     clean_text,
     publish_payload,
     read_json,
-    send_telegram_message,
+    send_telegram_photo,
     wait_for_entry_page,
     wait_for_payload,
 )
@@ -56,8 +56,13 @@ def main() -> int:
             "Falta el secret TELEGRAM_BOT_TOKEN. El publicador no ha enviat cap missatge."
         )
 
-    def send(channel: str, text: str, preview_url: str) -> int:
-        return send_telegram_message(token, channel, text, preview_url)
+    def send(channel: str, text: str, _preview_url: str) -> int:
+        return send_telegram_photo(
+            token,
+            channel,
+            text,
+            clean_text(config.get("photo_url")),
+        )
 
     def verify_entry(url: str) -> None:
         wait_for_entry_page(

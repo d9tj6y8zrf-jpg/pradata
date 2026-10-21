@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import mimetypes
 import re
 import time
 import urllib.error
@@ -15,6 +16,7 @@ from typing import Any, Callable
 
 MAX_TELEGRAM_TEXT = 4096
 SAFE_TELEGRAM_TEXT = 3900
+MAX_TELEGRAM_CAPTION = 1024
 PRIORITY_ORDER = {
     "critica": 0,
     "alta": 1,
@@ -403,6 +405,106 @@ def send_telegram_message(token: str, channel: str, text: str, preview_url: str)
     if not isinstance(message_id, int):
         raise RuntimeError("Telegram no ha retornat l'identificador del missatge.")
     return message_id
+
+
+def telegram_photo_caption(text: str) -> str:
+    """Fit a notification into Telegram's photo-caption limit."""
+    if len(text) <= MAX_TELEGRAM_CAPTION:
+        return text
+    marker = "\n\n📲 Rep totes les novetats al canal de Telegram:"
+    head, separator, tail = text.partition(marker)
+    preserved_tail = f"{separator}{tail}" if separator else ""
+    available = MAX_TELEGRAM_CAPTION - len(preserved_tail)
+    return head[: max(1, available - 1)].rstrip() + "…" + preserved_tail
+
+
+def fetch_telegram_photo(photo_url: str) -> tuple[bytes, str, str]:
+    request = urllib.request.Request(
+        photo_url,
+        headers={"User-Agent": "Mozilla/5.0 (compatible; PRADATA/1.0)"},
+    )
+    with urllib.request.urlopen(request, timeout=30) as response:
+        body = response.read()
+        content_type = clean_text(response.headers.get("Content-Type")).split(";", 1)[0]
+    if not body or not content_type.startswith("image/"):
+        raise RuntimeError("La foto configurada per a Telegram no és una imatge vàlida.")
+    extension = mimetypes.guess_extension(content_type) or ".jpg"
+    return body, content_type, f"pradell360{extension}"
+
+
+def send_telegram_photo(
+    token: str,
+    channel: str,
+    text: str,
+    photo_url: str,
+) -> int:
+    """Upload a real photo so the post never depends on a link preview."""
+    photo, content_type, filename = fetch_telegram_photo(photo_url)
+    boundary = f"----PRADATA{int(time.time() * 1000)}"
+    parts: list[bytes] = []
+
+    def field(name: str, value: str) -> None:
+        parts.extend(
+            [
+                f"--{boundary}\r\n".encode(),
+                f'Content-Disposition: form-data; name="{name}"\r\n\r\n'.encode(),
+                value.encode("utf-8"),
+                b"\r\n",
+            ]
+        )
+
+    field("chat_id", channel)
+    field("caption", telegram_photo_caption(text))
+    parts.extend(
+        [
+            f"--{boundary}\r\n".encode(),
+            (
+                f'Content-Disposition: form-data; name="photo"; filename="{filename}"\r\n'
+                f"Content-Type: {content_type}\r\n\r\n"
+            ).encode(),
+            photo,
+            b"\r\n",
+            f"--{boundary}--\r\n".encode(),
+        ]
+    )
+    request = urllib.request.Request(
+        f"https://api.telegram.org/bot{token}/sendPhoto",
+        data=b"".join(parts),
+        headers={"Content-Type": f"multipart/form-data; boundary={boundary}"},
+        method="POST",
+    )
+    try:
+        with urllib.request.urlopen(request, timeout=45) as response:
+            payload = json.load(response)
+    except urllib.error.HTTPError as error:
+        description = ""
+        try:
+            description = clean_text(json.loads(error.read().decode("utf-8")).get("description"))
+        except (UnicodeDecodeError, json.JSONDecodeError):
+            pass
+        raise RuntimeError(
+            f"Telegram ha respost HTTP {error.code}: {description or 'error no detallat'}"
+        ) from None
+    if not payload.get("ok") or not isinstance(payload.get("result"), dict):
+        raise RuntimeError("Telegram no ha confirmat l'enviament de la foto.")
+    message_id = payload["result"].get("message_id")
+    if not isinstance(message_id, int):
+        raise RuntimeError("Telegram no ha retornat l'identificador del missatge amb foto.")
+    return message_id
+
+
+def delete_telegram_message(token: str, channel: str, message_id: int) -> None:
+    body = json.dumps({"chat_id": channel, "message_id": message_id}).encode("utf-8")
+    request = urllib.request.Request(
+        f"https://api.telegram.org/bot{token}/deleteMessage",
+        data=body,
+        headers={"Content-Type": "application/json"},
+        method="POST",
+    )
+    with urllib.request.urlopen(request, timeout=30) as response:
+        payload = json.load(response)
+    if not payload.get("ok") or payload.get("result") is not True:
+        raise RuntimeError(f"Telegram no ha confirmat l'eliminació del missatge {message_id}.")
 
 
 def edit_telegram_message(token: str, channel: str, message_id: int, text: str, preview_url: str) -> int:

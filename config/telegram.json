@@ -4,6 +4,7 @@
   "channel_url": "https://t.me/pradellteixeta",
   "pradell360_base_url": "https://pradell360.cat",
   "verified_api_url": "https://pradell360.cat/api/pradata-verified",
+  "photo_url": "https://pradell360.cat/pradell360-compartir-v4.jpg",
   "max_messages_per_run": 3,
   "forced_record_ids": [
     "aoc-actes-ple-15efb474d3d0e9c5ee",

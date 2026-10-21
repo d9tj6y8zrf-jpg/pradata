@@ -12,6 +12,7 @@ from pradata.telegram_publisher import (
     plan_notifications,
     publish_payload,
     render_notification,
+    telegram_photo_caption,
 )
 
 
@@ -72,6 +73,13 @@ CONFIG = {
 
 
 class TelegramPublisherTests(unittest.TestCase):
+    def test_photo_caption_preserves_subscription_link_within_limit(self) -> None:
+        text = "X" * 1400 + "\n\n📲 Rep totes les novetats al canal de Telegram:\nhttps://t.me/pradellteixeta"
+        caption = telegram_photo_caption(text)
+
+        self.assertLessEqual(len(caption), 1024)
+        self.assertIn("https://t.me/pradellteixeta", caption)
+
     def test_only_new_verified_records_after_activation_are_eligible(self) -> None:
         payload = {
             "records": [
