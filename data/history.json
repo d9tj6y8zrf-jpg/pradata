@@ -1,9 +1,31 @@
 {
   "meta": {
-    "updated_at": "2026-10-22T07:05:59+02:00",
-    "event_count": 65
+    "updated_at": "2026-10-22T12:14:13+02:00",
+    "event_count": 67
   },
   "events": [
+    {
+      "id": "event-c4f4a70344364edd6a85",
+      "detected_at": "2026-10-22T12:14:13+02:00",
+      "type": "new",
+      "record_id": "seu-transparencia-5e54609d3238c9e94a",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Ajuntament de Pradell de la Teixeta",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/darreres-actualitzacions?p_p_auth=BIoaFzDO&p_p_id=49&p_p_lifecycle=1&p_p_state=normal&p_p_mode=view&_49_struts_action=%2Fmy_sites%2Fview&_49_groupId=1890047&_49_privateLayout=false"
+    },
+    {
+      "id": "event-11a3c5695de652be2760",
+      "detected_at": "2026-10-22T12:14:13+02:00",
+      "type": "source_error",
+      "record_id": "",
+      "source_id": "cido",
+      "source_name": "CIDO · El meu municipi",
+      "title": "No s'ha pogut consultar CIDO · El meu municipi",
+      "description": "La cobertura d'aquesta execució és incompleta. No s'interpreta com a absència de novetats.",
+      "url": "https://cido.diba.cat/el-meu-municipi/43115/pradell-de-la-teixeta"
+    },
     {
       "id": "event-41b35039b83efa3713eb",
       "detected_at": "2026-10-22T07:05:59+02:00",
