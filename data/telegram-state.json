@@ -2,7 +2,7 @@
   "version": 1,
   "activation_at": "2026-08-13T14:47:56+02:00",
   "bootstrap_source_updated_at": "2026-08-13T11:41:29+02:00",
-  "source_updated_at": "2026-10-21T20:50:23+02:00",
+  "source_updated_at": "2026-10-22T07:05:59+02:00",
   "acknowledged_ids": [
     "aoc-actes-ple-15efb474d3d0e9c5ee",
     "aoc-actes-ple-a63bc59ed0c7331354",
@@ -130,9 +130,9 @@
       "theme": "record:aoc-actes-ple-a63bc59ed0c7331354"
     }
   ],
-  "last_checked_at": "2026-10-21T18:52:49Z",
-  "last_success_at": "2026-10-21T18:52:49Z",
+  "last_checked_at": "2026-10-22T05:08:43Z",
+  "last_success_at": "2026-10-22T05:08:43Z",
   "last_sent_at": "2026-10-21T18:34:51Z",
   "pages_url": "https://d9tj6y8zrf-jpg.github.io/pradata/",
-  "pages_verified_at": "2026-10-21T18:52:49Z"
+  "pages_verified_at": "2026-10-22T05:08:43Z"
 }
