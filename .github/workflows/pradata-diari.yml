@@ -1,4 +1,5 @@
 name: Actualització diària de PRADATA
+# Execució sol·licitada: avís de l’informe de supervisió de la piscina, 29.10.2026.
 
 on:
   push:
