@@ -1,9 +1,20 @@
 {
   "meta": {
-    "updated_at": "2026-10-29T22:58:53+01:00",
-    "event_count": 75
+    "updated_at": "2026-10-30T13:59:46+01:00",
+    "event_count": 76
   },
   "events": [
+    {
+      "id": "event-f105553de78ab3b8079c",
+      "detected_at": "2026-10-30T13:59:46+01:00",
+      "type": "new",
+      "record_id": "seu-transparencia-790354ca81d8440405",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Ajuntament de Pradell de la Teixeta",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/darreres-actualitzacions?p_p_auth=V9Xl0wmB&p_p_id=49&p_p_lifecycle=1&p_p_state=normal&p_p_mode=view&_49_struts_action=%2Fmy_sites%2Fview&_49_groupId=1890047&_49_privateLayout=false"
+    },
     {
       "id": "event-e38ec0dca787a5a04e02",
       "detected_at": "2026-10-29T22:58:53+01:00",
