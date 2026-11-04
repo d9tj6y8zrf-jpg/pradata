@@ -1,9 +1,31 @@
 {
   "meta": {
-    "updated_at": "2026-11-03T15:20:37+01:00",
-    "event_count": 80
+    "updated_at": "2026-11-04T15:37:17+01:00",
+    "event_count": 82
   },
   "events": [
+    {
+      "id": "event-7090409821e6394a7f61",
+      "detected_at": "2026-11-04T15:37:17+01:00",
+      "type": "source_error",
+      "record_id": "",
+      "source_id": "subvencions-municipals",
+      "source_name": "Subvencions publicades per l'Ajuntament",
+      "title": "No s'ha pogut consultar Subvencions publicades per l'Ajuntament",
+      "description": "La cobertura d'aquesta execució és incompleta. No s'interpreta com a absència de novetats.",
+      "url": "https://www.pradelldelateixeta.cat/ca/ajuntament/subvencions-rebudes"
+    },
+    {
+      "id": "event-bd1790dee3e6c693086a",
+      "detected_at": "2026-11-04T15:37:17+01:00",
+      "type": "new",
+      "record_id": "seu-transparencia-424cd8f79cf9bebc93",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Ajuntament de Pradell de la Teixeta",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/darreres-actualitzacions?p_p_auth=HARQe81w&p_p_id=49&p_p_lifecycle=1&p_p_state=normal&p_p_mode=view&_49_struts_action=%2Fmy_sites%2Fview&_49_groupId=1890047&_49_privateLayout=false"
+    },
     {
       "id": "event-d83c626e7b5b62b93d3e",
       "detected_at": "2026-11-03T15:20:37+01:00",
