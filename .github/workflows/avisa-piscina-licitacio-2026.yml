@@ -1,0 +1,79 @@
+name: Avís de la licitació de la piscina 2026
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/avisa-piscina-licitacio-2026.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: pradata-pages
+  cancel-in-progress: false
+jobs:
+  avisa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Envia només la licitació autoritzada, després de verificar la fitxa
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          from pradata.telegram_publisher import read_json, write_json_atomic, send_telegram_photo, wait_for_entry_page, iso_now
+          record_id = "piscina-licitacio-obres-2026"
+          state_path = Path("data/telegram-state.json")
+          state = read_json(state_path)
+          acknowledged = set(state.get("acknowledged_ids", []))
+          sent = state.get("sent", [])
+          if record_id in acknowledged or any(record_id in item.get("record_ids", []) for item in sent):
+              print("Avís ja enviat; no es repeteix.")
+              raise SystemExit(0)
+          config = read_json(Path("config/telegram.json"))
+          assert config["channel"] == "@pradellteixeta"
+          url = "https://pradell360.cat/fitxa/piscina-licitacio-obres-2026"
+          wait_for_entry_page(url, 180, 10)
+          text = (
+              "🟢 Nova publicació verificada\n\n"
+              "🏊 Licitació de les obres de la nova piscina municipal\n\n"
+              "Publicada el 4 de novembre de 2026.\n"
+              "💶 Pressupost: 682.709,10 € amb IVA.\n"
+              "📅 Ofertes fins al 24/11/2026 a les 23.59 h.\n"
+              "⏱ Execució: 9 mesos des de la comprovació del replanteig.\n\n"
+              "És la selecció de l’empresa constructora: encara no és l’adjudicació ni l’inici de les obres.\n\n"
+              "Font: Plataforma de Contractació Pública · plec oficial enllaçat a la fitxa.\n\n"
+              "👉 Detalls i fonts a Pradell360:\n" + url + "\n\n"
+              "📲 Segueix el canal: https://t.me/pradellteixeta"
+          )
+          token = os.environ.get("TELEGRAM_BOT_TOKEN", "").strip()
+          if not token:
+              raise RuntimeError("Falta la credencial configurada de Telegram; no s’ha enviat res.")
+          message_id = send_telegram_photo(token, config["channel"], text, config["photo_url"])
+          now = iso_now()
+          acknowledged.add(record_id)
+          state["acknowledged_ids"] = sorted(acknowledged)
+          sent.append({"sent_at": now, "message_id": message_id, "record_ids": [record_id], "theme": "piscina", "reason": "Publicació i avís autoritzats expressament el 05/11/2026"})
+          state["sent"] = sent
+          state["last_sent_at"] = now
+          write_json_atomic(state_path, state)
+          print("Telegram confirmat: https://t.me/pradellteixeta/" + str(message_id))
+          PY
+      - name: Guarda l’identificador per evitar duplicats
+        if: always()
+        run: |
+          git config user.name "PRADATA automàtic"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/telegram-state.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Registra l’avís de la licitació de la piscina"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
