@@ -1,9 +1,42 @@
 {
   "meta": {
-    "updated_at": "2026-11-04T15:37:17+01:00",
-    "event_count": 82
+    "updated_at": "2026-11-05T15:41:55+01:00",
+    "event_count": 85
   },
   "events": [
+    {
+      "id": "event-9fc3cdcd94391e020759",
+      "detected_at": "2026-11-05T15:41:55+01:00",
+      "type": "new",
+      "record_id": "seu-transparencia-a15dde0ebc1a0d7f2d",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Ajuntament de Pradell de la Teixeta",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/darreres-actualitzacions?p_p_auth=L2AoZ7d7&p_p_id=49&p_p_lifecycle=1&p_p_state=normal&p_p_mode=view&_49_struts_action=%2Fmy_sites%2Fview&_49_groupId=1890047&_49_privateLayout=false"
+    },
+    {
+      "id": "event-876770f36d962ab04235",
+      "detected_at": "2026-11-05T15:41:55+01:00",
+      "type": "source_changed",
+      "record_id": "",
+      "source_id": "cido",
+      "source_name": "CIDO · El meu municipi",
+      "title": "Canvi detectat a CIDO · El meu municipi",
+      "description": "La pàgina oficial ha canviat. El canvi tècnic no prova, per si sol, que hi hagi una decisió administrativa nova.",
+      "url": "https://cido.diba.cat/el-meu-municipi/43115/pradell-de-la-teixeta"
+    },
+    {
+      "id": "event-b04f352f38fe2d60696a",
+      "detected_at": "2026-11-05T15:41:55+01:00",
+      "type": "new",
+      "record_id": "cido-ae168885a9511e8260",
+      "source_id": "cido",
+      "source_name": "CIDO · El meu municipi",
+      "title": "Obres de construcció de la nova piscina municipal",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://cido.diba.cat/contractacio/22443276/obres-de-construccio-de-la-nova-piscina-municipal-ajuntament-de-pradell-de-la-teixeta"
+    },
     {
       "id": "event-7090409821e6394a7f61",
       "detected_at": "2026-11-04T15:37:17+01:00",

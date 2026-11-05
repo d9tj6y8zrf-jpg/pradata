@@ -1,9 +1,9 @@
 {
   "meta": {
-    "updated_at": "2026-11-04T15:37:17+01:00",
+    "updated_at": "2026-11-05T15:41:55+01:00",
     "source_count": 14,
-    "successful_sources": 12,
-    "responsive_sources": 12
+    "successful_sources": 13,
+    "responsive_sources": 13
   },
   "sources": [
     {
@@ -11,7 +11,7 @@
       "name": "Web municipal",
       "url": "https://www.pradelldelateixeta.cat/ca/noticies/noticies",
       "state": "error",
-      "checked_at": "2026-11-04T15:37:17+01:00",
+      "checked_at": "2026-11-05T15:41:55+01:00",
       "http_status": "",
       "message": "No s'ha pogut llegir https://www.pradelldelateixeta.cat/ca/noticies/noticies: URLError No s'ha pogut llegir https://www.pradelldelateixeta.cat/ca/municipi/noticies-0: URLError No s'ha pogut llegir https://www.pradelldelateixeta.cat/ca/ajuntament/ordenances: URLError No s'ha pogut llegir https://www.pradelldelateixeta.cat/ca/ajuntament/convenis: URLError No s'ha pogut llegir https://www.pradelldelateixeta.cat/ca/ajuntament/subvencions-rebudes: URLError No s'ha pogut llegir https://www.pradelldelateixeta.cat/plens/: URLError",
       "item_count": 0,
@@ -22,12 +22,12 @@
       "id": "subvencions-municipals",
       "name": "Subvencions publicades per l'Ajuntament",
       "url": "https://www.pradelldelateixeta.cat/ca/ajuntament/subvencions-rebudes",
-      "state": "error",
-      "checked_at": "2026-11-04T15:37:17+01:00",
-      "http_status": "",
-      "message": "No s'ha pogut llegir https://www.pradelldelateixeta.cat/ca/ajuntament/subvencions-rebudes: URLError",
+      "state": "ok",
+      "checked_at": "2026-11-05T15:41:55+01:00",
+      "http_status": 200,
+      "message": "Font consultada correctament.",
       "item_count": 0,
-      "fingerprint": "",
+      "fingerprint": "a58bfade8847cb04061d34a4b15e11ac",
       "track_fingerprint": true
     },
     {
@@ -35,7 +35,7 @@
       "name": "Seu electrònica i transparència",
       "url": "https://seu-e.cat/ca/web/pradelldelateixeta/darreres-actualitzacions",
       "state": "ok",
-      "checked_at": "2026-11-04T15:37:17+01:00",
+      "checked_at": "2026-11-05T15:41:55+01:00",
       "http_status": 200,
       "message": "Font consultada correctament.",
       "item_count": 19,
@@ -47,11 +47,11 @@
       "name": "CIDO · El meu municipi",
       "url": "https://cido.diba.cat/el-meu-municipi/43115/pradell-de-la-teixeta",
       "state": "ok",
-      "checked_at": "2026-11-04T15:37:17+01:00",
+      "checked_at": "2026-11-05T15:41:55+01:00",
       "http_status": 200,
       "message": "Font consultada correctament.",
-      "item_count": 9,
-      "fingerprint": "6be59d4942440d67aa16adddf1caa662",
+      "item_count": 10,
+      "fingerprint": "c471366b716135513e960d2f76d09e6b",
       "track_fingerprint": true
     },
     {
@@ -59,11 +59,11 @@
       "name": "BOPT · Diputació de Tarragona",
       "url": "https://aplicacions.dipta.cat/bopt/",
       "state": "ok",
-      "checked_at": "2026-11-04T15:37:17+01:00",
+      "checked_at": "2026-11-05T15:41:55+01:00",
       "http_status": 200,
       "message": "Font consultada correctament.",
       "item_count": 0,
-      "fingerprint": "a3736e240580a6d6fefdb1cbd5a1918e",
+      "fingerprint": "67f41c19df1b5e9d4b897c6a98e6a3e0",
       "track_fingerprint": false
     },
     {
@@ -71,11 +71,11 @@
       "name": "BOE · Dades obertes",
       "url": "https://www.boe.es/datosabiertos/api/api.php",
       "state": "ok",
-      "checked_at": "2026-11-04T15:37:17+01:00",
+      "checked_at": "2026-11-05T15:41:55+01:00",
       "http_status": 200,
       "message": "Font consultada correctament.",
       "item_count": 0,
-      "fingerprint": "fe188ca519f6f8893cfecffca345bfe8",
+      "fingerprint": "e75a434e3a57810ae52823a1b2126aac",
       "track_fingerprint": false
     },
     {
@@ -83,11 +83,11 @@
       "name": "BORME · Registre Mercantil",
       "url": "https://www.boe.es/datosabiertos/api/api.php",
       "state": "ok",
-      "checked_at": "2026-11-04T15:37:17+01:00",
+      "checked_at": "2026-11-05T15:41:55+01:00",
       "http_status": 200,
       "message": "Font consultada correctament.",
       "item_count": 0,
-      "fingerprint": "98fdbc00766c56948f848e6b80a337cd",
+      "fingerprint": "15342b43b61629f4b38904fc780eab4f",
       "track_fingerprint": false
     },
     {
@@ -95,7 +95,7 @@
       "name": "Perfil del contractant",
       "url": "https://contractaciopublica.cat/ca/perfils-contractant/detall/29706590",
       "state": "ok",
-      "checked_at": "2026-11-04T15:37:17+01:00",
+      "checked_at": "2026-11-05T15:41:55+01:00",
       "http_status": 200,
       "message": "Font consultada correctament.",
       "item_count": 0,
@@ -107,7 +107,7 @@
       "name": "Consell Comarcal del Priorat · cerca Pradell",
       "url": "https://www.priorat.cat/search/node?keys=Pradell",
       "state": "ok",
-      "checked_at": "2026-11-04T15:37:17+01:00",
+      "checked_at": "2026-11-05T15:41:55+01:00",
       "http_status": 200,
       "message": "Font consultada correctament.",
       "item_count": 3,
@@ -119,7 +119,7 @@
       "name": "Idescat · dades oficials del municipi",
       "url": "https://www.idescat.cat/codis/?c=431153&id=50&n=9",
       "state": "ok",
-      "checked_at": "2026-11-04T15:37:17+01:00",
+      "checked_at": "2026-11-05T15:41:55+01:00",
       "http_status": 200,
       "message": "Font consultada correctament.",
       "item_count": 0,
@@ -131,7 +131,7 @@
       "name": "BASE · informació tributària de Pradell",
       "url": "https://www.base.cat/ciutada/ca/municipi/priorat/pradell_de_la_teixeta.html",
       "state": "ok",
-      "checked_at": "2026-11-04T15:37:17+01:00",
+      "checked_at": "2026-11-05T15:41:55+01:00",
       "http_status": 200,
       "message": "Font consultada correctament.",
       "item_count": 0,
@@ -143,11 +143,11 @@
       "name": "AOC · Actes del Ple",
       "url": "https://dadesobertes.seu-e.cat/api/action/datastore_search?resource_id=b5d370d0-7916-48b6-8a69-3c7fa62a1467&filters=%7B%22CODI_ENS%22%3A%224311530008%22%7D&limit=200",
       "state": "ok",
-      "checked_at": "2026-11-04T15:37:17+01:00",
+      "checked_at": "2026-11-05T15:41:55+01:00",
       "http_status": 200,
       "message": "Font consultada correctament.",
       "item_count": 5,
-      "fingerprint": "b717f65ef97f177bc6de157d28cc30e7",
+      "fingerprint": "992c8469506208245242926cb562e58a",
       "track_fingerprint": false
     },
     {
@@ -155,11 +155,11 @@
       "name": "AOC · Pressupostos i plantilles",
       "url": "https://dadesobertes.seu-e.cat/api/action/datastore_search?resource_id=572b66e6-a353-4973-b307-558ce10b59a4&filters=%7B%22CODI_ENS%22%3A%224311530008%22%7D&limit=200",
       "state": "ok",
-      "checked_at": "2026-11-04T15:37:17+01:00",
+      "checked_at": "2026-11-05T15:41:55+01:00",
       "http_status": 200,
       "message": "Font consultada correctament.",
       "item_count": 0,
-      "fingerprint": "397904c7d21c96858137180a7fa73df3",
+      "fingerprint": "e8d19a0ae59f86b6e0913806c7670a43",
       "track_fingerprint": false
     },
     {
@@ -167,11 +167,11 @@
       "name": "AOC · Convocatòries de personal",
       "url": "https://dadesobertes.seu-e.cat/api/action/datastore_search?resource_id=0e11c4f5-ce15-401f-b86f-f9d2604b94f6&filters=%7B%22CODI_ENS%22%3A%224311530008%22%7D&limit=200",
       "state": "ok",
-      "checked_at": "2026-11-04T15:37:17+01:00",
+      "checked_at": "2026-11-05T15:41:55+01:00",
       "http_status": 200,
       "message": "Font consultada correctament.",
       "item_count": 0,
-      "fingerprint": "988f84f16ef33dd42be801c5bf274576",
+      "fingerprint": "8e20538b55490dde650902345f2cc926",
       "track_fingerprint": false
     }
   ]
