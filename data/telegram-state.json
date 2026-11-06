@@ -2,7 +2,7 @@
   "version": 1,
   "activation_at": "2026-08-13T14:47:56+02:00",
   "bootstrap_source_updated_at": "2026-08-13T11:41:29+02:00",
-  "source_updated_at": "2026-11-05T15:41:55+01:00",
+  "source_updated_at": "2026-11-06T15:19:50+01:00",
   "acknowledged_ids": [
     "aoc-actes-ple-15efb474d3d0e9c5ee",
     "aoc-actes-ple-a63bc59ed0c7331354",
@@ -21,6 +21,7 @@
     "cido-7db227dd3ee71d46a5",
     "cido-8b604b0730fa3b1d2a",
     "cido-8d8556d028131652dd",
+    "cido-ae168885a9511e8260",
     "cido-b27e1bcff8f2f845f7",
     "cido-d10df46733f32751fc",
     "cido-e391a15a4d820d05f2",
@@ -147,11 +148,19 @@
       ],
       "theme": "piscina",
       "reason": "Publicació i avís autoritzats expressament el 05/11/2026"
+    },
+    {
+      "sent_at": "2026-11-06T14:28:43Z",
+      "message_id": 76,
+      "record_ids": [
+        "cido-ae168885a9511e8260"
+      ],
+      "theme": "piscina"
     }
   ],
-  "last_checked_at": "2026-11-05T14:44:10Z",
-  "last_success_at": "2026-11-05T14:44:10Z",
-  "last_sent_at": "2026-11-05T14:56:23Z",
+  "last_checked_at": "2026-11-06T14:28:43Z",
+  "last_success_at": "2026-11-06T14:28:43Z",
+  "last_sent_at": "2026-11-06T14:28:43Z",
   "pages_url": "https://d9tj6y8zrf-jpg.github.io/pradata/",
-  "pages_verified_at": "2026-11-05T14:44:10Z"
+  "pages_verified_at": "2026-11-06T14:28:43Z"
 }
