@@ -1,9 +1,31 @@
 {
   "meta": {
-    "updated_at": "2026-11-07T14:07:19+01:00",
-    "event_count": 87
+    "updated_at": "2026-11-08T14:28:57+01:00",
+    "event_count": 89
   },
   "events": [
+    {
+      "id": "event-0776adf6a55ae61a4a71",
+      "detected_at": "2026-11-08T14:28:57+01:00",
+      "type": "new",
+      "record_id": "seu-transparencia-496879d0792df7c15a",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Ajuntament de Pradell de la Teixeta",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/darreres-actualitzacions?p_p_auth=Vc1LziUO&p_p_id=49&p_p_lifecycle=1&p_p_state=normal&p_p_mode=view&_49_struts_action=%2Fmy_sites%2Fview&_49_groupId=1890047&_49_privateLayout=false"
+    },
+    {
+      "id": "event-162d7038793d69fdc89b",
+      "detected_at": "2026-11-08T14:28:57+01:00",
+      "type": "new",
+      "record_id": "aoc-actes-ple-cb3bc628c711c71cb2",
+      "source_id": "aoc-actes-ple",
+      "source_name": "AOC · Actes del Ple",
+      "title": "Acta del Ple · Extraordinària",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://media.seu-e.cat/acteca/4311530008/2026/3802a59f-05d5-4171-ab7c-30f3c3bafd68/Acta_Ple_5_2026_anonimitzada.pdf"
+    },
     {
       "id": "event-297e69e06811ea3f7f55",
       "detected_at": "2026-11-07T14:07:19+01:00",
