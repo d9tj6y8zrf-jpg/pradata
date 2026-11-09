@@ -1,9 +1,64 @@
 {
   "meta": {
-    "updated_at": "2026-11-08T14:28:57+01:00",
-    "event_count": 89
+    "updated_at": "2026-11-09T17:27:00+01:00",
+    "event_count": 94
   },
   "events": [
+    {
+      "id": "event-6e1809744a521e68b609",
+      "detected_at": "2026-11-09T17:27:00+01:00",
+      "type": "new",
+      "record_id": "seu-transparencia-bbb8fddd00cf00d252",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Ajuntament de Pradell de la Teixeta",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/darreres-actualitzacions?p_p_auth=T3DO5RVq&p_p_id=49&p_p_lifecycle=1&p_p_state=normal&p_p_mode=view&_49_struts_action=%2Fmy_sites%2Fview&_49_groupId=1890047&_49_privateLayout=false"
+    },
+    {
+      "id": "event-4fdb36bb6d387ff03d27",
+      "detected_at": "2026-11-09T17:27:00+01:00",
+      "type": "source_changed",
+      "record_id": "",
+      "source_id": "cido",
+      "source_name": "CIDO · El meu municipi",
+      "title": "Canvi detectat a CIDO · El meu municipi",
+      "description": "La pàgina oficial ha canviat. El canvi tècnic no prova, per si sol, que hi hagi una decisió administrativa nova.",
+      "url": "https://cido.diba.cat/el-meu-municipi/43115/pradell-de-la-teixeta"
+    },
+    {
+      "id": "event-7803f3fa36bd0ac31e03",
+      "detected_at": "2026-11-09T17:27:00+01:00",
+      "type": "new",
+      "record_id": "bopt-141566f61c2ea5d2ec",
+      "source_id": "bopt",
+      "source_name": "BOPT · Diputació de Tarragona",
+      "title": "Expedient núm. 6 de 2026 de modificació de crèdit. Aprovació inicial.",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://aplicacions.dipta.cat/bopt/web/anunci/366304/expedient-num-6-de-2026-de-modificacio-de-credit-aprovacio-inicial-ajuntament-pradell-de-la-teixeta"
+    },
+    {
+      "id": "event-db4c4cd6a12d9892435a",
+      "detected_at": "2026-11-09T17:27:00+01:00",
+      "type": "new",
+      "record_id": "bopt-5a2ffafe57f582ab56",
+      "source_id": "bopt",
+      "source_name": "BOPT · Diputació de Tarragona",
+      "title": "Expedient núm. 7 de 2026 de modificació de crèdit. Aprovació inicial.",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://aplicacions.dipta.cat/bopt/web/anunci/366305/expedient-num-7-de-2026-de-modificacio-de-credit-aprovacio-inicial-ajuntament-pradell-de-la-teixeta"
+    },
+    {
+      "id": "event-31a6c719dcab9d7040ec",
+      "detected_at": "2026-11-09T17:27:00+01:00",
+      "type": "new",
+      "record_id": "bopt-235e94d30cd1845d39",
+      "source_id": "bopt",
+      "source_name": "BOPT · Diputació de Tarragona",
+      "title": "Expedient núm. 8 de 2026 de modificació de crèdit. Aprovació inicial.",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://aplicacions.dipta.cat/bopt/web/anunci/366306/expedient-num-8-de-2026-de-modificacio-de-credit-aprovacio-inicial-ajuntament-pradell-de-la-teixeta"
+    },
     {
       "id": "event-0776adf6a55ae61a4a71",
       "detected_at": "2026-11-08T14:28:57+01:00",
