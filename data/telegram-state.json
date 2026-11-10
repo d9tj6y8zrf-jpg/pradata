@@ -2,13 +2,17 @@
   "version": 1,
   "activation_at": "2026-08-13T14:47:56+02:00",
   "bootstrap_source_updated_at": "2026-08-13T11:41:29+02:00",
-  "source_updated_at": "2026-11-09T17:27:00+01:00",
+  "source_updated_at": "2026-11-10T15:56:15+01:00",
   "acknowledged_ids": [
     "aoc-actes-ple-15efb474d3d0e9c5ee",
     "aoc-actes-ple-a63bc59ed0c7331354",
     "aoc-pressupostos-plantilles-12830",
+    "aoc-pressupostos-plantilles-12867",
+    "bopt-141566f61c2ea5d2ec",
     "bopt-1e4a02f5489c744c75",
+    "bopt-235e94d30cd1845d39",
     "bopt-2f2a70569ffe929bcb",
+    "bopt-5a2ffafe57f582ab56",
     "bopt-625885be56caaf848a",
     "bopt-b52a725ad4970e7e42",
     "bopt-e2d93414fe432126ce",
@@ -156,11 +160,36 @@
         "cido-ae168885a9511e8260"
       ],
       "theme": "piscina"
+    },
+    {
+      "sent_at": "2026-11-10T15:01:29Z",
+      "message_id": 77,
+      "record_ids": [
+        "aoc-pressupostos-plantilles-12867"
+      ],
+      "theme": "pressupost"
+    },
+    {
+      "sent_at": "2026-11-10T15:01:48Z",
+      "message_id": 78,
+      "record_ids": [
+        "bopt-141566f61c2ea5d2ec"
+      ],
+      "theme": "record:bopt-141566f61c2ea5d2ec"
+    },
+    {
+      "sent_at": "2026-11-10T15:02:24Z",
+      "message_id": 79,
+      "record_ids": [
+        "bopt-235e94d30cd1845d39",
+        "bopt-5a2ffafe57f582ab56"
+      ],
+      "theme": "digest"
     }
   ],
-  "last_checked_at": "2026-11-09T16:29:39Z",
-  "last_success_at": "2026-11-09T16:29:39Z",
-  "last_sent_at": "2026-11-06T14:28:43Z",
+  "last_checked_at": "2026-11-10T15:02:24Z",
+  "last_success_at": "2026-11-10T15:02:24Z",
+  "last_sent_at": "2026-11-10T15:02:24Z",
   "pages_url": "https://d9tj6y8zrf-jpg.github.io/pradata/",
-  "pages_verified_at": "2026-11-09T16:29:39Z"
+  "pages_verified_at": "2026-11-10T15:02:24Z"
 }
