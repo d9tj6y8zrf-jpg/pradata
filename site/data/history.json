@@ -1,9 +1,31 @@
 {
   "meta": {
-    "updated_at": "2026-11-09T17:27:00+01:00",
-    "event_count": 94
+    "updated_at": "2026-11-10T15:56:15+01:00",
+    "event_count": 96
   },
   "events": [
+    {
+      "id": "event-3090c943f330e93e49b2",
+      "detected_at": "2026-11-10T15:56:15+01:00",
+      "type": "new",
+      "record_id": "seu-transparencia-511283c5618304dc47",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Ajuntament de Pradell de la Teixeta",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/darreres-actualitzacions?p_p_auth=LdQWZYvr&p_p_id=49&p_p_lifecycle=1&p_p_state=normal&p_p_mode=view&_49_struts_action=%2Fmy_sites%2Fview&_49_groupId=1890047&_49_privateLayout=false"
+    },
+    {
+      "id": "event-91476d672d9e47a0f369",
+      "detected_at": "2026-11-10T15:56:15+01:00",
+      "type": "new",
+      "record_id": "aoc-pressupostos-plantilles-8e200fe2fb35a59622",
+      "source_id": "aoc-pressupostos-plantilles",
+      "source_name": "AOC · Pressupostos i plantilles",
+      "title": "Pressupost i plantilla per a l'any 2026",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://cido.diba.cat/normativa_local/20850757"
+    },
     {
       "id": "event-6e1809744a521e68b609",
       "detected_at": "2026-11-09T17:27:00+01:00",
