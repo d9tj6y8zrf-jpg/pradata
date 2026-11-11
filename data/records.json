@@ -236,7 +236,7 @@
     },
     {
       "id": "aoc-actes-ple-cb3bc628c711c71cb2",
-      "title": "Acta del Ple · Extraordinària",
+      "title": "El Ple incrementa les retribucions de Secretaria i destina 177.802 € addicionals a la piscina municipal",
       "date": "2026-11-04",
       "published_at": "2026-11-04",
       "detected_at": "2026-11-08T14:28:57+01:00",
@@ -245,7 +245,7 @@
       "source_name": "AOC · Actes del Ple",
       "source_url": "https://dadesobertes.seu-e.cat/api/action/datastore_search?resource_id=b5d370d0-7916-48b6-8a69-3c7fa62a1467&filters=%7B%22CODI_ENS%22%3A%224311530008%22%7D&limit=200",
       "url": "https://media.seu-e.cat/acteca/4311530008/2026/3802a59f-05d5-4171-ab7c-30f3c3bafd68/Acta_Ple_5_2026_anonimitzada.pdf",
-      "summary": "Registre publicat al conjunt de dades oficial de l'AOC amb data 2026-11-04. Consulteu l'enllaç original per comprovar-ne el contingut complet.",
+      "summary": "Ple extraordinari del 4 de novembre de 2026. L’Ajuntament de Pradell de la Teixeta va aprovar, entre altres acords, una actualització de les retribucions del lloc de secretari-interventor i dues modificacions pressupostàries inicials per completar el finançament de la nova piscina municipal. Destaquem:",
       "topic": "govern",
       "section": "plens",
       "priority": "informativa",
@@ -253,7 +253,7 @@
       "registry": "3802a59f-05d5-4171-ab7c-30f3c3bafd68",
       "deadline": "",
       "recovered": true,
-      "exclude_from_top10": true,
+      "exclude_from_top10": false,
       "verification_method": "structured_official_dataset",
       "verified_at": "2026-11-11T15:27:15+01:00",
       "verification": {
@@ -267,7 +267,76 @@
           "publication_date",
           "https_url"
         ]
-      }
+      },
+      "article_sections": [
+        {
+          "heading": "1. Actualització de les retribucions de Secretaria",
+          "paragraphs": [
+            "El Ple va aprovar incrementar les retribucions del lloc de secretari-interventor, compartit amb la Torre de Fontaubella.",
+            "L’acord eleva el complement de destinació del nivell 22 al 25 i augmenta el complement específic en 388,41 € mensuals."
+          ],
+          "columns": [
+            "Concepte",
+            "Import anual"
+          ],
+          "rows": [
+            [
+              "Sou base (A1)",
+              "18.358,98 €"
+            ],
+            [
+              "Complement de destinació (nivell 25)",
+              "10.848,04 €"
+            ],
+            [
+              "Complement específic",
+              "18.793,04 €"
+            ],
+            [
+              "TOTAL ANUAL",
+              "48.000,06 €"
+            ]
+          ]
+        },
+        {
+          "heading": "2. Piscina municipal: 177.802 € addicionals",
+          "paragraphs": [
+            "El pressupost del projecte ha passat dels 672.944,94 € inicials als 682.709,10 €, després de l’aprovació definitiva de l’agost de 2026.",
+            "El Ple va aprovar inicialment dues modificacions pressupostàries que permetrien incorporar 177.802,49 € addicionals, procedents de recursos previstos per a altres actuacions i del romanent de tresoreria."
+          ],
+          "columns": [
+            "Concepte",
+            "Import"
+          ],
+          "rows": [
+            [
+              "Dotació anterior",
+              "504.906,61 €"
+            ],
+            [
+              "Accessibilitat del carrer de Dalt",
+              "+29.436,20 €"
+            ],
+            [
+              "Instal·lació fotovoltaica",
+              "+114.230,83 €"
+            ],
+            [
+              "Romanent de tresoreria",
+              "+34.135,46 €"
+            ],
+            [
+              "TOTAL PREVIST PER A LA PISCINA",
+              "682.709,10 €"
+            ]
+          ],
+          "after": [
+            "La dotació resultant coincideix amb el pressupost base de licitació, IVA inclòs, sense que això determini el cost final de l’obra.",
+            "El Compte General de 2025 recull 414.651,72 € pendents d’executar per a la instal·lació fotovoltaica, vinculats a finançament afectat de la Generalitat. Ara, l’Ajuntament preveu destinar-ne 114.230,83 € a la piscina municipal.",
+            "Si aquests recursos tenien una destinació específica, s’ha autoritzat el canvi per finançar la piscina? Afectarà aquesta decisió el projecte fotovoltaic?"
+          ]
+        }
+      ]
     },
     {
       "id": "seu-transparencia-57cd3b3b85537da0d6",
