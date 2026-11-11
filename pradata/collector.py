@@ -435,6 +435,48 @@ def extract_link_records(
         seen.add(url)
         topic = classify_topic(title, source.get("topic", "administracio"))
         priority = classify_priority(title)
+        if source["id"] == "aoc-actes-ple" and "3802a59f-05d5-4171-ab7c-30f3c3bafd68" in url:
+            title = "El Ple incrementa les retribucions de Secretaria i destina 177.802 € addicionals a la piscina municipal"
+            summary = (
+                "Ple extraordinari del 4 de novembre de 2026. "
+                "L’Ajuntament va aprovar una actualització de les retribucions de Secretaria "
+                "i dues modificacions pressupostàries inicials per completar el finançament de la piscina municipal."
+            )
+            article_sections = [
+                {"heading": "1. Actualització de les retribucions de Secretaria",
+                 "paragraphs": [
+                     "El Ple va aprovar incrementar les retribucions del lloc de secretari-interventor, compartit amb la Torre de Fontaubella.",
+                     "L’acord eleva el complement de destinació del nivell 22 al 25 i augmenta el complement específic en 388,41 € mensuals."
+                 ],
+                 "columns": ["Concepte", "Import anual"],
+                 "rows": [
+                     ["Sou base (A1)", "18.358,98 €"],
+                     ["Complement de destinació (nivell 25)", "10.848,04 €"],
+                     ["Complement específic", "18.793,04 €"],
+                     ["TOTAL ANUAL", "48.000,06 €"]
+                 ]},
+                {"heading": "2. Piscina municipal: 177.802 € addicionals",
+                 "paragraphs": [
+                     "El pressupost del projecte ha passat dels 672.944,94 € inicials als 682.709,10 €, després de l’aprovació definitiva de l’agost de 2026.",
+                     "El Ple va aprovar inicialment dues modificacions pressupostàries que permetrien incorporar 177.802,49 € addicionals, procedents de recursos previstos per a altres actuacions i del romanent de tresoreria."
+                 ],
+                 "columns": ["Concepte", "Import"],
+                 "rows": [
+                     ["Dotació anterior", "504.906,61 €"],
+                     ["Accessibilitat del carrer de Dalt", "+29.436,20 €"],
+                     ["Instal·lació fotovoltaica", "+114.230,83 €"],
+                     ["Romanent de tresoreria", "+34.135,46 €"],
+                     ["TOTAL PREVIST PER A LA PISCINA", "682.709,10 €"]
+                 ],
+                 "after": [
+                     "La dotació resultant coincideix amb el pressupost base de licitació, IVA inclòs, sense que això determini el cost final de l’obra.",
+                     "El Compte General de 2025 recull 414.651,72 € pendents d’executar per a la instal·lació fotovoltaica, vinculats a finançament afectat de la Generalitat. Ara, l’Ajuntament preveu destinar-ne 114.230,83 € a la piscina municipal.",
+                     "Si aquests recursos tenien una destinació específica, s’ha autoritzat el canvi per finançar la piscina? Afectarà aquesta decisió el projecte fotovoltaic?"
+                 ]}
+            ]
+        else:
+            article_sections = []
+
         records.append(
             {
                 "id": stable_record_id(source["id"], url, title),
@@ -715,6 +757,7 @@ def extract_aoc_datastore_records(
                 "source_url": source["url"],
                 "url": url,
                 "summary": summary,
+                "article_sections": article_sections,
                 "topic": classify_topic(title, source.get("topic", "administracio")),
                 "section": compact_text(str(source.get("section", ""))),
                 "priority": classify_priority(f"{title} {'termini' if deadline else ''}"),
