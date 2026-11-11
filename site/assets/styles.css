@@ -737,3 +737,16 @@ footer {
     scroll-behavior: auto;
   }
 }
+
+/* Taules documentades dels articles de plens */
+.article-sections { margin-top: 1rem; }
+.article-sections section { margin: 1.1rem 0 1.5rem; }
+.article-sections h4 { font-size: 1.08rem; margin: 0 0 .6rem; }
+.article-sections p { margin: .55rem 0; line-height: 1.55; }
+.article-table-scroll { max-width: 100%; overflow-x: auto; margin: .85rem 0 1rem; }
+.article-sections table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+.article-sections th, .article-sections td { padding: .65rem .55rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.article-sections th:last-child, .article-sections td:last-child { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.article-sections thead { background: var(--green-dark); color: #fff; }
+.article-sections .article-total { font-weight: 800; background: var(--green-soft, #e9f2ec); }
+.article-sections .article-signoff { font-size: .82rem; font-style: italic; margin-top: 1.5rem; }
