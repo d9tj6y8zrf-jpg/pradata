@@ -86,6 +86,17 @@ function setOptions(elementId, values, labelMap = {}) {
   }
 }
 
+function renderArticleSections(record) {
+  if (!Array.isArray(record.article_sections) || !record.article_sections.length) return "";
+  return '<div class="article-sections">' + record.article_sections.map((section) => {
+    const paragraphs = (section.paragraphs || []).map((p) => '<p>' + escapeHtml(p) + '</p>').join("");
+    const after = (section.after || []).map((p) => '<p>' + escapeHtml(p) + '</p>').join("");
+    const header = '<thead><tr>' + (section.columns || []).map((c) => '<th scope="col">' + escapeHtml(c) + '</th>').join("") + '</tr></thead>';
+    const rows = (section.rows || []).map((cells, i, all) => '<tr' + (i === all.length - 1 ? ' class="article-total"' : '') + '>' + cells.map((c) => '<td>' + escapeHtml(c) + '</td>').join("") + '</tr>').join("");
+    return '<section><h4>' + escapeHtml(section.heading) + '</h4>' + paragraphs + '<div class="article-table-scroll"><table>' + header + '<tbody>' + rows + '</tbody></table></div>' + after + '</section>';
+  }).join("") + '<p class="article-signoff">Pradell360 · Els fets, les dades i les fonts. Tu en treus les conclusions.</p></div>';
+}
+
 function renderRecords() {
   const list = document.getElementById("records-list");
   const query = normalize(document.getElementById("search").value);
@@ -139,6 +150,7 @@ function renderRecords() {
           </div>
           <h3>${escapeHtml(record.title)}</h3>
           <p>${escapeHtml(record.summary || "Consulteu la font original.")}</p>
+          ${renderArticleSections(record)}
           ${relatedSources.length ? `<p class="related-sources">${relatedSources.map((source) => `<a href="${safeUrl(source.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(source.label)} ↗</a>`).join(" · ")}</p>` : ""}
           <div class="record-footer">
             <div class="record-source">
