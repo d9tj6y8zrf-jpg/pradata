@@ -439,8 +439,9 @@ def extract_link_records(
             title = "El Ple incrementa les retribucions de Secretaria i destina 177.802 € addicionals a la piscina municipal"
             summary = (
                 "Ple extraordinari del 4 de novembre de 2026. "
-                "L’Ajuntament va aprovar una actualització de les retribucions de Secretaria "
-                "i dues modificacions pressupostàries inicials per completar el finançament de la piscina municipal."
+                "L’Ajuntament de Pradell de la Teixeta va aprovar, entre altres acords, una actualització de les retribucions "
+                "del lloc de secretari-interventor i dues modificacions pressupostàries inicials per completar el finançament "
+                "de la nova piscina municipal. Destaquem:"
             )
             article_sections = [
                 {"heading": "1. Actualització de les retribucions de Secretaria",
@@ -765,7 +766,7 @@ def extract_aoc_datastore_records(
                 "registry": registry,
                 "deadline": deadline,
                 "recovered": recovered,
-                "exclude_from_top10": bool(source.get("exclude_from_top10", False)),
+                "exclude_from_top10": False if article_sections else bool(source.get("exclude_from_top10", False)),
                 "verification_method": "structured_official_dataset",
                 "verified_at": detected_at,
                 "verification": {
