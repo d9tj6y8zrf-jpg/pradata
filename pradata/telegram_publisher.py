@@ -7,6 +7,7 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
+import unicodedata
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
@@ -104,6 +105,28 @@ def verified_record(record: Any) -> bool:
     )
 
 
+def publication_key(record: dict[str, Any]) -> str:
+    """Return a durable key when an upstream source changes its record ID."""
+    source_id = clean_text(record.get("source_id")).lower()
+    title = unicodedata.normalize("NFD", clean_text(record.get("title")).lower())
+    title = "".join(char for char in title if not unicodedata.combining(char))
+    published = clean_text(record.get("published_at") or record.get("date"))[:10]
+    raw_url = clean_text(record.get("url"))
+    try:
+        parsed = urllib.parse.urlsplit(raw_url)
+        query = urllib.parse.urlencode(
+            sorted(
+                (key, value)
+                for key, value in urllib.parse.parse_qsl(parsed.query, keep_blank_values=True)
+                if not key.lower().startswith("utm_")
+            )
+        )
+        url = urllib.parse.urlunsplit((parsed.scheme.lower(), parsed.netloc.lower(), parsed.path, query, ""))
+    except ValueError:
+        url = raw_url
+    return "|".join((source_id, published, title, url))
+
+
 def eligible_records(
     payload: dict[str, Any],
     state: dict[str, Any],
@@ -122,6 +145,11 @@ def eligible_records(
         if clean_text(record_id)
     }
     already_published = acknowledged | sent_record_ids
+    acknowledged_publications = {
+        clean_text(item)
+        for item in state.get("acknowledged_publication_keys", [])
+        if clean_text(item)
+    }
     candidates: list[dict[str, Any]] = []
     ignored_before_activation: list[str] = []
     rejected = 0
@@ -143,7 +171,7 @@ def eligible_records(
             rejected += 1
             continue
         record_id = clean_text(record["id"])
-        if record_id in already_published:
+        if record_id in already_published or publication_key(record) in acknowledged_publications:
             continue
         detected_at = parse_datetime(record.get("detected_at"))
         if detected_at is None:
@@ -586,6 +614,11 @@ def publish_payload(
         return result
 
     acknowledged = {clean_text(item) for item in state.get("acknowledged_ids", []) if clean_text(item)}
+    acknowledged_publications = {
+        clean_text(item)
+        for item in state.get("acknowledged_publication_keys", [])
+        if clean_text(item)
+    }
     acknowledged.update(ignored)
     state["acknowledged_ids"] = sorted(acknowledged)
     state["last_checked_at"] = iso_now()
@@ -606,22 +639,27 @@ def publish_payload(
         message_id = send(channel, text, preview_url)
         sent_at = iso_now()
         ids = [clean_text(record["id"]) for record in notification.records]
+        publication_keys = [publication_key(record) for record in notification.records]
         acknowledged.update(ids)
+        acknowledged_publications.update(publication_keys)
         sent_log.append(
             {
                 "sent_at": sent_at,
                 "message_id": message_id,
                 "record_ids": ids,
+                "publication_keys": publication_keys,
                 "theme": notification.key,
             }
         )
         state["acknowledged_ids"] = sorted(acknowledged)
+        state["acknowledged_publication_keys"] = sorted(acknowledged_publications)
         state["sent"] = sent_log[-2000:]
         state["last_sent_at"] = sent_at
         write_json_atomic(state_path, state)
         result["sent"] += 1
 
     state["acknowledged_ids"] = sorted(acknowledged)
+    state["acknowledged_publication_keys"] = sorted(acknowledged_publications)
     state["last_checked_at"] = iso_now()
     state["last_success_at"] = state["last_checked_at"]
     state["source_updated_at"] = clean_text(payload.get("meta", {}).get("updated_at"))

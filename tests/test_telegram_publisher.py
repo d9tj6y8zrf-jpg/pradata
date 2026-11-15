@@ -46,11 +46,13 @@ def record(
 def state(
     acknowledged: list[str] | None = None,
     sent_record_ids: list[str] | None = None,
+    acknowledged_publication_keys: list[str] | None = None,
 ) -> dict[str, object]:
     return {
         "version": 1,
         "activation_at": "2026-08-13T14:47:56+02:00",
         "acknowledged_ids": acknowledged or [],
+        "acknowledged_publication_keys": acknowledged_publication_keys or [],
         "sent": (
             [
                 {
@@ -113,6 +115,21 @@ class TelegramPublisherTests(unittest.TestCase):
         )
 
         self.assertEqual([item["id"] for item in candidates], ["new"])
+        self.assertEqual(ignored, [])
+        self.assertEqual(rejected, 0)
+
+    def test_changed_upstream_id_does_not_repeat_an_acknowledged_publication(self) -> None:
+        original = record("aoc-previous-id", "Pressupost i plantilla per a l'any 2026", published_at="2026-11-09")
+        original["source_id"] = "aoc-pressupostos-plantilles"
+        current = {**original, "id": "aoc-current-id"}
+        from pradata.telegram_publisher import publication_key
+
+        candidates, ignored, rejected = eligible_records(
+            {"records": [current]},
+            state(acknowledged_publication_keys=[publication_key(original)]),
+        )
+
+        self.assertEqual(candidates, [])
         self.assertEqual(ignored, [])
         self.assertEqual(rejected, 0)
 
@@ -274,6 +291,7 @@ class TelegramPublisherTests(unittest.TestCase):
 
             saved = json.loads(state_path.read_text(encoding="utf-8"))
             self.assertEqual(len(saved["acknowledged_ids"]), 1)
+            self.assertEqual(len(saved["acknowledged_publication_keys"]), 1)
             self.assertEqual(len(saved["sent"]), 1)
             self.assertEqual(saved["sent"][0]["message_id"], 101)
 

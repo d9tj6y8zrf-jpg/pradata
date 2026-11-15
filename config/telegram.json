@@ -12,6 +12,6 @@
   ],
   "api_wait_seconds": 180,
   "api_poll_seconds": 10,
-  "entry_wait_seconds": 300,
+  "entry_wait_seconds": 600,
   "entry_poll_seconds": 10
 }
