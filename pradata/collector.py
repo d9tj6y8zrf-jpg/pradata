@@ -710,6 +710,9 @@ def extract_aoc_datastore_records(
     expected_code = str(source.get("entity_code", "4311530008"))
     earliest = today - timedelta(days=max(1, int(source.get("days", 8))) - 1)
     records: list[dict[str, Any]] = []
+    # The datastore feed only supplies a compact, structured notice. Long-form
+    # article sections are added by the dedicated HTML-link extractor instead.
+    article_sections: list[dict[str, Any]] = []
 
     for row in rows:
         if str(row.get("CODI_ENS", "")) != expected_code:
