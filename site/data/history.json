@@ -1,9 +1,53 @@
 {
   "meta": {
-    "updated_at": "2026-11-15T17:21:32+01:00",
-    "event_count": 128
+    "updated_at": "2026-11-16T16:52:12+01:00",
+    "event_count": 132
   },
   "events": [
+    {
+      "id": "event-cea9335f78b65b09f296",
+      "detected_at": "2026-11-16T16:52:12+01:00",
+      "type": "source_changed",
+      "record_id": "",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Canvi detectat a Seu electrònica i transparència",
+      "description": "La pàgina oficial ha canviat. El canvi tècnic no prova, per si sol, que hi hagi una decisió administrativa nova.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/darreres-actualitzacions"
+    },
+    {
+      "id": "event-239745ecc57fa7abd130",
+      "detected_at": "2026-11-16T16:52:12+01:00",
+      "type": "new",
+      "record_id": "seu-transparencia-eff15c4ce1c1db06ba",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Ajuntament de Pradell de la Teixeta",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/darreres-actualitzacions?p_p_auth=s0KHaSHC&p_p_id=49&p_p_lifecycle=1&p_p_state=normal&p_p_mode=view&_49_struts_action=%2Fmy_sites%2Fview&_49_groupId=1890047&_49_privateLayout=false"
+    },
+    {
+      "id": "event-ae11708dc8e714763c64",
+      "detected_at": "2026-11-16T16:52:12+01:00",
+      "type": "new",
+      "record_id": "seu-transparencia-69b3f7b175b8897bf1",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Actes de Ple 15 de novembre 2026",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/govern-obert-i-transparencia/accio-de-govern-i-normativa/accio-de-govern-i-grups-politics/actes-de-ple"
+    },
+    {
+      "id": "event-228610617acbe258b3d7",
+      "detected_at": "2026-11-16T16:52:12+01:00",
+      "type": "new",
+      "record_id": "seu-transparencia-4deb721b77c5377419",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Càrrecs electes 15 de novembre 2026",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/govern-obert-i-transparencia/informacio-institucional-i-organitzativa/organitzacio-politica-i-retribucions/carrecs-electes"
+    },
     {
       "id": "event-14ffd06a5781a63b2ed6",
       "detected_at": "2026-11-15T17:21:32+01:00",
