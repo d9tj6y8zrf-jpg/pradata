@@ -1,9 +1,163 @@
 {
   "meta": {
-    "updated_at": "2026-11-17T17:04:03+01:00",
-    "event_count": 142
+    "updated_at": "2026-11-18T16:43:02+01:00",
+    "event_count": 156
   },
   "events": [
+    {
+      "id": "event-81d50db454198e55929a",
+      "detected_at": "2026-11-18T16:43:02+01:00",
+      "type": "source_changed",
+      "record_id": "",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Canvi detectat a Seu electrònica i transparència",
+      "description": "La pàgina oficial ha canviat. El canvi tècnic no prova, per si sol, que hi hagi una decisió administrativa nova.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/darreres-actualitzacions"
+    },
+    {
+      "id": "event-765701883baa18e642e9",
+      "detected_at": "2026-11-18T16:43:02+01:00",
+      "type": "new",
+      "record_id": "seu-transparencia-273725089c32a128bf",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Ajuntament de Pradell de la Teixeta",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/darreres-actualitzacions?p_p_auth=hQSTl1Uq&p_p_id=49&p_p_lifecycle=1&p_p_state=normal&p_p_mode=view&_49_struts_action=%2Fmy_sites%2Fview&_49_groupId=1890047&_49_privateLayout=false"
+    },
+    {
+      "id": "event-5ecadddbaf7c892e96b1",
+      "detected_at": "2026-11-18T16:43:02+01:00",
+      "type": "new",
+      "record_id": "seu-transparencia-8c3172f3e6edcea590",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Convocatòries de sessions del Ple 17 de novembre 2026",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/govern-obert-i-transparencia/accio-de-govern-i-normativa/accio-de-govern-i-grups-politics/convocatories-de-sessions-del-ple"
+    },
+    {
+      "id": "event-09abfd7946ea015625f0",
+      "detected_at": "2026-11-18T16:43:02+01:00",
+      "type": "new",
+      "record_id": "seu-transparencia-161144af58a56fe9a4",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Convocatòries de subvencions i ajuts 17 de novembre 2026",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/govern-obert-i-transparencia/contractes-convenis-i-subvencions/convenis-i-subvencions/convocatories-de-subvencions-i-ajuts"
+    },
+    {
+      "id": "event-e8ee129e308537080344",
+      "detected_at": "2026-11-18T16:43:02+01:00",
+      "type": "new",
+      "record_id": "seu-transparencia-4c9f050b25b3b5fb2b",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Calendari i padrons fiscals 17 de novembre 2026",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/govern-obert-i-transparencia/accio-de-govern-i-normativa/normativa-plans-i-programes/calendari-i-padrons-fiscals"
+    },
+    {
+      "id": "event-ac59b267beabd0881048",
+      "detected_at": "2026-11-18T16:43:02+01:00",
+      "type": "new",
+      "record_id": "seu-transparencia-d7b7e5daae14a8c3bc",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Organismes dels que forma part 17 de novembre 2026",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/govern-obert-i-transparencia/informacio-institucional-i-organitzativa/informacio-institucional/organismes-dels-que-forma-part"
+    },
+    {
+      "id": "event-b3407ef6493f7e0d2984",
+      "detected_at": "2026-11-18T16:43:02+01:00",
+      "type": "new",
+      "record_id": "seu-transparencia-eb678ea9eb720c74ad",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Organismes que el formen 17 de novembre 2026",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/govern-obert-i-transparencia/informacio-institucional-i-organitzativa/informacio-institucional/organismes-que-el-formen"
+    },
+    {
+      "id": "event-45bd83bfa9adfac6e2a5",
+      "detected_at": "2026-11-18T16:43:02+01:00",
+      "type": "new",
+      "record_id": "seu-transparencia-35c1f8de5de4b2bfd4",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Resultats de les convocatòries de personal 17 de novembre 2026",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/govern-obert-i-transparencia/informacio-institucional-i-organitzativa/empleats-publics/resultats-de-les-convocatories-de-personal"
+    },
+    {
+      "id": "event-33ce6ec28bd3c1b0be02",
+      "detected_at": "2026-11-18T16:43:02+01:00",
+      "type": "new",
+      "record_id": "seu-transparencia-8be53a1927bec029e7",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Convocatòries de personal 17 de novembre 2026",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/govern-obert-i-transparencia/informacio-institucional-i-organitzativa/empleats-publics/convocatories-de-personal"
+    },
+    {
+      "id": "event-1ae922bb7cce16a0be09",
+      "detected_at": "2026-11-18T16:43:02+01:00",
+      "type": "new",
+      "record_id": "seu-transparencia-15eaf5a3d40a9c1e50",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Ordenances reguladores i reglaments 17 de novembre 2026",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/govern-obert-i-transparencia/accio-de-govern-i-normativa/normativa-plans-i-programes/ordenances-reguladores-i-reglaments"
+    },
+    {
+      "id": "event-f232d24f825a183532cf",
+      "detected_at": "2026-11-18T16:43:02+01:00",
+      "type": "new",
+      "record_id": "seu-transparencia-46b355c71b8d869afc",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Resolucions de les sol·licituds d'accés a la informació pública 17 de novembre 2026",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/govern-obert-i-transparencia/accio-de-govern-i-normativa/accio-de-govern-i-grups-politics/resolucions-de-les-sol-licituds-d-acces-a-la-informacio-publica"
+    },
+    {
+      "id": "event-32e1ae8618a738fb2cce",
+      "detected_at": "2026-11-18T16:43:02+01:00",
+      "type": "new",
+      "record_id": "seu-transparencia-fb570301263b38969a",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Atenció ciutadana 17 de novembre 2026",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/govern-obert-i-transparencia/serveis-i-tramits/serveis/atencio-ciutadana"
+    },
+    {
+      "id": "event-94fe3a0fe4a493ba8544",
+      "detected_at": "2026-11-18T16:43:02+01:00",
+      "type": "new",
+      "record_id": "seu-transparencia-534d70c16382365c1f",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Informació del terme municipal 17 de novembre 2026",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/govern-obert-i-transparencia/informacio-institucional-i-organitzativa/informacio-institucional/informacio-del-terme-municipal"
+    },
+    {
+      "id": "event-9b74bc78889307920711",
+      "detected_at": "2026-11-18T16:43:02+01:00",
+      "type": "new",
+      "record_id": "seu-transparencia-875942eecae9d13a02",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Dades generals de l'ens 17 de novembre 2026",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/govern-obert-i-transparencia/informacio-institucional-i-organitzativa/informacio-institucional/dades-generals-de-l-ens"
+    },
     {
       "id": "event-8f47f922c30e7e38d1fa",
       "detected_at": "2026-11-17T17:04:03+01:00",
