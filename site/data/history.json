@@ -1,9 +1,97 @@
 {
   "meta": {
-    "updated_at": "2026-11-22T15:38:02+01:00",
-    "event_count": 211
+    "updated_at": "2026-11-23T19:15:31+01:00",
+    "event_count": 219
   },
   "events": [
+    {
+      "id": "event-ef63c547b5f52a068a05",
+      "detected_at": "2026-11-23T19:15:31+01:00",
+      "type": "source_changed",
+      "record_id": "",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Canvi detectat a Seu electrònica i transparència",
+      "description": "La pàgina oficial ha canviat. El canvi tècnic no prova, per si sol, que hi hagi una decisió administrativa nova.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/darreres-actualitzacions"
+    },
+    {
+      "id": "event-22551ae649db5c396556",
+      "detected_at": "2026-11-23T19:15:31+01:00",
+      "type": "new",
+      "record_id": "seu-transparencia-41abfe07036869cde3",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Ajuntament de Pradell de la Teixeta",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/darreres-actualitzacions?p_p_auth=fTcpeWzD&p_p_id=49&p_p_lifecycle=1&p_p_state=normal&p_p_mode=view&_49_struts_action=%2Fmy_sites%2Fview&_49_groupId=1890047&_49_privateLayout=false"
+    },
+    {
+      "id": "event-a4774c73a3141aa193a6",
+      "detected_at": "2026-11-23T19:15:31+01:00",
+      "type": "new",
+      "record_id": "seu-transparencia-f22a94607926093b38",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Atenció ciutadana 22 de novembre 2026",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/govern-obert-i-transparencia/serveis-i-tramits/serveis/atencio-ciutadana"
+    },
+    {
+      "id": "event-b94f8cdf81e8b135eadb",
+      "detected_at": "2026-11-23T19:15:31+01:00",
+      "type": "new",
+      "record_id": "seu-transparencia-030a96b42519ce47d2",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Informació del terme municipal 22 de novembre 2026",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/govern-obert-i-transparencia/informacio-institucional-i-organitzativa/informacio-institucional/informacio-del-terme-municipal"
+    },
+    {
+      "id": "event-2f052d71ec31671c4184",
+      "detected_at": "2026-11-23T19:15:31+01:00",
+      "type": "new",
+      "record_id": "seu-transparencia-54127255d8c264a08b",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Dades generals de l'ens 22 de novembre 2026",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/govern-obert-i-transparencia/informacio-institucional-i-organitzativa/informacio-institucional/dades-generals-de-l-ens"
+    },
+    {
+      "id": "event-67b65569dc7b5c260379",
+      "detected_at": "2026-11-23T19:15:31+01:00",
+      "type": "new",
+      "record_id": "seu-transparencia-0a53d3312a2f8758fd",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Càrrecs electes 22 de novembre 2026",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/govern-obert-i-transparencia/informacio-institucional-i-organitzativa/organitzacio-politica-i-retribucions/carrecs-electes"
+    },
+    {
+      "id": "event-00a499d12bfdd51ef726",
+      "detected_at": "2026-11-23T19:15:31+01:00",
+      "type": "new",
+      "record_id": "seu-transparencia-8637c67c4878f1f732",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Resolucions de les sol·licituds d'accés a la informació pública 22 de novembre 2026",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/govern-obert-i-transparencia/accio-de-govern-i-normativa/accio-de-govern-i-grups-politics/resolucions-de-les-sol-licituds-d-acces-a-la-informacio-publica"
+    },
+    {
+      "id": "event-eca924ba3456a71e29f1",
+      "detected_at": "2026-11-23T19:15:31+01:00",
+      "type": "source_changed",
+      "record_id": "",
+      "source_id": "idescat-municipi",
+      "source_name": "Idescat · dades oficials del municipi",
+      "title": "Canvi detectat a Idescat · dades oficials del municipi",
+      "description": "La pàgina oficial ha canviat. El canvi tècnic no prova, per si sol, que hi hagi una decisió administrativa nova.",
+      "url": "https://www.idescat.cat/codis/?c=431153&id=50&n=9"
+    },
     {
       "id": "event-161e29e62584b420b975",
       "detected_at": "2026-11-22T15:38:02+01:00",
