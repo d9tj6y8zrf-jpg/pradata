@@ -1,9 +1,218 @@
 {
   "meta": {
-    "updated_at": "2026-11-25T18:16:38+01:00",
-    "event_count": 250
+    "updated_at": "2026-11-26T17:57:37+01:00",
+    "event_count": 269
   },
   "events": [
+    {
+      "id": "event-2f2e6d9b493a506170d3",
+      "detected_at": "2026-11-26T17:57:37+01:00",
+      "type": "source_changed",
+      "record_id": "",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Canvi detectat a Seu electrònica i transparència",
+      "description": "La pàgina oficial ha canviat. El canvi tècnic no prova, per si sol, que hi hagi una decisió administrativa nova.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/darreres-actualitzacions"
+    },
+    {
+      "id": "event-33b358428127b3e5905b",
+      "detected_at": "2026-11-26T17:57:37+01:00",
+      "type": "new",
+      "record_id": "seu-transparencia-79e0e0029a031eb283",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Ajuntament de Pradell de la Teixeta",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/darreres-actualitzacions?p_p_auth=ifaO3sst&p_p_id=49&p_p_lifecycle=1&p_p_state=normal&p_p_mode=view&_49_struts_action=%2Fmy_sites%2Fview&_49_groupId=1890047&_49_privateLayout=false"
+    },
+    {
+      "id": "event-68ed7302d5fbbdd91a4d",
+      "detected_at": "2026-11-26T17:57:37+01:00",
+      "type": "new",
+      "record_id": "seu-transparencia-095e42262f95b4d727",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Resolucions de les sol·licituds d'accés a la informació pública 25 de novembre 2026",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/govern-obert-i-transparencia/accio-de-govern-i-normativa/accio-de-govern-i-grups-politics/resolucions-de-les-sol-licituds-d-acces-a-la-informacio-publica"
+    },
+    {
+      "id": "event-7f3da4f70484af293b1d",
+      "detected_at": "2026-11-26T17:57:37+01:00",
+      "type": "new",
+      "record_id": "seu-transparencia-64d4821d0d5da18900",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Modificació de pressupostos 25 de novembre 2026",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/govern-obert-i-transparencia/gestio-economica/pressupost/modificacio-de-pressupostos"
+    },
+    {
+      "id": "event-8575361f9c862bb7ab41",
+      "detected_at": "2026-11-26T17:57:37+01:00",
+      "type": "new",
+      "record_id": "seu-transparencia-f6efadfc8d259e45dc",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Relació de llocs de treball (RLT) 25 de novembre 2026",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/govern-obert-i-transparencia/informacio-institucional-i-organitzativa/empleats-publics/relacio-de-llocs-de-treball-rlt"
+    },
+    {
+      "id": "event-c3fdbd167365bb4b38bd",
+      "detected_at": "2026-11-26T17:57:37+01:00",
+      "type": "new",
+      "record_id": "seu-transparencia-281b69035d15672238",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Plantilla d'empleats públics 25 de novembre 2026",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/govern-obert-i-transparencia/informacio-institucional-i-organitzativa/empleats-publics/plantilla-empleats-publics"
+    },
+    {
+      "id": "event-284103acbc4dc234f755",
+      "detected_at": "2026-11-26T17:57:37+01:00",
+      "type": "new",
+      "record_id": "seu-transparencia-ac7f555e99fdc2d27a",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Calendari i padrons fiscals 25 de novembre 2026",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/govern-obert-i-transparencia/accio-de-govern-i-normativa/normativa-plans-i-programes/calendari-i-padrons-fiscals"
+    },
+    {
+      "id": "event-bb15495bb4e29e4933d4",
+      "detected_at": "2026-11-26T17:57:37+01:00",
+      "type": "new",
+      "record_id": "seu-transparencia-b967aeca5c14b3fa3e",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Estatuts 25 de novembre 2026",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/govern-obert-i-transparencia/accio-de-govern-i-normativa/normativa-plans-i-programes/estatuts"
+    },
+    {
+      "id": "event-02693201aafcc59d4e47",
+      "detected_at": "2026-11-26T17:57:37+01:00",
+      "type": "new",
+      "record_id": "seu-transparencia-a166cf75ef693e73d3",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Subvencions atorgades 25 de novembre 2026",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/govern-obert-i-transparencia/contractes-convenis-i-subvencions/convenis-i-subvencions/subvencions-atorgades"
+    },
+    {
+      "id": "event-9e95c447729caf8c086d",
+      "detected_at": "2026-11-26T17:57:37+01:00",
+      "type": "new",
+      "record_id": "seu-transparencia-92f9b9c43493546e20",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Ajuts atorgats 25 de novembre 2026",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/govern-obert-i-transparencia/contractes-convenis-i-subvencions/convenis-i-subvencions/ajuts-atorgats"
+    },
+    {
+      "id": "event-7e190fe3f2c71504790f",
+      "detected_at": "2026-11-26T17:57:37+01:00",
+      "type": "new",
+      "record_id": "seu-transparencia-075438b738fe6e351f",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Convocatòries de subvencions i ajuts 25 de novembre 2026",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/govern-obert-i-transparencia/contractes-convenis-i-subvencions/convenis-i-subvencions/convocatories-de-subvencions-i-ajuts"
+    },
+    {
+      "id": "event-8473e39c3d92d4961fba",
+      "detected_at": "2026-11-26T17:57:37+01:00",
+      "type": "new",
+      "record_id": "seu-transparencia-7a6f03a50d8e1f4401",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Registre de funcionaris habilitats 25 de novembre 2026",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/govern-obert-i-transparencia/informacio-institucional-i-organitzativa/informacio-institucional/registre-de-funcionaris-habilitats"
+    },
+    {
+      "id": "event-6c4f66021fb171f4f99a",
+      "detected_at": "2026-11-26T17:57:37+01:00",
+      "type": "new",
+      "record_id": "seu-transparencia-de31bd4a3d8e263dea",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Ordenances fiscals 25 de novembre 2026",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/govern-obert-i-transparencia/accio-de-govern-i-normativa/normativa-plans-i-programes/ordenances-fiscals"
+    },
+    {
+      "id": "event-7d1c8af321ab5289e7cd",
+      "detected_at": "2026-11-26T17:57:37+01:00",
+      "type": "new",
+      "record_id": "seu-transparencia-51f5fbc40e85f1cc52",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Actes de Ple 25 de novembre 2026",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/govern-obert-i-transparencia/accio-de-govern-i-normativa/accio-de-govern-i-grups-politics/actes-de-ple"
+    },
+    {
+      "id": "event-3dfbfec42be99a29f2eb",
+      "detected_at": "2026-11-26T17:57:37+01:00",
+      "type": "new",
+      "record_id": "seu-transparencia-9b79b99b9f84b62ce9",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Ordenances reguladores i reglaments 25 de novembre 2026",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/govern-obert-i-transparencia/accio-de-govern-i-normativa/normativa-plans-i-programes/ordenances-reguladores-i-reglaments"
+    },
+    {
+      "id": "event-dfefabb6968dae724c4d",
+      "detected_at": "2026-11-26T17:57:37+01:00",
+      "type": "new",
+      "record_id": "seu-transparencia-4f16086a8bdd62c9f2",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Convocatòries de sessions del Ple 25 de novembre 2026",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/govern-obert-i-transparencia/accio-de-govern-i-normativa/accio-de-govern-i-grups-politics/convocatories-de-sessions-del-ple"
+    },
+    {
+      "id": "event-d0cdbbc34b91e30b44eb",
+      "detected_at": "2026-11-26T17:57:37+01:00",
+      "type": "new",
+      "record_id": "seu-transparencia-e74df41b3c8b385d88",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Grups polítics/municipals 25 de novembre 2026",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/govern-obert-i-transparencia/informacio-institucional-i-organitzativa/organitzacio-politica-i-retribucions/grups-politics-municipals"
+    },
+    {
+      "id": "event-cbabfd80cc4b5d34921c",
+      "detected_at": "2026-11-26T17:57:37+01:00",
+      "type": "new",
+      "record_id": "seu-transparencia-8da966d25ee1a21449",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Cartipàs: organització política 25 de novembre 2026",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/govern-obert-i-transparencia/informacio-institucional-i-organitzativa/organitzacio-politica-i-retribucions/cartipas-organitzacio-politica"
+    },
+    {
+      "id": "event-433400ca39e6649e6306",
+      "detected_at": "2026-11-26T17:57:37+01:00",
+      "type": "new",
+      "record_id": "seu-transparencia-1f25258bfd41973218",
+      "source_id": "seu-transparencia",
+      "source_name": "Seu electrònica i transparència",
+      "title": "Codi de conducta dels alts càrrecs i de bon govern 25 de novembre 2026",
+      "description": "Nova referència detectada a una font pública.",
+      "url": "https://seu-e.cat/ca/web/pradelldelateixeta/govern-obert-i-transparencia/informacio-institucional-i-organitzativa/bon-govern-i-integritat-publica/codi-de-conducta-dels-alts-carrecs-i-de-bon-govern"
+    },
     {
       "id": "event-af1e807752bd0a256821",
       "detected_at": "2026-11-25T18:16:38+01:00",
